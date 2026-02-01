@@ -645,7 +645,7 @@ body {
 
 /* Footer */
 .footer {
-    margin-top: 32px;
+    margin-top: auto; /* overrides any previous margin-top */
     padding: 16px 24px;
     text-align: center;
     background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
@@ -953,4 +953,26 @@ input, textarea, [contenteditable="true"] {
     -webkit-user-select: text;
     -ms-user-select: text;
     user-select: text;
+}
+
+/* Sticky footer layout */
+html, body {
+    height: 100%;
+}
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* For pages that wrap content in .main-content (index.html) */
+.main-content {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Footer sticks to bottom */
+.footer {
+    margin-top: auto; /* overrides any previous margin-top */
 }
