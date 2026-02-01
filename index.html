@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Notes</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="splash-brand"><i class="fa-brands fa-python"></i></div>
+        <h2>Loading Digital Notes...</h2>
+        <div class="loading-progress">
+            <div class="progress-bar"></div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
+        <!-- Top Navigation Bar -->
+        <nav class="topbar">
+            <div class="nav-container">
+                <div class="nav-left">
+                    <span class="brand-logo"><i class="fa-brands fa-python"></i></span>
+                    <h1 class="subject-name">Python Programming</h1>
+                </div>
+                <div class="nav-right">
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Home Page Content -->
+        <div class="container">
+            <header class="welcome-section">
+                <h2>Welcome to Digital Notes</h2>
+                <p>Select any unit below to explore topics and start learning</p>
+            </header>
+
+            <main class="units-container">
+                <!-- Unit I: Introduction to Python -->
+                <div class="unit-card">
+                    <div class="unit-header" data-unit="unit1">
+                        <div class="unit-info">
+                            <h3><i class="fas fa-code"></i> Unit I: Introduction to Python</h3>
+                            <span class="unit-description">Basics, syntax, and data types</span>
+                        </div>
+                        <div class="unit-arrow"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="unit-content" id="unit1">
+                        <div class="topics-grid">
+                            <div class="topic-card" data-topic="what-is-python"><h4>What is Python</h4></div>
+                            <div class="topic-card" data-topic="features-advantages"><h4>Features & Advantages</h4></div>
+                            <div class="topic-card" data-topic="history-versions"><h4>History & Versions</h4></div>
+                            <div class="topic-card" data-topic="applications"><h4>Applications</h4></div>
+                            <div class="topic-card" data-topic="first-program"><h4>First Python Program</h4></div>
+                            <div class="topic-card" data-topic="comments"><h4>Comments</h4></div>
+                            <div class="topic-card" data-topic="indentation"><h4>Indentation</h4></div>
+                            <div class="topic-card" data-topic="keywords"><h4>Keywords</h4></div>
+                            <div class="topic-card" data-topic="escape-sequence"><h4>Escape Sequence</h4></div>
+                            <div class="topic-card" data-topic="variables"><h4>Variables</h4></div>
+                            <div class="topic-card" data-topic="basic-datatypes"><h4>Basic Data Types</h4></div>
+                            <div class="topic-card" data-topic="advanced-datatypes"><h4>Advanced Data Types</h4></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Unit II: Operators, I/O, Strings -->
+                <div class="unit-card">
+                    <div class="unit-header" data-unit="unit2">
+                        <div class="unit-info">
+                            <h3><i class="fas fa-database"></i> Unit II: Operators, I/O, Strings</h3>
+                            <span class="unit-description">Operators, input/output, and strings</span>
+                        </div>
+                        <div class="unit-arrow"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="unit-content" id="unit2">
+                        <div class="topics-grid">
+                            <div class="topic-card" data-topic="operators-overview"><h4>Operators</h4></div>
+                            <div class="topic-card" data-topic="input-function"><h4>input()</h4></div>
+                            <div class="topic-card" data-topic="type-conversion"><h4>Type Conversion</h4></div>
+                            <div class="topic-card" data-topic="print-formatting"><h4>print() & Formatting</h4></div>
+                            <div class="topic-card" data-topic="strings-basics"><h4>Strings Basics</h4></div>
+                            <div class="topic-card" data-topic="string-methods"><h4>String Methods</h4></div>
+                            <div class="topic-card" data-topic="string-indexing-slicing"><h4>Indexing & Slicing</h4></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Unit III: Control Flow & Functions -->
+                <div class="unit-card">
+                    <div class="unit-header" data-unit="unit3">
+                        <div class="unit-info">
+                            <h3><i class="fas fa-cogs"></i> Unit III: Control Flow & Functions</h3>
+                            <span class="unit-description">Decisions, loops, and functions</span>
+                        </div>
+                        <div class="unit-arrow"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="unit-content" id="unit3">
+                        <div class="topics-grid">
+                            <div class="topic-card" data-topic="decision-making"><h4>Decision-Making</h4></div>
+                            <div class="topic-card" data-topic="loops"><h4>Loops</h4></div>
+                            <div class="topic-card" data-topic="transfer-statements"><h4>Transfer Statements</h4></div>
+                            <div class="topic-card" data-topic="functions-overview"><h4>Functions</h4></div>
+                            <div class="topic-card" data-topic="function-arguments"><h4>Function Arguments</h4></div>
+                            <div class="topic-card" data-topic="variable-scope"><h4>Variable Scope</h4></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Unit IV: Lists & Tuples -->
+                <div class="unit-card">
+                    <div class="unit-header" data-unit="unit4">
+                        <div class="unit-info">
+                            <h3><i class="fas fa-cubes"></i> Unit IV: Lists & Tuples</h3>
+                            <span class="unit-description">Core Python data structures</span>
+                        </div>
+                        <div class="unit-arrow"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="unit-content" id="unit4">
+                        <div class="topics-grid">
+                            <div class="topic-card" data-topic="lists-intro"><h4>Lists</h4></div>
+                            <div class="topic-card" data-topic="lists-accessing"><h4>Accessing List Items</h4></div>
+                            <div class="topic-card" data-topic="lists-methods"><h4>List Functions & Methods</h4></div>
+                            <div class="topic-card" data-topic="tuples-intro"><h4>Tuples</h4></div>
+                            <div class="topic-card" data-topic="tuples-accessing"><h4>Accessing Tuple Items</h4></div>
+                            <div class="topic-card" data-topic="tuples-methods"><h4>Tuple Functions & Methods</h4></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Unit V: Sets, Dicts & Modules -->
+                <div class="unit-card">
+                    <div class="unit-header" data-unit="unit5">
+                        <div class="unit-info">
+                            <h3><i class="fas fa-layer-group"></i> Unit V: Sets, Dicts & Modules</h3>
+                            <span class="unit-description">Sets, dictionaries, and modules</span>
+                        </div>
+                        <div class="unit-arrow"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="unit-content" id="unit5">
+                        <div class="topics-grid">
+                            <div class="topic-card" data-topic="sets-intro"><h4>Sets</h4></div>
+                            <div class="topic-card" data-topic="sets-methods"><h4>Set Functions & Methods</h4></div>
+                            <div class="topic-card" data-topic="dict-intro"><h4>Dictionaries</h4></div>
+                            <div class="topic-card" data-topic="dict-methods"><h4>Dict Functions & Methods</h4></div>
+                            <div class="topic-card" data-topic="modules-intro"><h4>Modules</h4></div>
+                            <div class="topic-card" data-topic="modules-imports"><h4>Import Patterns</h4></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Practice Sheets (new section like a unit) -->
+                <div class="unit-card">
+                    <div class="unit-header" data-unit="practice">
+                        <div class="unit-info">
+                            <h3><i class="fas fa-file-alt"></i> Practice Sheets</h3>
+                            <span class="unit-description">Solve problems to strengthen concepts</span>
+                        </div>
+                        <div class="unit-arrow"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="unit-content" id="practice">
+                        <div class="topics-grid">
+                            <div class="topic-card" data-topic="practice-1"><h4>Practice 1: Basics</h4></div>
+                            <div class="topic-card" data-topic="practice-2"><h4>Practice 2: Operators & I/O</h4></div>
+                            <div class="topic-card" data-topic="practice-3"><h4>Practice 3: Control Flow</h4></div>
+                            <div class="topic-card" data-topic="practice-4"><h4>Practice 4: Data Structures</h4></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lab Activities (new section like a unit) -->
+                <div class="unit-card">
+                    <div class="unit-header" data-unit="lab">
+                        <div class="unit-info">
+                            <h3><i class="fas fa-flask"></i> Lab Activities</h3>
+                            <span class="unit-description">Hands-on labs and experiments</span>
+                        </div>
+                        <div class="unit-arrow"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="unit-content" id="lab">
+                        <div class="topics-grid">
+                            <div class="topic-card" data-topic="lab-1"><h4>Lab 1: Setup & Environment</h4></div>
+                            <div class="topic-card" data-topic="lab-2"><h4>Lab 2: File Handling</h4></div>
+                            <div class="topic-card" data-topic="lab-3"><h4>Lab 3: Modules & Packages</h4></div>
+                            <div class="topic-card" data-topic="lab-4"><h4>Lab 4: Mini Project</h4></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Previous Papers (new unit) -->
+                <div class="unit-card">
+                    <div class="unit-header" data-unit="previous-papers">
+                        <div class="unit-info">
+                            <h3><i class="fas fa-book-open"></i> Previous Papers</h3>
+                            <span class="unit-description">Past exam papers for practice</span>
+                        </div>
+                        <div class="unit-arrow"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="unit-content" id="previous-papers">
+                        <div class="topics-grid">
+                            <div class="topic-card" data-topic="prev-2025"><h4>Previous Paper 2025</h4></div>
+                            <div class="topic-card" data-topic="prev-2024"><h4>Previous Paper 2024</h4></div>
+                            <div class="topic-card" data-topic="prev-2023"><h4>Previous Paper 2023</h4></div>
+                            <div class="topic-card" data-topic="prev-older"><h4>Older Papers & Solutions</h4></div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <footer class="footer">
+            <p>Made for Students with ❤️ by SAG</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
