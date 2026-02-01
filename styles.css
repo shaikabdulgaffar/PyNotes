@@ -940,3 +940,17 @@ html {
     .topic-card { padding-right: 2.6rem; }
     .topic-card::after { right: 0.8rem; font-size: 1.5rem; }
 }
+
+/* Disable text selection globally */
+html, body, .main-content, .container, .topbar, .unit-card, .unit-header, .unit-content, .topics-grid, .topic-card, .breadcrumb, .welcome-section, .footer {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Allow selection where needed */
+input, textarea, [contenteditable="true"] {
+    -webkit-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}

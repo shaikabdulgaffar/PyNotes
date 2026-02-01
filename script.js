@@ -164,3 +164,13 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+// Prevent text selection (except inputs/textarea/contenteditable)
+document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('selectstart', (e) => {
+        const t = e.target;
+        const tag = t.tagName?.toLowerCase();
+        const editable = t.isContentEditable || tag === 'input' || tag === 'textarea';
+        if (!editable) e.preventDefault();
+    });
+});
