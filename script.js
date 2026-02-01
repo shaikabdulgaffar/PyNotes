@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!p.querySelector('.sag-link')) {
             p.innerHTML = p.innerHTML.replace(
                 /\bSAG\b/g,
-                '<a href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer" class="sag-link" aria-label="Open SAG LinkedIn">SAG</a>'
+                '<a href="https://www.linkedin.com/in/shaikabdulgaffar" target="_blank" rel="noopener noreferrer" class="sag-link" aria-label="Open SAG LinkedIn">SAG</a>'
             );
         }
     });
