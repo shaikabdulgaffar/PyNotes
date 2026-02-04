@@ -92,7 +92,56 @@ const topics = {
     `
   },
   'what-is-python': { title: 'What is Python', bullets: ['High-level, interpreted language', 'Emphasizes readability and rapid development'] },
-  'features-advantages': { title: 'Features & Advantages', bullets: ['Simple syntax', 'Large standard library', 'Cross-platform', 'Community & packages (PyPI)'] },
+  'features-advantages': { 
+    title: 'Features & Advantages', 
+    html: `
+      <h2>Features & Advantages</h2>
+      <img src="attachments/python features.png" alt="Features & Advantages" style="max-width:100%;height:auto;border-radius:8px;margin:12px 0;" />
+      <h3>Core Features of Python</h3>
+      <ol>
+        <li><strong>High-Level Language</strong><br>
+            Python is designed to be easy for humans to read and write. It uses English-like words, so you don't have to worry about the complex technical details of the computer's hardware.
+        </li>
+        <li><strong>Interpreted</strong><br>
+            Python executes code line-by-line. This makes it very easy to test small pieces of code and find errors quickly.<br><br>
+            <em>Example:</em> If there is an error on line 10, Python will run lines 1–9 and then stop, telling you exactly where the problem is.
+        </li>
+        <li><strong>Dynamic Typing</strong><br>
+            In Python, you don't need to declare what type of data a variable holds (like a number or text) before using it. The language "figures it out" automatically while the program is running.
+        </li>
+        <li><strong>General-Purpose</strong><br>
+            Python isn't limited to just one type of task. It can be used for web development, data analysis, artificial intelligence, scientific research, and more.
+        </li>
+        <li><strong>Large Standard Library</strong><br>
+            Python comes with a "built-in toolkit". This library contains pre-written code for many common tasks—like connecting to web servers or reading files—so you don't have to write everything from scratch.
+        </li>
+      </ol>
+
+      <h3>Flexibility and Accessibility</h3>
+      <ol start="6">
+        <li><strong>Open Source</strong><br>
+            Python is free to use, and its original source code is available for anyone to see, modify, and improve. This has created a massive global community that constantly updates the language.
+        </li>
+        <li><strong>Portable / Cross-Platform</strong><br>
+            Python code is "write once, run anywhere". A program written on a Windows computer will usually run on a Mac or a Linux system without needing major changes.
+        </li>
+        <li><strong>Multi-Paradigm</strong><br>
+            Python supports different "styles" of programming. Whether you want to use Object-Oriented programming (organizing code into objects) or Procedural programming (a list of steps), Python allows you to choose the best fit for your project.
+        </li>
+      </ol>
+
+      <h3>Advanced Capabilities</h3>
+      <ol start="9">
+        <li><strong>GUI Programming</strong><br>
+            Python can be used to create Graphical User Interfaces (GUIs). This means you can build desktop applications with windows, buttons, and menus rather than just text-based programs.<br><br>
+            <em>Example:</em> Apps like a calculator or a simple photo editor.
+        </li>
+        <li><strong>Scalable</strong><br>
+            Python is "scalable," meaning it can handle small, simple scripts just as well as it handles massive, complex systems used by giant companies like Google or Netflix.
+        </li>
+      </ol>
+    ` 
+  },
   'history-versions': { title: 'History & Versions', bullets: ['Created by Guido van Rossum (1991)', 'Major branches: Python 2 (EOL), Python 3'] },
   'applications': { title: 'Applications', bullets: ['Web, Data Science/ML, Automation/Scripting', 'Systems, Networking, Game dev, Education'] },
 
