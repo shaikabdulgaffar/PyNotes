@@ -27,7 +27,7 @@
                     <h1 class="subject-name">Python Programming</h1>
                 </div>
                 <div class="nav-right">
-                    <button class="theme-toggle" id="themeToggle">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
                         <i class="fas fa-moon"></i>
                     </button>
                 </div>
@@ -41,51 +41,14 @@
                 <p>Select a unit to begin.</p>
             </header>
 
-            <!-- Improved Announcement Banner -->
-            <section class="announcement-banner" aria-label="Latest Updates">
-                <div class="banner-header">
-                    <div class="banner-header-left">
-                        <i class="fas fa-bullhorn"></i>
-                        <span>Latest Updates</span>
-                    </div>
-                    <!-- Removed collapse toggle to keep banner open always -->
-                </div>
-                <div class="updates-container" id="updatesContainer">
-                    <div class="marquee-container">
-                        <div class="marquee-content" id="marqueeContent">
-                            <div class="marquee-item" data-type="urgent">
-                                <i class="fas fa-exclamation-triangle"></i>
-                                Assignment 4 Released - Due Feb 12, 2026
-                            </div>
-                            <div class="marquee-item" data-type="reminder">
-                                <i class="fas fa-clock"></i>
-                                Quiz on Functions Tomorrow - Feb 9, 2026
-                            </div>
-                            <div class="marquee-item" data-type="info">
-                                <i class="fas fa-flask"></i>
-                                Lab Signup Available - Week 6 Sessions Open
-                            </div>
-                            <div class="marquee-item" data-type="deadline">
-                                <i class="fas fa-project-diagram"></i>
-                                Project Proposals Due Soon - Feb 20, 2026
-                            </div>
-                            <div class="marquee-item" data-type="success">
-                                <i class="fas fa-check-circle"></i>
-                                Unit 5 Materials Published - Available Now
-                            </div>
-                            <div class="marquee-item" data-type="info">
-                                <i class="fas fa-book"></i>
-                                New Study Guide Released for Mid-term
-                            </div>
-                            <div class="marquee-item" data-type="reminder">
-                                <i class="fas fa-calendar-alt"></i>
-                                Office Hours: Mon-Wed 2-4 PM
-                            </div>
-                            <div class="marquee-item" data-type="urgent">
-                                <i class="fas fa-bell"></i>
-                                Class Rescheduled - Check Your Email
-                            </div>
-                        </div>
+            <!-- Announcement Banner (Marquee) -->
+            <section class="announcement-line" aria-label="Latest Updates">
+                <i class="fas fa-bullhorn icon" aria-hidden="true"></i>
+                <div class="line-marquee" id="lineMarquee" tabindex="0" aria-live="polite">
+                    <div class="line-marquee-track" id="lineMarqueeTrack">
+                        <span class="line-marquee-item"><i class="fas fa-info-circle"></i> Welcome to Digital Notes</span>
+                        <span class="line-marquee-item"><i class="fas fa-circle-check"></i> New topics and fixes applied</span>
+                        <span class="line-marquee-item"><i class="fas fa-lightbulb"></i> Use the moon icon to toggle dark mode</span>
                     </div>
                 </div>
             </section>
@@ -93,40 +56,40 @@
             <main class="units-container">
                 <!-- Unit I: Introduction to Python -->
                 <div class="unit-card">
-                    <div class="unit-header" data-unit="unit1">
+                    <div class="unit-header" data-unit="unit1" tabindex="0" aria-controls="unit1" aria-expanded="false">
                         <div class="unit-info">
-                            <h3><i class="fas fa-code"></i> Unit I: Introduction to Python</h3>
-                            <span class="unit-description">Basics, syntax, and data types</span>
+                            <h3><i class="fa-solid fa-book-open"></i> Unit I: Introduction to Python</h3>
+                            <p class="unit-description">Basics, setup, and Python foundations</p>
                         </div>
-                        <div class="unit-arrow"><i class="fas fa-chevron-down"></i></div>
+                        <span class="unit-arrow"><i class="fas fa-chevron-down"></i></span>
                     </div>
                     <div class="unit-content" id="unit1">
                         <div class="topics-grid">
                             <div class="topic-card" data-topic="intro-programming-languages"><h4>Introduction to Programming Languages</h4></div>
-                             <div class="topic-card" data-topic="what-is-python"><h4>What is Python</h4></div>
-                             <div class="topic-card" data-topic="features-advantages"><h4>Features & Advantages</h4></div>
-                             <div class="topic-card" data-topic="history-versions"><h4>History & Versions</h4></div>
-                             <div class="topic-card" data-topic="applications"><h4>Applications</h4></div>
-                             <div class="topic-card" data-topic="first-program"><h4>First Python Program</h4></div>
-                             <div class="topic-card" data-topic="comments"><h4>Comments</h4></div>
-                             <div class="topic-card" data-topic="indentation"><h4>Indentation</h4></div>
-                             <div class="topic-card" data-topic="keywords"><h4>Keywords</h4></div>
-                             <div class="topic-card" data-topic="escape-sequence"><h4>Escape Sequence</h4></div>
-                             <div class="topic-card" data-topic="variables"><h4>Variables</h4></div>
-                             <div class="topic-card" data-topic="basic-datatypes"><h4>Basic Data Types</h4></div>
-                             <div class="topic-card" data-topic="advanced-datatypes"><h4>Advanced Data Types</h4></div>
+                            <div class="topic-card" data-topic="what-is-python"><h4>What is Python</h4></div>
+                            <div class="topic-card" data-topic="features-advantages"><h4>Features & Advantages</h4></div>
+                            <div class="topic-card" data-topic="history-versions"><h4>History & Versions</h4></div>
+                            <div class="topic-card" data-topic="applications"><h4>Applications</h4></div>
+                            <div class="topic-card" data-topic="first-program"><h4>First Python Program</h4></div>
+                            <div class="topic-card" data-topic="comments"><h4>Comments</h4></div>
+                            <div class="topic-card" data-topic="indentation"><h4>Indentation</h4></div>
+                            <div class="topic-card" data-topic="keywords"><h4>Keywords</h4></div>
+                            <div class="topic-card" data-topic="escape-sequence"><h4>Escape Sequence</h4></div>
+                            <div class="topic-card" data-topic="variables"><h4>Variables</h4></div>
+                            <div class="topic-card" data-topic="basic-datatypes"><h4>Basic Data Types</h4></div>
+                            <div class="topic-card" data-topic="advanced-datatypes"><h4>Advanced Data Types</h4></div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Unit II: Operators, I/O, Strings -->
                 <div class="unit-card">
-                    <div class="unit-header" data-unit="unit2">
+                    <div class="unit-header" data-unit="unit2" tabindex="0" aria-controls="unit2" aria-expanded="false">
                         <div class="unit-info">
-                            <h3><i class="fas fa-database"></i> Unit II: Operators, I/O, Strings</h3>
-                            <span class="unit-description">Operators, input/output, and strings</span>
+                            <h3><i class="fa-solid fa-calculator"></i> Unit II: Operators, I/O, Strings</h3>
+                            <p class="unit-description">Operators, input/output, and string handling</p>
                         </div>
-                        <div class="unit-arrow"><i class="fas fa-chevron-down"></i></div>
+                        <span class="unit-arrow"><i class="fas fa-chevron-down"></i></span>
                     </div>
                     <div class="unit-content" id="unit2">
                         <div class="topics-grid">
@@ -143,12 +106,12 @@
 
                 <!-- Unit III: Control Flow & Functions -->
                 <div class="unit-card">
-                    <div class="unit-header" data-unit="unit3">
+                    <div class="unit-header" data-unit="unit3" tabindex="0" aria-controls="unit3" aria-expanded="false">
                         <div class="unit-info">
-                            <h3><i class="fas fa-cogs"></i> Unit III: Control Flow & Functions</h3>
-                            <span class="unit-description">Decisions, loops, and functions</span>
+                            <h3><i class="fa-solid fa-code-branch"></i> Unit III: Control Flow & Functions</h3>
+                            <p class="unit-description">Decisions, loops, and functions</p>
                         </div>
-                        <div class="unit-arrow"><i class="fas fa-chevron-down"></i></div>
+                        <span class="unit-arrow"><i class="fas fa-chevron-down"></i></span>
                     </div>
                     <div class="unit-content" id="unit3">
                         <div class="topics-grid">
@@ -164,12 +127,12 @@
 
                 <!-- Unit IV: Lists & Tuples -->
                 <div class="unit-card">
-                    <div class="unit-header" data-unit="unit4">
+                    <div class="unit-header" data-unit="unit4" tabindex="0" aria-controls="unit4" aria-expanded="false">
                         <div class="unit-info">
-                            <h3><i class="fas fa-cubes"></i> Unit IV: Lists & Tuples</h3>
-                            <span class="unit-description">Core Python data structures</span>
+                            <h3><i class="fa-solid fa-list-ul"></i> Unit IV: Lists & Tuples</h3>
+                            <p class="unit-description">Sequence types and operations</p>
                         </div>
-                        <div class="unit-arrow"><i class="fas fa-chevron-down"></i></div>
+                        <span class="unit-arrow"><i class="fas fa-chevron-down"></i></span>
                     </div>
                     <div class="unit-content" id="unit4">
                         <div class="topics-grid">
@@ -185,12 +148,12 @@
 
                 <!-- Unit V: Sets, Dicts & Modules -->
                 <div class="unit-card">
-                    <div class="unit-header" data-unit="unit5">
+                    <div class="unit-header" data-unit="unit5" tabindex="0" aria-controls="unit5" aria-expanded="false">
                         <div class="unit-info">
-                            <h3><i class="fas fa-layer-group"></i> Unit V: Sets, Dicts & Modules</h3>
-                            <span class="unit-description">Sets, dictionaries, and modules</span>
+                            <h3><i class="fa-solid fa-database"></i> Unit V: Sets, Dicts & Modules</h3>
+                            <p class="unit-description">Collections and standard modules</p>
                         </div>
-                        <div class="unit-arrow"><i class="fas fa-chevron-down"></i></div>
+                        <span class="unit-arrow"><i class="fas fa-chevron-down"></i></span>
                     </div>
                     <div class="unit-content" id="unit5">
                         <div class="topics-grid">
@@ -200,18 +163,20 @@
                             <div class="topic-card" data-topic="dict-methods"><h4>Dict Functions & Methods</h4></div>
                             <div class="topic-card" data-topic="modules-intro"><h4>Modules</h4></div>
                             <div class="topic-card" data-topic="modules-imports"><h4>Import Patterns</h4></div>
+                            <div class="topic-card" data-topic="module-random"><h4>Random Module</h4></div>
+                            <div class="topic-card" data-topic="module-math"><h4>Math Module</h4></div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Practice Sheets (new section like a unit) -->
+                <!-- Practice Sheets -->
                 <div class="unit-card">
-                    <div class="unit-header" data-unit="practice">
+                    <div class="unit-header" data-unit="practice" tabindex="0" aria-controls="practice" aria-expanded="false">
                         <div class="unit-info">
-                            <h3><i class="fas fa-file-alt"></i> Practice Sheets</h3>
-                            <span class="unit-description">Solve problems to strengthen concepts</span>
+                            <h3><i class="fa-solid fa-file-lines"></i> Practice Sheets</h3>
+                            <p class="unit-description">Practice problems by topic</p>
                         </div>
-                        <div class="unit-arrow"><i class="fas fa-chevron-down"></i></div>
+                        <span class="unit-arrow"><i class="fas fa-chevron-down"></i></span>
                     </div>
                     <div class="unit-content" id="practice">
                         <div class="topics-grid">
@@ -223,14 +188,14 @@
                     </div>
                 </div>
 
-                <!-- Lab Activities (new section like a unit) -->
+                <!-- Lab Activities -->
                 <div class="unit-card">
-                    <div class="unit-header" data-unit="lab">
+                    <div class="unit-header" data-unit="lab" tabindex="0" aria-controls="lab" aria-expanded="false">
                         <div class="unit-info">
-                            <h3><i class="fas fa-flask"></i> Lab Activities</h3>
-                            <span class="unit-description">Hands-on labs and experiments</span>
+                            <h3><i class="fa-solid fa-flask"></i> Lab Activities</h3>
+                            <p class="unit-description">Hands-on tasks and mini projects</p>
                         </div>
-                        <div class="unit-arrow"><i class="fas fa-chevron-down"></i></div>
+                        <span class="unit-arrow"><i class="fas fa-chevron-down"></i></span>
                     </div>
                     <div class="unit-content" id="lab">
                         <div class="topics-grid">
@@ -242,21 +207,18 @@
                     </div>
                 </div>
 
-                <!-- Previous Papers (new unit) -->
+                <!-- Previous Papers -->
                 <div class="unit-card">
-                    <div class="unit-header" data-unit="previous-papers">
+                    <div class="unit-header" data-unit="previous" tabindex="0" aria-controls="previous" aria-expanded="false">
                         <div class="unit-info">
-                            <h3><i class="fas fa-book-open"></i> Previous Papers</h3>
-                            <span class="unit-description">Past exam papers for practice</span>
+                            <h3><i class="fa-solid fa-file-contract"></i> Previous Papers</h3>
+                            <p class="unit-description">Practice with past examinations</p>
                         </div>
-                        <div class="unit-arrow"><i class="fas fa-chevron-down"></i></div>
+                        <span class="unit-arrow"><i class="fas fa-chevron-down"></i></span>
                     </div>
-                    <div class="unit-content" id="previous-papers">
+                    <div class="unit-content" id="previous">
                         <div class="topics-grid">
-                            <div class="topic-card" data-topic="prev-2025"><h4>Previous Paper 2025</h4></div>
                             <div class="topic-card" data-topic="prev-2024"><h4>Previous Paper 2024</h4></div>
-                            <div class="topic-card" data-topic="prev-2023"><h4>Previous Paper 2023</h4></div>
-                            <div class="topic-card" data-topic="prev-older"><h4>Older Papers & Solutions</h4></div>
                         </div>
                     </div>
                 </div>

@@ -81,6 +81,31 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // NEW: Open unit by URL (?unit=unit5) or hash (#unit5)
+    const params = new URLSearchParams(window.location.search);
+    const unitParam = params.get('unit') || (window.location.hash ? window.location.hash.slice(1) : null);
+    if (unitParam) {
+        const header = document.querySelector(`.unit-header[data-unit="${unitParam}"]`);
+        const unitContent = document.getElementById(unitParam);
+        const arrow = header?.querySelector('.unit-arrow');
+        if (header && unitContent && arrow) {
+            // Close all
+            unitHeaders.forEach(h => {
+                const id = h.getAttribute('data-unit');
+                document.getElementById(id)?.classList.remove('expanded');
+                h.classList.remove('active');
+                h.querySelector('.unit-arrow')?.classList.remove('rotated');
+            });
+            // Open target
+            header.classList.add('active');
+            unitContent.classList.add('expanded');
+            arrow.classList.add('rotated');
+            setTimeout(() => {
+                header.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 200);
+        }
+    }
 });
 
 // Topic Navigation (click topic -> topic.html)
@@ -556,3 +581,42 @@ function addMarqueeUpdate(type, text, icon = 'fas fa-info-circle') {
   const midpoint = Math.floor(marqueeContent.children.length / 2);
   marqueeContent.insertBefore(duplicateItem, marqueeContent.children[midpoint]);
 }
+
+// Simple single-line marquee init (icon + one-line text)
+document.addEventListener('DOMContentLoaded', () => {
+    const marquee = document.getElementById('lineMarquee');
+    const track = document.getElementById('lineMarqueeTrack');
+    if (!marquee || !track) return;
+
+    // Duplicate content once for seamless loop
+    if (!track.dataset.dupe) {
+        track.innerHTML = track.innerHTML + track.innerHTML;
+        track.dataset.dupe = 'true';
+    }
+
+    // Set speed proportional to content width (keeps readable pace)
+    const setSpeed = () => {
+        // total width after duplication
+        const total = track.scrollWidth;
+        // pixels per second ~80; clamp duration between 24s and 120s
+        const duration = Math.max(24, Math.min(120, total / 80));
+        track.style.animationDuration = `${duration}s`;
+    };
+    // If fonts/styles impact width, recalc after a tick
+    setTimeout(setSpeed, 0);
+    window.addEventListener('resize', setSpeed);
+
+    // Pause/resume on hover handled by CSS; add keyboard toggle (Space)
+    marquee.addEventListener('keydown', (e) => {
+        if (e.key === ' ') {
+            e.preventDefault();
+            const state = getComputedStyle(track).animationPlayState;
+            track.style.animationPlayState = state === 'paused' ? 'running' : 'paused';
+        }
+    });
+
+    // Reduced motion: stop animation
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        track.style.animation = 'none';
+    }
+});

@@ -1217,6 +1217,67 @@ body {
   opacity: 0.5;
 }
 
+/* Single-line announcement (icon + marquee in one row) */
+.announcement-line {
+  margin: 0.75rem 0 1.25rem 0;
+  padding: 0.4rem 0.75rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 42px;
+  box-shadow: 0 2px 6px var(--shadow-light);
+}
+
+.announcement-line .icon {
+  color: var(--accent-primary);
+  font-size: 1rem;
+  flex: 0 0 auto;
+}
+
+.line-marquee {
+  flex: 1 1 auto;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.line-marquee-track {
+  display: inline-block;
+  will-change: transform;
+  /* duration set by JS; default fallback below */
+  animation: line-marquee-left 45s linear infinite;
+  padding-left: 100%;
+}
+
+.line-marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text-primary);
+  opacity: 0.95;
+  margin-right: 2rem;
+  font-size: 0.92rem;
+}
+
+@keyframes line-marquee-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); } /* we duplicate items for a seamless loop */
+}
+
+/* Pause on hover/focus for accessibility */
+.announcement-line:hover .line-marquee-track,
+.announcement-line:focus-within .line-marquee-track {
+  animation-play-state: paused;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .line-marquee-track { animation: none !important; }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .banner-header {
@@ -1267,4 +1328,28 @@ body.dark-theme .marquee-item {
 
 body.dark-theme .marquee-item:hover {
   background: rgba(255,255,255,0.25);
+}
+
+.announcement-line .icon {
+  color: var(--accent-primary);
+  font-size: 1rem;
+  flex: 0 0 auto;
+  animation: blink-duo 1.2s ease-in-out infinite;
+  will-change: color, transform, opacity;
+}
+
+@keyframes blink-duo {
+  0%, 100% { color: var(--accent-primary); opacity: 1; transform: scale(1); }
+  50%      { color: #ff3b30;            opacity: 0.7; transform: scale(1.08); }
+}
+
+/* Dark theme: use same duo-blink */
+body.dark-theme .announcement-line .icon {
+  color: var(--accent-primary);
+  animation: blink-duo 1.2s ease-in-out infinite;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .announcement-line .icon { animation: none !important; }
 }

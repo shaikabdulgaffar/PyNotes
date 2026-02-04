@@ -96,7 +96,7 @@ const topics = {
     title: 'Features & Advantages', 
     html: `
       <h2>Features & Advantages</h2>
-      <img src="attachments/python features.png" alt="Features & Advantages" style="max-width:100%;height:auto;border-radius:8px;margin:12px 0;" />
+      <img src="assets/python features.png" alt="Features & Advantages" style="max-width:100%;height:auto;border-radius:8px;margin:12px 0;" />
       <h3>Core Features of Python</h3>
       <ol>
         <li><strong>High-Level Language</strong><br>
