@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 const topicOrder = [
+  'intro-programming-languages',
   'what-is-python','features-advantages','history-versions','applications',
   'first-program','comments','indentation','keywords','escape-sequence','variables',
   'basic-datatypes','advanced-datatypes',
@@ -27,6 +28,69 @@ const topicOrder = [
 ];
 
 const topics = {
+  'intro-programming-languages': {
+    title: 'Introduction to Programming Languages',
+    html: `
+      <h2>What is a Programming Language?</h2>
+      <p>At its core, a programming language is a <strong>communication tool</strong>. Since computers don't understand English or any other human language, we use these sets of instructions to tell them exactly what tasks to perform.</p>
+      <p>Think of it like a recipe: you provide the ingredients (data) and the steps (code), and the computer produces the result.</p>
+      <hr>
+      <h3>The Five Generations of Programming Languages</h3>
+      <p>As technology advanced, programming languages became more "human-friendly." This evolution focuses on three goals: making them <strong>easier to use</strong>, more <strong>efficient</strong>, and more <strong>abstract</strong> (hiding the complex technical details from the user).</p>
+      <h4>1GL: Machine Language (The "Native" Tongue)</h4>
+      <ul>
+        <li><strong>The Language:</strong> Written entirely in binary code (<strong>0s and 1s</strong>).</li>
+        <li><strong>The Good:</strong> Computers understand it instantly, so it is incredibly fast.</li>
+        <li><strong>The Bad:</strong> It is extremely difficult for humans to read or write. It is "machine dependent".</li>
+        <li><strong>Example:</strong> <code>10101010</code></li>
+      </ul>
+      <h4>2GL: Assembly Language (The First Shortcut)</h4>
+      <ul>
+        <li><strong>The Language:</strong> Replaces 1s and 0s with short words called <strong>mnemonics</strong>.</li>
+        <li><strong>The Bridge:</strong> Needs an <strong>Assembler</strong> to turn these words back into binary.</li>
+        <li><strong>The Bad:</strong> Still technical and machine dependent.</li>
+        <li><strong>Examples:</strong> <code>MOV</code>, <code>ADD</code>, <code>SUB</code></li>
+      </ul>
+      <h4>3GL: High-Level Languages (The Turning Point)</h4>
+      <ul>
+        <li><strong>The Language:</strong> Uses English-like words and symbols; what most people think of as "coding".</li>
+        <li><strong>The Good:</strong> Easier to learn and generally machine independent.</li>
+        <li><strong>The Bridge:</strong> Uses a <strong>Compiler</strong> or <strong>Interpreter</strong> to translate to machine code.</li>
+        <li><strong>Examples:</strong> C, C++, Java, Python</li>
+      </ul>
+      <h4>4GL: Very High-Level Languages (The Problem Solvers)</h4>
+      <ul>
+        <li><strong>The Language:</strong> Focuses on <em>what</em> to achieve rather than <em>how</em> to do it.</li>
+        <li><strong>The Good:</strong> Requires very little code and automates many tasks; common in data management.</li>
+        <li><strong>Examples:</strong> SQL, MATLAB</li>
+      </ul>
+      <h4>5GL: AI & Logic-Based Languages (The Future)</h4>
+      <ul>
+        <li><strong>The Language:</strong> Based on logic, constraints, and rules instead of explicit steps.</li>
+        <li><strong>The Good:</strong> Programmer defines the problem; system finds solutions (used in AI).</li>
+        <li><strong>Examples:</strong> Prolog, Mercury</li>
+      </ul>
+      <hr>
+      <h3>Special Purpose Languages</h3>
+      <p>Not every language is meant to build full software. Some are designed for specific jobs:</p>
+      <table>
+        <thead><tr><th>Category</th><th>Purpose</th><th>Examples</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Scripting</strong></td><td>Automating small tasks</td><td>JavaScript, Python, Ruby</td></tr>
+          <tr><td><strong>Command</strong></td><td>OS commands</td><td>Bash, Sh</td></tr>
+          <tr><td><strong>Document Formatting</strong></td><td>Text/document layout</td><td>TeX, LaTeX</td></tr>
+          <tr><td><strong>Web Display</strong></td><td>Web structure and styling</td><td>HTML, CSS, XML</td></tr>
+        </tbody>
+      </table>
+      <hr>
+      <h3>Comparison of Language Levels</h3>
+      <p>To visualize "Abstraction":</p>
+      <ol>
+        <li><strong>Low-Level (1GL, 2GL):</strong> Close to hardware — fast but hard for humans.</li>
+        <li><strong>High-Level (3GL, 4GL, 5GL):</strong> Closer to humans — easier to write, requires translation.</li>
+      </ol>
+    `
+  },
   'what-is-python': { title: 'What is Python', bullets: ['High-level, interpreted language', 'Emphasizes readability and rapid development'] },
   'features-advantages': { title: 'Features & Advantages', bullets: ['Simple syntax', 'Large standard library', 'Cross-platform', 'Community & packages (PyPI)'] },
   'history-versions': { title: 'History & Versions', bullets: ['Created by Guido van Rossum (1991)', 'Major branches: Python 2 (EOL), Python 3'] },
@@ -80,13 +144,22 @@ function renderTopic(id) {
   const breadcrumb = document.getElementById('topicBreadcrumb');
   const content = document.getElementById('topicContent');
   breadcrumb.textContent = topic.title;
-  content.innerHTML = `
-    <div class="content-card">
-      <h2>📖 ${topic.title}</h2>
-      <ul>${topic.bullets.map(b => `<li>${b}</li>`).join('')}</ul>
-      <div class="code-example"><pre># Example\nprint("${topic.title}")</pre></div>
-    </div>
-  `;
+  if (topic.html) {
+    content.innerHTML = `
+      <div class="content-card">
+        ${topic.html}
+        <div class="code-example"><pre># Example\nprint("${topic.title}")</pre></div>
+      </div>
+    `;
+  } else {
+    content.innerHTML = `
+      <div class="content-card">
+        <h2>📖 ${topic.title}</h2>
+        <ul>${(topic.bullets || []).map(b => `<li>${b}</li>`).join('')}</ul>
+        <div class="code-example"><pre># Example\nprint("${topic.title}")</pre></div>
+      </div>
+    `;
+  }
   updateNav(id);
 }
 

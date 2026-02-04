@@ -174,3 +174,385 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!editable) e.preventDefault();
     });
 });
+
+// Professional Announcement Banner
+document.addEventListener('DOMContentLoaded', () => {
+  const tickerContainer = document.getElementById('tickerContainer');
+  const tickerTrack = document.getElementById('tickerTrack');
+  const tickerProgress = document.getElementById('tickerProgress');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  
+  if (!tickerContainer || !tickerTrack) return;
+  
+  const items = Array.from(tickerTrack.querySelectorAll('.ticker-item'));
+  const totalItems = items.length;
+  
+  if (totalItems === 0) return;
+  
+  let currentIndex = 0;
+  let autoPlayInterval = null;
+  let progressInterval = null;
+  let isPaused = false;
+  const DISPLAY_DURATION = 4000; // 4 seconds
+  const PROGRESS_INTERVAL = 50; // Update progress every 50ms
+  
+  // Initialize
+  function init() {
+    if (totalItems <= 1) {
+      // Hide controls if only one item
+      document.querySelector('.ticker-controls')?.style.setProperty('display', 'none');
+      return;
+    }
+    
+    updateDisplay();
+    startAutoPlay();
+    setupEventListeners();
+  }
+  
+  // Update display to show current item
+  function updateDisplay() {
+    const translateX = currentIndex * -100;
+    tickerTrack.style.transform = `translateX(${translateX}%)`;
+    
+    // Update button states
+    prevBtn.disabled = false;
+    nextBtn.disabled = false;
+    
+    // Reset progress
+    resetProgress();
+  }
+  
+  // Start auto-play
+  function startAutoPlay() {
+    if (totalItems <= 1) return;
+    
+    autoPlayInterval = setInterval(() => {
+      if (!isPaused) {
+        nextItem();
+      }
+    }, DISPLAY_DURATION);
+    
+    startProgress();
+  }
+  
+  // Stop auto-play
+  function stopAutoPlay() {
+    if (autoPlayInterval) {
+      clearInterval(autoPlayInterval);
+      autoPlayInterval = null;
+    }
+    stopProgress();
+  }
+  
+  // Start progress indicator
+  function startProgress() {
+    if (totalItems <= 1) return;
+    
+    let progress = 0;
+    const increment = (PROGRESS_INTERVAL / DISPLAY_DURATION) * 100;
+    
+    progressInterval = setInterval(() => {
+      if (!isPaused) {
+        progress += increment;
+        tickerProgress.style.width = `${Math.min(progress, 100)}%`;
+        
+        if (progress >= 100) {
+          progress = 0;
+        }
+      }
+    }, PROGRESS_INTERVAL);
+  }
+  
+  // Stop progress indicator
+  function stopProgress() {
+    if (progressInterval) {
+      clearInterval(progressInterval);
+      progressInterval = null;
+    }
+  }
+  
+  // Reset progress
+  function resetProgress() {
+    tickerProgress.style.width = '0%';
+  }
+  
+  // Go to next item
+  function nextItem() {
+    currentIndex = (currentIndex + 1) % totalItems;
+    updateDisplay();
+  }
+  
+  // Go to previous item
+  function prevItem() {
+    currentIndex = currentIndex === 0 ? totalItems - 1 : currentIndex - 1;
+    updateDisplay();
+  }
+  
+  // Pause functionality
+  function pause() {
+    isPaused = true;
+    tickerContainer.classList.add('paused');
+  }
+  
+  // Resume functionality
+  function resume() {
+    isPaused = false;
+    tickerContainer.classList.remove('paused');
+  }
+  
+  // Setup event listeners
+  function setupEventListeners() {
+    // Manual navigation
+    prevBtn.addEventListener('click', () => {
+      prevItem();
+      // Restart auto-play from current position
+      stopAutoPlay();
+      startAutoPlay();
+    });
+    
+    nextBtn.addEventListener('click', () => {
+      nextItem();
+      // Restart auto-play from current position
+      stopAutoPlay();
+      startAutoPlay();
+    });
+    
+    // Pause on hover
+    tickerContainer.addEventListener('mouseenter', pause);
+    tickerContainer.addEventListener('mouseleave', resume);
+    
+    // Pause on focus (accessibility)
+    tickerContainer.addEventListener('focusin', pause);
+    tickerContainer.addEventListener('focusout', resume);
+    
+    // Keyboard navigation
+    tickerContainer.addEventListener('keydown', (e) => {
+      switch(e.key) {
+        case 'ArrowLeft':
+          e.preventDefault();
+          prevItem();
+          break;
+        case 'ArrowRight':
+          e.preventDefault();
+          nextItem();
+          break;
+        case ' ':
+          e.preventDefault();
+          isPaused ? resume() : pause();
+          break;
+      }
+    });
+    
+    // Respect reduced motion preference
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      stopAutoPlay();
+      tickerProgress.style.display = 'none';
+    }
+  }
+  
+  // Cleanup on page unload
+  window.addEventListener('beforeunload', () => {
+    stopAutoPlay();
+  });
+  
+  // Initialize the banner
+  init();
+});
+
+// Enhanced Announcement Banner Functionality
+document.addEventListener('DOMContentLoaded', () => {
+  const bannerToggle = document.getElementById('bannerToggle');
+  const updatesContainer = document.getElementById('updatesContainer');
+  const announcementBanner = document.querySelector('.announcement-banner');
+  const updateItems = document.querySelectorAll('.update-item');
+  
+  // Toggle banner collapse/expand
+  if (bannerToggle && updatesContainer && announcementBanner) {
+    bannerToggle.addEventListener('click', () => {
+      const isCollapsed = announcementBanner.classList.contains('collapsed');
+      
+      if (isCollapsed) {
+        announcementBanner.classList.remove('collapsed');
+        updatesContainer.style.maxHeight = updatesContainer.scrollHeight + 'px';
+        bannerToggle.innerHTML = '<i class="fas fa-chevron-up"></i>';
+      } else {
+        announcementBanner.classList.add('collapsed');
+        updatesContainer.style.maxHeight = '0px';
+        bannerToggle.innerHTML = '<i class="fas fa-chevron-down"></i>';
+      }
+    });
+  }
+  
+  // Add click handlers for update items
+  updateItems.forEach(item => {
+    item.addEventListener('click', () => {
+      // Add a subtle feedback animation
+      item.style.transform = 'scale(0.98)';
+      setTimeout(() => {
+        item.style.transform = '';
+      }, 150);
+      
+      // You can add navigation or modal logic here
+      const updateType = item.getAttribute('data-type');
+      const updateTitle = item.querySelector('.update-title').textContent;
+      
+      console.log(`Clicked on ${updateType}: ${updateTitle}`);
+      // Example: showUpdateDetails(updateTitle, updateType);
+    });
+    
+    // Add keyboard accessibility
+    item.setAttribute('tabindex', '0');
+    item.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        item.click();
+      }
+    });
+  });
+  
+  // Auto-collapse banner on mobile for better UX
+  function handleMobileCollapse() {
+    if (window.innerWidth <= 768 && announcementBanner && !announcementBanner.classList.contains('collapsed')) {
+      // Auto-collapse on mobile, but allow user to expand
+      // announcementBanner.classList.add('collapsed');
+    }
+  }
+  
+  // Initial check and on resize
+  handleMobileCollapse();
+  window.addEventListener('resize', handleMobileCollapse);
+  
+  // Add subtle animation on load
+  setTimeout(() => {
+    updateItems.forEach((item, index) => {
+      setTimeout(() => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(20px)';
+        item.style.transition = 'all 0.4s ease';
+        
+        setTimeout(() => {
+          item.style.opacity = '1';
+          item.style.transform = 'translateY(0)';
+        }, 50);
+      }, index * 100);
+    });
+  }, 500);
+});
+
+// Enhanced Announcement Banner Functionality with Marquee
+document.addEventListener('DOMContentLoaded', () => {
+  const bannerToggle = document.getElementById('bannerToggle');
+  const updatesContainer = document.getElementById('updatesContainer');
+  const announcementBanner = document.querySelector('.announcement-banner');
+  const marqueeContent = document.getElementById('marqueeContent');
+  
+  // Toggle banner collapse/expand
+  if (bannerToggle && updatesContainer && announcementBanner) {
+    bannerToggle.addEventListener('click', () => {
+      const isCollapsed = announcementBanner.classList.contains('collapsed');
+      
+      if (isCollapsed) {
+        announcementBanner.classList.remove('collapsed');
+        bannerToggle.innerHTML = '<i class="fas fa-chevron-up"></i>';
+        // Resume marquee animation
+        if (marqueeContent) {
+          marqueeContent.style.animationPlayState = 'running';
+        }
+      } else {
+        announcementBanner.classList.add('collapsed');
+        bannerToggle.innerHTML = '<i class="fas fa-chevron-down"></i>';
+        // Pause marquee animation
+        if (marqueeContent) {
+          marqueeContent.style.animationPlayState = 'paused';
+        }
+      }
+    });
+  }
+  
+  // Add click handlers for marquee items
+  const marqueeItems = document.querySelectorAll('.marquee-item');
+  marqueeItems.forEach(item => {
+    item.addEventListener('click', () => {
+      // Add a subtle feedback animation
+      item.style.transform = 'scale(0.95)';
+      setTimeout(() => {
+        item.style.transform = '';
+      }, 150);
+      
+      const updateType = item.getAttribute('data-type');
+      const updateText = item.textContent.trim();
+      
+      console.log(`Clicked on ${updateType}: ${updateText}`);
+      
+      // Optional: Show more details in a modal or navigate somewhere
+      // showUpdateModal(updateText, updateType);
+    });
+  });
+  
+  // Duplicate marquee content for seamless loop (guarded)
+  if (marqueeContent && !marqueeContent.dataset.dupe) {
+    const originalContent = marqueeContent.innerHTML.trim();
+    marqueeContent.innerHTML = originalContent + originalContent;
+    marqueeContent.dataset.dupe = 'true';
+  }
+
+  // Set a consistent slower speed; avoid auto-speeding up
+  function adjustMarqueeSpeed() {
+    if (marqueeContent) {
+      const baseSpeed = 120; // slower for readability
+      marqueeContent.style.animationDuration = baseSpeed + 's';
+    }
+  }
+  adjustMarqueeSpeed();
+
+  // Pause/resume marquee on hover
+  const marqueeContainer = document.querySelector('.marquee-container');
+  if (marqueeContainer && marqueeContent) {
+    marqueeContainer.addEventListener('mouseenter', () => {
+      marqueeContent.style.animationPlayState = 'paused';
+    });
+    
+    marqueeContainer.addEventListener('mouseleave', () => {
+      if (!announcementBanner.classList.contains('collapsed')) {
+        marqueeContent.style.animationPlayState = 'running';
+      }
+    });
+  }
+});
+
+// Function to add new marquee item dynamically
+function addMarqueeUpdate(type, text, icon = 'fas fa-info-circle') {
+  const marqueeContent = document.getElementById('marqueeContent');
+  if (!marqueeContent) return;
+  
+  const newItem = document.createElement('div');
+  newItem.className = 'marquee-item';
+  newItem.setAttribute('data-type', type);
+  newItem.innerHTML = `<i class="${icon}"></i>${text}`;
+  
+  // Add to the beginning
+  marqueeContent.insertBefore(newItem, marqueeContent.firstChild);
+  
+  // Add click handler
+  newItem.addEventListener('click', () => {
+    newItem.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+      newItem.style.transform = '';
+    }, 150);
+    console.log(`Clicked on ${type}: ${text}`);
+  });
+  
+  // Maintain duplicate for seamless loop
+  const duplicateItem = newItem.cloneNode(true);
+  duplicateItem.addEventListener('click', () => {
+    duplicateItem.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+      duplicateItem.style.transform = '';
+    }, 150);
+    console.log(`Clicked on ${type}: ${text}`);
+  });
+  
+  const midpoint = Math.floor(marqueeContent.children.length / 2);
+  marqueeContent.insertBefore(duplicateItem, marqueeContent.children[midpoint]);
+}
