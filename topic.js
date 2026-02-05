@@ -27,6 +27,54 @@ const topicOrder = [
   'modules-intro','modules-imports','module-random','module-math'
 ];
 
+// Unit mapping for breadcrumb navigation
+const unitMapping = {
+  'intro-programming-languages': 'Unit I',
+  'what-is-python': 'Unit I',
+  'features-advantages': 'Unit I',
+  'history-versions': 'Unit I',
+  'applications': 'Unit I',
+  'first-program': 'Unit I',
+  'comments': 'Unit I',
+  'indentation': 'Unit I',
+  'keywords': 'Unit I',
+  'escape-sequence': 'Unit I',
+  'variables': 'Unit I',
+  'basic-datatypes': 'Unit I',
+  'advanced-datatypes': 'Unit I',
+  
+  'operators-overview': 'Unit II',
+  'input-function': 'Unit II',
+  'type-conversion': 'Unit II',
+  'print-formatting': 'Unit II',
+  'strings-basics': 'Unit II',
+  'string-methods': 'Unit II',
+  'string-indexing-slicing': 'Unit II',
+  
+  'decision-making': 'Unit III',
+  'loops': 'Unit III',
+  'transfer-statements': 'Unit III',
+  'functions-overview': 'Unit III',
+  'function-arguments': 'Unit III',
+  'variable-scope': 'Unit III',
+  
+  'lists-intro': 'Unit IV',
+  'lists-accessing': 'Unit IV',
+  'lists-methods': 'Unit IV',
+  'tuples-intro': 'Unit IV',
+  'tuples-accessing': 'Unit IV',
+  'tuples-methods': 'Unit IV',
+  
+  'sets-intro': 'Unit V',
+  'sets-methods': 'Unit V',
+  'dict-intro': 'Unit V',
+  'dict-methods': 'Unit V',
+  'modules-intro': 'Unit V',
+  'modules-imports': 'Unit V',
+  'module-random': 'Unit V',
+  'module-math': 'Unit V'
+};
+
 const topics = {
   'intro-programming-languages': {
     title: 'Introduction to Programming Languages',
@@ -192,12 +240,23 @@ function renderTopic(id) {
   const topic = topics[id] || topics[topicOrder[0]];
   const breadcrumb = document.getElementById('topicBreadcrumb');
   const content = document.getElementById('topicContent');
-  breadcrumb.textContent = topic.title;
+  
+  // Get unit name for breadcrumb
+  const unitName = unitMapping[id] || 'Unit I';
+  
+  // Update breadcrumb with unit information
+  breadcrumb.innerHTML = `
+    <a href="index.html">Home</a>
+    <span>></span>
+    <span>${unitName}</span>
+    <span>></span>
+    <span>${topic.title}</span>
+  `;
+  
   if (topic.html) {
     content.innerHTML = `
       <div class="content-card">
         ${topic.html}
-        <div class="code-example"><pre># Example\nprint("${topic.title}")</pre></div>
       </div>
     `;
   } else {
@@ -205,7 +264,6 @@ function renderTopic(id) {
       <div class="content-card">
         <h2>📖 ${topic.title}</h2>
         <ul>${(topic.bullets || []).map(b => `<li>${b}</li>`).join('')}</ul>
-        <div class="code-example"><pre># Example\nprint("${topic.title}")</pre></div>
       </div>
     `;
   }
