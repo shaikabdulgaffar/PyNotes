@@ -1353,3 +1353,5 @@ body.dark-theme .announcement-line .icon {
 @media (prefers-reduced-motion: reduce) {
   .announcement-line .icon { animation: none !important; }
 }
+
+
