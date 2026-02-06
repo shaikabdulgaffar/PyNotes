@@ -466,7 +466,55 @@ const topics = {
     `
   },
   'first-program': { title: 'First Python Program', bullets: ['Use print("Hello, World!")', 'Run via python file.py or REPL'] },
-  'comments': { title: 'Comments', bullets: ['Single-line: #', 'Docstrings: """..."""'] },
+  'comments': { 
+    title: 'Comments',
+    html: `
+      <h2>What is a Comment?</h2>
+      <p>In Python, a <strong>comment</strong> is a piece of text inside your code that the computer completely ignores. It’s written in plain English (or any language) to explain what the code is doing.</p>
+      <p><strong>Formal Definition:</strong> A comment is a line of text ignored by the Python interpreter, used to make code easier for humans to read and understand.</p>
+
+      <h2>Why Are Comments Important?</h2>
+      <p>Coding is rarely a solo, one-time task. You need comments because:</p>
+      <ul>
+        <li><strong>For You:</strong> They help you keep track of your logic while you write.</li>
+        <li><strong>For Your Team:</strong> If someone else looks at your code, they can understand your "why" without having to guess.</li>
+        <li><strong>For Future You:</strong> If you open your code after 6 months, you might forget why you wrote a specific line. Comments act as a "note to self."</li>
+        <li><strong>Interview Prep:</strong> Being able to explain your code clearly is a key skill; comments help you structure those explanations.</li>
+      </ul>
+      <p><strong>The Risk of No Comments:</strong><br>No comments make code a "black box"—confusing to fix, hard to maintain, and difficult to explain to others.</p>
+
+      <h2>Single-Line Comments</h2>
+      <p>These are the most common types of comments. They are used for quick, short explanations.</p>
+
+      <h3>Method 1: Standard Single-Line</h3>
+      <p>You start the line with the hash symbol (<code>#</code>). Everything after the <code>#</code> on that line is ignored.</p>
+      <p><strong>Syntax:</strong> <code># Your comment here</code></p>
+      <p><strong>Example:</strong></p>
+      <div class="code-example"><pre><code class="language-python"># This program greets the students
+print("Hello MBA Students")</code></pre></div>
+
+      <h3>Method 2: Inline Comment</h3>
+      <p>Placed on the <strong>same line</strong> as the code, usually at the end. Great for explaining a specific variable.</p>
+      <div class="code-example"><pre><code class="language-python">marks = 75  # This variable stores the student's marks</code></pre></div>
+
+      <h2>Multi-Line Comments</h2>
+      <p>When you need a longer explanation or a paragraph, you have two main options:</p>
+
+      <h3>Method 1: Multiple <code>#</code> Symbols (Recommended)</h3>
+      <p>Put a <code>#</code> at the start of every new line.</p>
+      <div class="code-example"><pre><code class="language-python"># This program 
+# calculates the 
+# total marks of a student</code></pre></div>
+
+      <h3>Method 2: Triple Quotes (<code>'''</code> or <code>"""</code>)</h3>
+      <p>Technically these are string literals, but Python ignores them if they aren't assigned to a variable. Often used for high-level documentation (docstrings).</p>
+      <div class="code-example"><pre><code class="language-python">"""
+This program calculates 
+total and average marks 
+for the final semester.
+"""</code></pre></div>
+    `
+  },
   'indentation': { title: 'Indentation', bullets: ['Indent blocks with spaces (PEP 8: 4 spaces)', 'No braces; indentation defines scope'] },
   'keywords': { title: 'Keywords', bullets: ['Reserved words (if, else, for, while, def, class, return, True, False, None, etc.)'] },
   'escape-sequence': { title: 'Escape Sequence', bullets: ['Common: \\n, \\t, \\\\', 'Raw strings: r"text"'] },
@@ -904,7 +952,7 @@ ABC College</code></pre></div>
     title: 'Lab 1: Key Syntax and Concepts',
     html: `
       <h2>Lab 1: Key Syntax and Concepts</h2>
-      <h3>Aim</h3>
+      <h3>Aim</h2>
       <p>To write a Python program that demonstrates basic syntax, comments, indentation, variables, escape sequences and basic data types (int, float, str, complex, bool).</p>
 
       <h3>Program</h3>
