@@ -81,64 +81,95 @@ const topics = {
   'intro-programming-languages': {
     title: 'Introduction to Programming Languages',
     html: `
-      <h2>What is a Programming Language?</h2>
-      <p>At its core, a programming language is a <strong>communication tool</strong>. Since computers don't understand English or any other human language, we use these sets of instructions to tell them exactly what tasks to perform.</p>
-      <p>Think of it like a recipe: you provide the ingredients (data) and the steps (code), and the computer produces the result.</p>
-      <hr>
-      <h3>The Five Generations of Programming Languages</h3>
-      <p>As technology advanced, programming languages became more "human-friendly." This evolution focuses on three goals: making them <strong>easier to use</strong>, more <strong>efficient</strong>, and more <strong>abstract</strong> (hiding the complex technical details from the user).</p>
-      <h4>1GL: Machine Language (The "Native" Tongue)</h4>
-      <ul>
-        <li><strong>The Language:</strong> Written entirely in binary code (<strong>0s and 1s</strong>).</li>
-        <li><strong>The Good:</strong> Computers understand it instantly, so it is incredibly fast.</li>
-        <li><strong>The Bad:</strong> It is extremely difficult for humans to read or write. It is "machine dependent".</li>
-        <li><strong>Example:</strong> <code>10101010</code></li>
-      </ul>
-      <h4>2GL: Assembly Language (The First Shortcut)</h4>
-      <ul>
-        <li><strong>The Language:</strong> Replaces 1s and 0s with short words called <strong>mnemonics</strong>.</li>
-        <li><strong>The Bridge:</strong> Needs an <strong>Assembler</strong> to turn these words back into binary.</li>
-        <li><strong>The Bad:</strong> Still technical and machine dependent.</li>
-        <li><strong>Examples:</strong> <code>MOV</code>, <code>ADD</code>, <code>SUB</code></li>
-      </ul>
-      <h4>3GL: High-Level Languages (The Turning Point)</h4>
-      <ul>
-        <li><strong>The Language:</strong> Uses English-like words and symbols; what most people think of as "coding".</li>
-        <li><strong>The Good:</strong> Easier to learn and generally machine independent.</li>
-        <li><strong>The Bridge:</strong> Uses a <strong>Compiler</strong> or <strong>Interpreter</strong> to translate to machine code.</li>
-        <li><strong>Examples:</strong> C, C++, Java, Python</li>
-      </ul>
-      <h4>4GL: Very High-Level Languages (The Problem Solvers)</h4>
-      <ul>
-        <li><strong>The Language:</strong> Focuses on <em>what</em> to achieve rather than <em>how</em> to do it.</li>
-        <li><strong>The Good:</strong> Requires very little code and automates many tasks; common in data management.</li>
-        <li><strong>Examples:</strong> SQL, MATLAB</li>
-      </ul>
-      <h4>5GL: AI & Logic-Based Languages (The Future)</h4>
-      <ul>
-        <li><strong>The Language:</strong> Based on logic, constraints, and rules instead of explicit steps.</li>
-        <li><strong>The Good:</strong> Programmer defines the problem; system finds solutions (used in AI).</li>
-        <li><strong>Examples:</strong> Prolog, Mercury</li>
-      </ul>
-      <hr>
-      <h3>Special Purpose Languages</h3>
-      <p>Not every language is meant to build full software. Some are designed for specific jobs:</p>
-      <table>
-        <thead><tr><th>Category</th><th>Purpose</th><th>Examples</th></tr></thead>
-        <tbody>
-          <tr><td><strong>Scripting</strong></td><td>Automating small tasks</td><td>JavaScript, Python, Ruby</td></tr>
-          <tr><td><strong>Command</strong></td><td>OS commands</td><td>Bash, Sh</td></tr>
-          <tr><td><strong>Document Formatting</strong></td><td>Text/document layout</td><td>TeX, LaTeX</td></tr>
-          <tr><td><strong>Web Display</strong></td><td>Web structure and styling</td><td>HTML, CSS, XML</td></tr>
-        </tbody>
-      </table>
-      <hr>
-      <h3>Comparison of Language Levels</h3>
-      <p>To visualize "Abstraction":</p>
+      <h2>The Building Blocks</h2>
+      <h3>Instruction</h3>
+      <p>An instruction is the smallest unit of work in a computer program. It's a single command that tells the processor to perform a task (for example: add two numbers or store a value).</p>
+      <p><strong>Definition:</strong> A specific direction that tells the processor to perform a task.</p>
+      <p><strong>Analogy:</strong> In a recipe, one instruction would be: "Add two cups of flour."</p>
+      <p><strong>Example in Python:</strong> <code>x = 5</code> — store number 5 in a variable named <code>x</code>.</p>
+
+
+      <h2>Program: The Collection</h2>
+      <p>A program is a sequence of instructions written in a specific order to achieve a particular result.</p>
+      <p><strong>Definition:</strong> A set of instructions stored in a file that can be executed by a computer to perform a specific function.</p>
+      <p><strong>How it works:</strong> Computers typically read programs top-to-bottom. If the order is wrong the program may fail or produce incorrect output.</p>
+      <p><strong>Analogy:</strong> A single instruction is an ingredient; the whole recipe card (the program) allows you to bake a cake.</p>
+      <p><strong>Examples:</strong> The calculator on your phone, a web browser (Chrome), a Python script that calculates student grades.</p>
+
+
+      <h2>Programming: The Process</h2>
+      <p>Programming is designing, writing, testing, and maintaining the instructions that make up a program.</p>
+      <p>Computers speak binary (0s and 1s). Programming languages (Python, Java, C++) let humans write instructions at a higher level which are then translated to machine code.</p>
+      <h3>Typical Workflow</h3>
       <ol>
-        <li><strong>Low-Level (1GL, 2GL):</strong> Close to hardware — fast but hard for humans.</li>
-        <li><strong>High-Level (3GL, 4GL, 5GL):</strong> Closer to humans — easier to write, requires translation.</li>
+        <li><strong>Problem Solving:</strong> Decide what you want to achieve.</li>
+        <li><strong>Writing Code:</strong> Type the instructions in a programming language.</li>
+        <li><strong>Debugging:</strong> Find and fix errors (bugs).</li>
+        <li><strong>Maintaining:</strong> Update and improve the code over time.</li>
       </ol>
+      <p><strong>Goal:</strong> Automate tasks and solve problems efficiently.</p>
+
+
+      <h2>Generations of Programming Languages</h2>
+      <img src="assets/programming-Languages.webp" alt="Features & Advantages" style="max-width:100%;height:auto;border-radius:8px;margin:12px 0;" />
+      <p>Programming languages evolved through generations (1GL → 5GL) to become more human-friendly, efficient, and abstract.</p>
+
+      <img src="assets/programming-generations.png" alt="Features & Advantages" style="max-width:100%;height:auto;border-radius:8px;margin:12px 0;" />
+
+      <h3>1GL — Machine Language</h3>
+      <ul>
+        <li>Written in binary (0s and 1s).</li>
+        <li>Very fast for computers, but extremely hard for humans.</li>
+        <li>Example: <code>10101010</code></li>
+      </ul>
+
+      <h3>2GL — Assembly Language</h3>
+      <ul>
+        <li>Uses mnemonics (MOV, ADD, SUB) instead of raw binary.</li>
+        <li>Requires an assembler to convert to machine code.</li>
+        <li>Still low-level and machine dependent.</li>
+      </ul>
+
+      <h3>3GL — High-Level Languages</h3>
+      <ul>
+        <li>English-like syntax; easier to learn and (mostly) machine independent.</li>
+        <li>Uses compilers or interpreters to translate to machine code.</li>
+        <li>Examples: C, C++, Java, Python.</li>
+      </ul>
+
+      <h3>4GL — Very High-Level Languages</h3>
+      <ul>
+        <li>Focus on what to achieve rather than how to do it.</li>
+        <li>Often used for data management and rapid development.</li>
+        <li>Examples: SQL, MATLAB.</li>
+      </ul>
+
+      <h3>5GL — AI & Logic-Based Languages</h3>
+      <ul>
+        <li>Programmer defines the problem; the system finds solutions using logic/constraints.</li>
+        <li>Examples: Prolog, Mercury.</li>
+      </ul>
+
+      <p>As technology advanced, languages became easier to use, more efficient, and more abstract (hiding low-level details).</p>
+
+
+      <h2>Types of Programming Languages</h2>
+      <p>Different languages exist for different purposes. Examples:</p>
+      <ul>
+        <li><strong>Scripting Languages:</strong> JavaScript, VBScript, PHP, Python, Perl, Ruby</li>
+        <li><strong>Command Languages:</strong> Bash, sh, ch</li>
+        <li><strong>Document Formatting:</strong> TeX, PostScript, LaTeX</li>
+        <li><strong>Web Display:</strong> HTML, CSS, XML</li>
+      </ul>
+
+
+      <h2>Conclusion</h2>
+      <ul>
+        <li>An <strong>instruction</strong> is a single command (e.g., <code>x = 5</code>).</li>
+        <li>A <strong>program</strong> is a sequence of instructions that achieves a goal.</li>
+        <li><strong>Programming</strong> is the process of creating, testing, and maintaining programs.</li>
+        <li>Languages evolved from 1GL (machine) → 5GL (logic/AI) to improve usability, efficiency, and abstraction.</li>
+      </ul>
     `
   },
   'what-is-python': { title: 'What is Python?', html: `
@@ -149,7 +180,30 @@ const topics = {
       </div>
       <p>Developed by Guido van Rossum at Centrum Wiskunde &amp; Informatica (CWI) in the Netherlands, development began in 1989 and Python was officially released in 1991.</p>
 
-      <h3>Background &amp; Need for Python</h3>
+      <h2>Why it's called "Python"</h2>
+      <p>It is a common mistake to think Python was named after the snake! In reality, the name has a much more "comedic" origin.</p>
+
+      <h3>The Real Story</h3>
+      <p>Python was created by a Dutch programmer named Guido van Rossum in the late 1980s. At the time, he was reading published scripts from "Monty Python’s Flying Circus," a famous BBC comedy sketch show from the 1970s.</p>
+      <p>When he needed a name for his new language, he wanted something that was:</p>
+      <ul>
+        <li>Short</li>
+        <li>Unique</li>
+        <li>Slightly mysterious</li>
+      </ul>
+      <p>Being a big fan of the comedy troupe, he chose Python. He wanted to capture the "fun" and "irreverent" spirit of the show rather than the image of a scary reptile.</p>
+
+      <h3>If it's not a snake, why the snake logo?</h3>
+      <p>Even though the name comes from a TV show, the community eventually embraced the snake theme.</p>
+      <ul>
+        <li><strong>The Logo:</strong> The official Python logo features two interlocking snakes (usually blue and yellow).</li>
+        <li><strong>The Terms:</strong> We use terms like "Snake Case" (writing_code_like_this) and "Anaconda" (a popular distribution for data science).</li>
+      </ul>
+
+      <h3>Fun Fact</h3>
+      <p>Because of the Monty Python connection, you will often find references to the show in Python tutorials. For example, instead of using the standard "foo" and "bar" as placeholder names, Python documentation often uses "spam" and "eggs" (a nod to a famous Monty Python sketch).</p>
+
+      <h2>Background &amp; Need for Python</h2>
       <p>In the late 1980s and early 1990s, many popular languages had trade-offs:</p>
       <ul>
         <li><strong>C / C++</strong> — powerful but complex syntax and manual memory management.</li>
@@ -157,7 +211,7 @@ const topics = {
       </ul>
       <p>There was a need for a language that was simple and readable, powerful like C, flexible like scripting languages, and suitable for both small scripts and large applications. Python was designed to bridge the gap between system-level languages and scripting languages.</p>
 
-      <h3>Influences on Python's Design</h3>
+      <h2>Influences on Python's Design</h2>
       <ul>
         <li><strong>ABC</strong> — inspired simple syntax and indentation-based structure.</li>
         <li><strong>C</strong> — influenced core design and extension via C modules.</li>
@@ -166,7 +220,7 @@ const topics = {
         <li><strong>Lisp</strong> — contributed functional programming concepts and dynamic typing.</li>
       </ul>
 
-      <h3>Trending Growth &amp; Demand (2026)</h3>
+      <h2>Trending Growth &amp; Demand (2026)</h2>
       <p>As of 2026, Python continues to be widely adopted across industries, driven by its role in AI, data, automation, and cloud tooling.</p>
       <ol>
         <li>
@@ -190,9 +244,9 @@ const topics = {
     `
   },
   'features-advantages': { 
-    title: 'Features & Advantages', 
+    title: 'Features, Advantages & Disadvantages', 
     html: `
-      <h2>Features & Advantages</h2>
+      <h2>Features, Advantages & Disadvantages</h2>
       <img src="assets/python features.png" alt="Features & Advantages" style="max-width:100%;height:auto;border-radius:8px;margin:12px 0;" />
       <h3>Core Features of Python</h3>
       <ol>
@@ -465,7 +519,84 @@ const topics = {
       </div>
     `
   },
-  'first-program': { title: 'First Python Program', bullets: ['Use print("Hello, World!")', 'Run via python file.py or REPL'] },
+
+  'installation-ide': {
+    title: "Installation Setup & IDE's",
+    html: `
+      <h2>Setting up your environment</h2>
+      <p>Preparing your system is the first step to writing and running Python code.</p>
+
+      <h3>Installing Python</h3>
+      <ol>
+        <li><strong>Download:</strong> Visit <a href="https://python.org" target="_blank" rel="noopener">python.org</a> and download the latest installer for your OS.</li>
+        <li><strong>"Add to PATH" (Crucial on Windows):</strong> During installation check the box "Add Python to PATH". If you skip this, the <code>python</code> command won't work in Command Prompt.</li>
+        <li><strong>Verify:</strong> Open Command Prompt (Windows) or Terminal (macOS/Linux) and run: <code>python --version</code></li>
+      </ol>
+
+      <h3>What is an IDE?</h3>
+      <p>An IDE (Integrated Development Environment) or code editor helps you write, run, and debug code more efficiently.</p>
+      <p><strong>Code Editor:</strong> Lightweight editor focused on editing (e.g., VS Code).<br>
+      <strong>IDE:</strong> Full-featured environment with debugger, project tools, and integrations (e.g., PyCharm).</p>
+
+      <h3>Popular Python Editors &amp; IDEs</h3>
+      <ul>
+        <li><strong>A. IDLE</strong> — Simple editor that comes with Python. Good for absolute beginners.</li>
+        <li><strong>B. VS Code</strong> — Lightweight, extensible. Install the "Python" extension by Microsoft for autocompletion, linting, and debugging.</li>
+        <li><strong>C. PyCharm</strong> — Full-featured IDE (Community &amp; Professional). Great for large projects; uses more RAM.</li>
+        <li><strong>D. Jupyter Notebook</strong> — Best for data analysis and reports; lets you mix code cells with markdown and visuals.</li>
+      </ul>
+
+      <h3>Quick Setup Tips</h3>
+      <ul>
+        <li>Always check "Add to PATH" on Windows.</li>
+        <li>Use a virtual environment: <code>python -m venv venv</code> to isolate project dependencies.</li>
+        <li>Install editor extensions: linters (flake8), formatters (black), and the Python extension for VS Code.</li>
+      </ul>
+
+      <h3>Verify Workflow</h3>
+      <p>Open your editor/IDE, create <code>hello.py</code> with <code>print("Hello, Python")</code>, then run <code>python hello.py</code> in a terminal to confirm everything works.</p>
+    `
+  },
+
+  'first-program': { 
+    title: 'Basic Syntax & First Python Program',
+    html: `
+      <h2>Basic Syntax of Python</h2>
+      <p><strong>Simple Definition:</strong> Syntax is the correct way of writing Python code so that Python can understand and execute it.</p>
+
+      <h3>Why Python Syntax is Special?</h3>
+      <ul>
+        <li>Simple</li>
+        <li>English-like</li>
+        <li>Less symbols</li>
+        <li>Easy for beginners and non-tech students</li>
+      </ul>
+
+      <h3>Basic Elements of Syntax</h3>
+      <ul>
+        <li>Comments</li>
+        <li>Keywords</li>
+        <li>Variables</li>
+        <li>Data Types</li>
+        <li>Indentation</li>
+        <li>Functions</li>
+        <li>Escape Sequences</li>
+        <li>Control Statements</li>
+        <li>Operators</li>
+      </ul>
+
+      <h2>Writing Your First Python Program</h2>
+      <p>Example:</p>
+      <div class="code-example"><pre><code class="language-python">print("Hello, World!")</code></pre></div>
+
+      <p>Explanation:</p>
+      <ul>
+        <li><code>print()</code> — a built-in function that outputs text to the screen.</li>
+        <li><code>"Hello, World!"</code> — a string (text inside quotes).</li>
+        <li>This single line instructs Python to display the provided text.</li>
+      </ul>
+    `
+  },
   'comments': { 
     title: 'Comments',
     html: `
@@ -1146,7 +1277,7 @@ function renderTopic(id) {
   
   // Update breadcrumb with unit information
   breadcrumb.innerHTML = `
-    <a href="index.html">Home</a>
+    <span>Home</span>
     <span>></span>
     <span>${unitName}</span>
     <span>></span>
