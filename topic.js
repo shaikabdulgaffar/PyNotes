@@ -141,7 +141,54 @@ const topics = {
       </ol>
     `
   },
-  'what-is-python': { title: 'What is Python', bullets: ['High-level, interpreted language', 'Emphasizes readability and rapid development'] },
+  'what-is-python': { title: 'What is Python?', html: `
+      <h2>What is Python?</h2>
+      <p>Python is a general-purpose, dynamic, high-level, interpreted, object-oriented programming language that is easy to learn and widely used in modern technologies.</p>
+      <div style="text-align:center;margin:12px 0;">
+        <img src="assets/guido_van_rossum.png" alt="Guido van Rossum" style="max-width:220px;border-radius:8px;display:block;margin:0 auto;" />
+      </div>
+      <p>Developed by Guido van Rossum at Centrum Wiskunde &amp; Informatica (CWI) in the Netherlands, development began in 1989 and Python was officially released in 1991.</p>
+
+      <h3>Background &amp; Need for Python</h3>
+      <p>In the late 1980s and early 1990s, many popular languages had trade-offs:</p>
+      <ul>
+        <li><strong>C / C++</strong> — powerful but complex syntax and manual memory management.</li>
+        <li><strong>Perl</strong> — great for scripting but often hard to read and maintain.</li>
+      </ul>
+      <p>There was a need for a language that was simple and readable, powerful like C, flexible like scripting languages, and suitable for both small scripts and large applications. Python was designed to bridge the gap between system-level languages and scripting languages.</p>
+
+      <h3>Influences on Python's Design</h3>
+      <ul>
+        <li><strong>ABC</strong> — inspired simple syntax and indentation-based structure.</li>
+        <li><strong>C</strong> — influenced core design and extension via C modules.</li>
+        <li><strong>Modula-3</strong> — provided ideas for modules and exception handling.</li>
+        <li><strong>Perl</strong> — influenced scripting capabilities and string handling.</li>
+        <li><strong>Lisp</strong> — contributed functional programming concepts and dynamic typing.</li>
+      </ul>
+
+      <h3>Trending Growth &amp; Demand (2026)</h3>
+      <p>As of 2026, Python continues to be widely adopted across industries, driven by its role in AI, data, automation, and cloud tooling.</p>
+      <ol>
+        <li>
+          <strong>Artificial Intelligence &amp; Machine Learning</strong><br>
+          Python is the primary language for modern AI and deep learning, powering frameworks like PyTorch and TensorFlow and tooling for Explainable AI (XAI) such as SHAP and LIME.
+        </li>
+        <li>
+          <strong>Performance &amp; Technical Evolution</strong><br>
+          Recent improvements have addressed historic performance concerns:
+          <ul>
+            <li><strong>NoGIL</strong> — removal of the Global Interpreter Lock enables true parallelism on multi-core systems.</li>
+            <li><strong>JIT Compilation</strong> — Just-In-Time compilation boosts execution speed.</li>
+            <li><strong>Edge Computing</strong> — frameworks like TensorFlow Lite and PyTorch Mobile enable Python models on devices and wearables.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Market Demand &amp; Careers</strong><br>
+          Strong demand for Python skills in AI, data science, automation, and DevOps. Roles include AI Engineers, ML Engineers, Data Scientists, and Cloud/Automation specialists.
+        </li>
+      </ol>
+    `
+  },
   'features-advantages': { 
     title: 'Features & Advantages', 
     html: `
