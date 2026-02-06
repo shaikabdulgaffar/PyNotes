@@ -1,15 +1,33 @@
-// Loading Screen Animation
+// Loading Screen Animation (fixed: show only on first visit; skip on back/home)
 document.addEventListener('DOMContentLoaded', function() {
     const loadingScreen = document.getElementById('loadingScreen');
     const mainContent = document.getElementById('mainContent');
-    
+
+    if (!loadingScreen || !mainContent) return;
+
+    const splashShown = localStorage.getItem('splashShown') === 'true';
+
+    // If splash was already shown, skip it (useful when navigating Back/Home)
+    if (splashShown) {
+        loadingScreen.style.display = 'none';
+        mainContent.style.visibility = 'visible';
+        mainContent.style.opacity = '1';
+        return;
+    }
+
+    // First-time load: show splash then fade out and mark shown
+    mainContent.style.visibility = 'hidden';
+    loadingScreen.classList.remove('fade-out');
+
     // Simulate loading time
     setTimeout(() => {
         loadingScreen.classList.add('fade-out');
-        
+
         setTimeout(() => {
             loadingScreen.style.display = 'none';
-            mainContent.classList.add('show');
+            mainContent.style.visibility = 'visible';
+            mainContent.style.opacity = '1';
+            localStorage.setItem('splashShown', 'true');
         }, 500);
     }, 3000);
 });

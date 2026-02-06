@@ -190,6 +190,39 @@ const topics = {
             Python is "scalable," meaning it can handle small, simple scripts just as well as it handles massive, complex systems used by giant companies like Google or Netflix.
         </li>
       </ol>
+
+      <h2>Advantages of Python</h2>
+      <h4>1. Easy to Learn and Use</h4>
+      <p>Python has a very simple and readable syntax. Its code looks almost like normal English, so beginners can easily understand it. There is no need to use complex symbols or brackets like in other programming languages. Because of this, students can focus more on logic rather than syntax rules. Python is widely used as a first programming language for beginners.</p>
+
+      <h4>2. Versatile and Flexible</h4>
+      <p>Python can be used in many different fields such as web development, data science and data analysis, artificial intelligence and machine learning, automation and scripting, and game development. The same Python language can be used for small programs as well as large applications. This makes Python a multi-purpose and flexible language.</p>
+
+      <h4>3. Improved Productivity</h4>
+      <p>Python allows developers to write programs with fewer lines of code compared to languages like C or Java. This reduces development time and effort. Many ready-made libraries and frameworks are available, so developers do not need to write everything from scratch. As a result, work can be completed faster and productivity increases.</p>
+
+      <h4>4. Highly Secure</h4>
+      <p>Python provides good support for secure coding practices. It has built-in features that help in writing safe and reliable programs. Many security tools and libraries are available in Python to handle encryption, authentication, and secure communication. Because of this, Python is also used in cybersecurity applications.</p>
+
+      <h4>5. Strong Community Support</h4>
+      <p>Python has a very large and active community of developers. If a programmer faces any problem, solutions are easily available online. There are many tutorials, documentation, videos, and discussion forums. Continuous updates and improvements are made because of strong community support.</p>
+
+
+      <h2>Disadvantages of Python</h2>
+      <h4>1. Slow Speed</h4>
+      <p>Python is an interpreted language, which means it executes code line by line. This makes Python slower compared to compiled languages like C or C++. For applications that require very high performance, Python may not be the best choice.</p>
+
+      <h4>2. Memory Inefficient</h4>
+      <p>Python programs use more memory compared to other programming languages. This is because Python stores extra information about data types and objects. Due to high memory usage, Python is not suitable for applications with limited memory.</p>
+
+      <h4>3. Weak Mobile Computation</h4>
+      <p>Python is not commonly used for mobile application development. Languages like Java, Kotlin, and Swift are preferred for Android and iOS apps. Although some frameworks exist, Python is still weak in mobile computing.</p>
+
+      <h4>4. Poor Database Access</h4>
+      <p>Python’s database access layer is not as strong as some other languages. It may be slower while working with very large and complex databases. For heavy database-driven applications, other languages may perform better.</p>
+
+      <h4>5. Runtime Errors</h4>
+      <p>Python checks errors only during program execution (runtime). Errors are not detected during compilation because Python has no compilation step. If the programmer is not careful, runtime errors may occur while running the program.</p>
     ` 
   },
   'history-versions': { 
@@ -913,8 +946,8 @@ Dictionary (Student Details): {'name': 'Ayaan', 'roll_no': 101, 'course': 'MCA'}
     html: `
       <h2>Previous Paper - July 2025</h2>
       <div style="display:flex;flex-direction:column;gap:12px;">
-        <img src="assets/prev-2025-page1.jpg" alt="Previous Paper July 2025 - Page 1" style="max-width:100%;height:auto;border:1px solid var(--border-color);border-radius:8px;" />
-        <img src="assets/prev-2025-page2.jpg" alt="Previous Paper July 2025 - Page 2" style="max-width:100%;height:auto;border:1px solid var(--border-color);border-radius:8px;" />
+        <img src="assets/prev-2025-page1.png" alt="Previous Paper July 2025 - Page 1" style="max-width:100%;height:auto;border:1px solid var(--border-color);border-radius:8px;" />
+        <img src="assets/prev-2025-page2.png" alt="Previous Paper July 2025 - Page 2" style="max-width:100%;height:auto;border:1px solid var(--border-color);border-radius:8px;" />
       </div>
     `
   }
