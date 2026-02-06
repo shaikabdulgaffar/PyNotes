@@ -867,6 +867,7 @@ body {
     
     .topbar {
         padding: 0.4rem 0;
+        min-height: 60px;
     }
     
     .brand-logo i {
@@ -1603,4 +1604,24 @@ body {
     }
 }
 
-
+/* Force all images to be center-aligned and prevent floating/text wrap */
+img {
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 100%;
+    height: auto;
+    float: none !important;
+}
+/* Ensure common content areas also respect centered images */
+.content-card img,
+.topic-content-area img,
+.topics-grid img,
+.unit-card img,
+.container img {
+    display: block !important;
+    margin: 12px auto !important;
+    max-width: 100%;
+    height: auto;
+    float: none !important;
+}
