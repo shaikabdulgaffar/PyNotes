@@ -192,9 +192,199 @@ const topics = {
       </ol>
     ` 
   },
-  'history-versions': { title: 'History & Versions', bullets: ['Created by Guido van Rossum (1991)', 'Major branches: Python 2 (EOL), Python 3'] },
-  'applications': { title: 'Applications', bullets: ['Web, Data Science/ML, Automation/Scripting', 'Systems, Networking, Game dev, Education'] },
+  'history-versions': { 
+    title: 'History & Versions',
+    html: `
+      <h2>Major Versions of Python</h2>
+      <img src="assets/python-versions.png" alt="Python Versions Timeline" style="max-width:100%;height:auto;border-radius:8px;margin:12px 0;" />
 
+      <p>Python has evolved through multiple<br>
+      Each major version introduced new features and improvements<br>
+      The versions are mainly classified as:<br>
+      Python 1.x (1991)<br>
+      Python 2.x (2000)<br>
+      Python 3.x (2008 - Present)</p>
+
+      <h3>Python 1.x (1991)</h3>
+      <ul>
+        <li>First official release of the Python programming language</li>
+        <li>Focused on simplicity, readability, and ease of use</li>
+        <li>Laid the foundation for future Python versions</li>
+      </ul>
+
+      <h4>Key Features</h4>
+      <ul>
+        <li>Supported core data types: Numbers, strings, and lists</li>
+        <li>Provided: Functions and modular programming, Basic exception handling</li>
+        <li>Suitable for: Small programs, Scripting tasks</li>
+        <li>Mainly used in: Academic environments, Research-based applications</li>
+        <li>Had limited library support compared to later versions</li>
+      </ul>
+
+      <h3>Python 2.x (2000)</h3>
+      <ul>
+        <li>Released to improve performance and usability over Python 1.x</li>
+        <li>Became the most widely adopted version of Python for many years</li>
+        <li>Extensively used in:</li>
+        <ul>
+          <li>Industry applications</li>
+          <li>Web development</li>
+          <li>System scripting</li>
+        </ul>
+      </ul>
+
+      <h4>Key Improvements</h4>
+      <ul>
+        <li>Introduced important features:</li>
+        <ul>
+          <li>List comprehensions</li>
+          <li>Automatic garbage collection</li>
+          <li>Limited Unicode support</li>
+        </ul>
+        <li>Faster execution compared to Python 1.x</li>
+        <li>Supported a large number of third-party libraries</li>
+      </ul>
+
+      <h4>End of Python 2.x & Language Changes</h4>
+      <ul>
+        <li>Python 2.7 was the final release in the 2.x series</li>
+        <li>Backward compatibility:</li>
+        <ul>
+          <li>Slowed innovation and modernization</li>
+        </ul>
+        <li>Official support ended in January 2020</li>
+        <li>Developers were encouraged to migrate to Python 3</li>
+      </ul>
+
+      <h4>Syntax Differences (Python 2 → Python 3)</h4>
+      <ul>
+        <li>Input handling:</li>
+        <ul>
+          <li>Python 2: raw_input() and input()</li>
+          <li>Python 3: only input()</li>
+        </ul>
+        <li>Print statement:</li>
+        <ul>
+          <li>Python 2: print "Hello"</li>
+          <li>Python 3: print("Hello") (function)</li>
+        </ul>
+      </ul>
+
+      <h3>Python 3.x (2008 – Present)</h3>
+      <ul>
+        <li>Designed to overcome the limitations of Python 2</li>
+        <li>Focused on:</li>
+        <ul>
+          <li>Long-term improvement</li>
+          <li>Code clarity and consistency</li>
+        </ul>
+        <li>Not backward compatible with Python 2</li>
+        <li>Represents a major redesign of the Python language</li>
+      </ul>
+
+      <h4>Key Improvements</h4>
+      <ul>
+        <li>Unicode support by default</li>
+        <li>Improved standard libraries</li>
+        <li>Better performance and stronger security</li>
+        <li>Suitable for modern and large-scale applications</li>
+      </ul>
+
+      <h4>Major Python 3 Versions & Enhancements</h4>
+      <ul>
+        <li>Python 3.6: Introduced f-strings for easy string formatting</li>
+        <li>Python 3.8: Introduced Walrus operator (:=) for assignment in expressions</li>
+        <li>Python 3.9: Added dictionary merge and update operators</li>
+        <li>Python 3.10: Introduced Structural Pattern Matching</li>
+        <li>Python 3.11: Major performance improvements</li>
+        <li>Python 3.12+: Cleaner internal architecture, Further speed and efficiency enhancements</li>
+      </ul>
+
+      <h4>Python 3 Present & Future</h4>
+      <ul>
+        <li>All new features are released only in Python 3</li>
+        <li>Widely used in:</li>
+        <ul>
+          <li>Web development</li>
+          <li>Data science</li>
+          <li>Artificial Intelligence</li>
+          <li>Automation and cybersecurity</li>
+        </ul>
+        <li>Considered the official and future version of Python</li>
+      </ul>
+    `
+  },
+  'applications': { 
+    title: 'Applications of Python in Various Fields',
+    html: `
+      <h2>Applications of Python in Various Fields</h2>
+      <p>Python is a high-level, easy-to-learn programming language. Because of its simplicity and powerful libraries, Python is used in many fields. One language → many uses.</p>
+
+      <img src="assets/applications of python.png" alt="Python Applications" style="max-width:100%;height:auto;border-radius:8px;margin:12px 0;" />
+
+      <div class="content-card">
+        <section>
+          <h3>1. Education & Teaching</h3>
+          <p><strong>Uses:</strong> Teaching programming, simple programs & assignments, quizzes, online learning platforms.</p>
+          <p><strong>Why:</strong> Easy syntax, less boilerplate, students focus on concepts.</p>
+        </section>
+
+        <section>
+          <h3>2. Business & Finance</h3>
+          <p><strong>Uses:</strong> Data analysis & reporting, sales/profit prediction, financial calculations, task automation.</p>
+          <p><strong>Why:</strong> Powerful libraries (NumPy, pandas), automation saves time, aids decision making.</p>
+        </section>
+
+        <section>
+          <h3>3. Healthcare & Medical</h3>
+          <p><strong>Uses:</strong> Medical data analysis, patient records, disease prediction, medical image processing.</p>
+          <p><strong>Why:</strong> Handles large data, strong ML support, used in research and diagnostics.</p>
+        </section>
+
+        <section>
+          <h3>4. Entertainment & Media</h3>
+          <p><strong>Uses:</strong> Animation & VFX, game development, audio/video processing, recommendation systems.</p>
+          <p><strong>Why:</strong> Fast development, integrates with graphics tools and pipelines.</p>
+        </section>
+
+        <section>
+          <h3>5. Banking & Government</h3>
+          <p><strong>Uses:</strong> Banking software, fraud detection, secure transactions, government portals.</p>
+          <p><strong>Why:</strong> Robust libraries, scalability, strong security practices.</p>
+        </section>
+
+        <section>
+          <h3>6. Space & Defense</h3>
+          <p><strong>Uses:</strong> Space research simulations, satellite data analysis, defense modeling, scientific calculations.</p>
+          <p><strong>Why:</strong> High accuracy, used by research organisations, supports complex computations.</p>
+        </section>
+
+        <section>
+          <h3>7. Robotics & Embedded Systems</h3>
+          <p><strong>Uses:</strong> Robot control, sensor interfacing, automation systems, IoT.</p>
+          <p><strong>Why:</strong> Simple control logic, many hardware libraries, rapid prototyping.</p>
+        </section>
+
+        <section>
+          <h3>8. Manufacturing & Industry</h3>
+          <p><strong>Uses:</strong> Machine automation, production monitoring, quality control, predictive maintenance.</p>
+          <p><strong>Why:</strong> Improves accuracy, reduces human effort, cost & time savings.</p>
+        </section>
+
+        <section>
+          <h3>9. Agriculture</h3>
+          <p><strong>Uses:</strong> Crop-yield prediction, weather analysis, smart irrigation, farm-data analytics.</p>
+          <p><strong>Why:</strong> Enables data-driven decisions, uses AI for productivity gains.</p>
+        </section>
+
+        <section>
+          <h3>10. Science & Research</h3>
+          <p><strong>Uses:</strong> Scientific experiments, data visualization, mathematical modeling, simulations.</p>
+          <p><strong>Why:</strong> Extensive research libraries, easy prototyping, academic acceptance.</p>
+        </section>
+      </div>
+    `
+  },
   'first-program': { title: 'First Python Program', bullets: ['Use print("Hello, World!")', 'Run via python file.py or REPL'] },
   'comments': { title: 'Comments', bullets: ['Single-line: #', 'Docstrings: """..."""'] },
   'indentation': { title: 'Indentation', bullets: ['Indent blocks with spaces (PEP 8: 4 spaces)', 'No braces; indentation defines scope'] },
