@@ -1,21 +1,32 @@
-// Loading Screen Animation (fixed: show only on first visit; skip on back/home)
+// Loading Screen Animation (show on normal page loads; skip on back/forward navigation)
 document.addEventListener('DOMContentLoaded', function() {
     const loadingScreen = document.getElementById('loadingScreen');
     const mainContent = document.getElementById('mainContent');
 
     if (!loadingScreen || !mainContent) return;
 
-    const splashShown = localStorage.getItem('splashShown') === 'true';
+    // Detect navigation type; if user arrived via back/forward, skip splash
+    let navType = '';
+    try {
+        const perfNav = performance.getEntriesByType && performance.getEntriesByType('navigation');
+        if (perfNav && perfNav.length) {
+            navType = perfNav[0].type;
+        } else if (performance.navigation) {
+            // fallback for older browsers
+            navType = performance.navigation.type === 2 ? 'back_forward' : 'navigate';
+        }
+    } catch (e) {
+        navType = '';
+    }
 
-    // If splash was already shown, skip it (useful when navigating Back/Home)
-    if (splashShown) {
+    if (navType === 'back_forward') {
         loadingScreen.style.display = 'none';
         mainContent.style.visibility = 'visible';
         mainContent.style.opacity = '1';
         return;
     }
 
-    // First-time load: show splash then fade out and mark shown
+    // Always show splash on fresh/normal navigation
     mainContent.style.visibility = 'hidden';
     loadingScreen.classList.remove('fade-out');
 
@@ -27,7 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
             loadingScreen.style.display = 'none';
             mainContent.style.visibility = 'visible';
             mainContent.style.opacity = '1';
-            localStorage.setItem('splashShown', 'true');
         }, 500);
     }, 3000);
 });
