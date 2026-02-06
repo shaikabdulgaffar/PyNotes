@@ -638,3 +638,64 @@ document.addEventListener('DOMContentLoaded', () => {
         track.style.animation = 'none';
     }
 });
+
+// Add visual indicators for disabled topics on home page
+document.addEventListener('DOMContentLoaded', function() {
+    // This will run after the topic availability is loaded
+    setTimeout(addTopicAvailabilityIndicators, 100);
+});
+
+function addTopicAvailabilityIndicators() {
+    const topicCards = document.querySelectorAll('.topic-card');
+    
+    topicCards.forEach(card => {
+        const topicId = card.getAttribute('data-topic');
+        
+        // Check if this topic is defined in topicAvailability (from topic.js)
+        if (typeof topicAvailability !== 'undefined' && topicAvailability[topicId] === false) {
+            // Add disabled styling
+            card.style.opacity = '0.6';
+            card.style.cursor = 'default';
+            card.style.background = 'linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%)';
+            
+            // Add lock icon
+            const title = card.querySelector('h4');
+            if (title && !title.querySelector('.lock-icon')) {
+                const lockIcon = document.createElement('i');
+                lockIcon.className = 'fas fa-lock lock-icon';
+                lockIcon.style.marginLeft = '8px';
+                lockIcon.style.color = 'var(--text-muted)';
+                lockIcon.style.fontSize = '0.8em';
+                title.appendChild(lockIcon);
+            }
+            
+            // Add "Coming Soon" text
+            if (!card.querySelector('.coming-soon-badge')) {
+                const badge = document.createElement('div');
+                badge.className = 'coming-soon-badge';
+                badge.innerHTML = '<i class="fas fa-clock"></i> Coming Soon';
+                badge.style.cssText = `
+                    position: absolute;
+                    top: 8px;
+                    right: 8px;
+                    background: var(--warning-color);
+                    color: white;
+                    padding: 2px 6px;
+                    border-radius: 4px;
+                    font-size: 0.7em;
+                    font-weight: bold;
+                    display: flex;
+                    align-items: center;
+                    gap: 4px;
+                `;
+                card.style.position = 'relative';
+                card.appendChild(badge);
+            }
+            
+            // Remove hover effects
+            card.style.transform = 'none';
+            card.onmouseover = null;
+            card.onmouseout = null;
+        }
+    });
+}

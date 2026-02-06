@@ -74,7 +74,7 @@ const unitMapping = {
   'modules-imports': 'Unit V',
   'module-random': 'Unit V',
   'module-math': 'Unit V',
-  'prev-2025': 'Previous Papers' // mapping for new topic
+  'prev-2025': 'Previous Papers'
 };
 
 const topics = {
@@ -1000,6 +1000,94 @@ Dictionary (Student Details): {'name': 'Ayaan', 'roll_no': 101, 'course': 'MCA'}
   }
 };
 
+// Topic availability control system
+const topicAvailability = {
+  // Unit I topics - all enabled
+  'intro-programming-languages': true,
+  'what-is-python': true,
+  'features-advantages': true,
+  'history-versions': true,
+  'applications': true,
+  'first-program': true,
+  'comments': true,
+  'indentation': true,
+  'keywords': true,
+  'escape-sequence': true,
+  'variables': true,
+  'basic-datatypes': true,
+  'advanced-datatypes': false,
+  
+  // Unit II - disabled (will be enabled as topics are covered in class)
+  'operators-overview': false,
+  'input-function': false,
+  'type-conversion': false,
+  'print-formatting': false,
+  'strings-basics': false,
+  'string-methods': false,
+  'string-indexing-slicing': false,
+  
+  // Unit III - disabled
+  'decision-making': false,
+  'loops': false,
+  'transfer-statements': false,
+  'functions-overview': false,
+  'function-arguments': false,
+  'variable-scope': false,
+  
+  // Unit IV - disabled
+  'lists-intro': false,
+  'lists-accessing': false,
+  'lists-methods': false,
+  'tuples-intro': false,
+  'tuples-accessing': false,
+  'tuples-methods': false,
+  
+  // Unit V - disabled
+  'sets-intro': false,
+  'sets-methods': false,
+  'dict-intro': false,
+  'dict-methods': false,
+  'modules-intro': false,
+  'modules-imports': false,
+  'module-random': false,
+  'module-math': false,
+
+  // Special sections - always enabled
+  'practice-1': true,
+  'practice-2': true,
+  'practice-3': true,
+  'practice-4': true,
+  'lab-1': true,
+  'lab-2': true,
+  'lab-3': true,
+  'lab-4': true,
+  'assignments-overview': true,
+  'prev-2025': true
+};
+
+// Function to check if topic is available
+function isTopicAvailable(topicId) {
+  return topicAvailability[topicId] !== false;
+}
+
+// Coming soon message for disabled topics
+const comingSoonMessage = {
+  title: 'Coming Soon!',
+  html: `
+    <div class="content-card">
+      <div style="text-align: center; padding: 2rem; color: var(--text-secondary);">
+        <div style="font-size: 4rem; margin-bottom: 1rem;">😄</div>
+        <h2 style="color: var(--accent-primary); margin-bottom: 1rem;">Oh Oh, at least let me explain the topic in class first, then you can read the notes.</h2>
+        <p style="font-size: 1.1rem; line-height: 1.6; max-width: 500px; margin: 0 auto;">
+          This topic will be available once we cover it in the classroom. 
+          Stay tuned and don't miss the class!
+        </p>
+      </div>
+    </div>
+  `
+};
+
+// Modified renderTopic function
 function renderTopic(id) {
   const topic = topics[id] || topics[topicOrder[0]];
   const breadcrumb = document.getElementById('topicBreadcrumb');
@@ -1017,6 +1105,14 @@ function renderTopic(id) {
     <span>${topic.title}</span>
   `;
   
+  // Check if topic is available
+  if (!isTopicAvailable(id)) {
+    content.innerHTML = comingSoonMessage.html;
+    updateNav(id);
+    return;
+  }
+  
+  // Render normal content if available
   if (topic.html) {
     content.innerHTML = `
       <div class="content-card">
@@ -1034,14 +1130,58 @@ function renderTopic(id) {
   updateNav(id);
 }
 
-function updateNav(currentId) {
-  const idx = topicOrder.indexOf(currentId);
-  const prevBtn = document.getElementById('prevTopic');
-  const nextBtn = document.getElementById('nextTopic');
-  prevBtn.disabled = idx <= 0;
-  nextBtn.disabled = idx >= topicOrder.length - 1;
-  prevBtn.onclick = () => { if (idx > 0) { const id = topicOrder[idx - 1]; localStorage.setItem('selectedTopic', id); renderTopic(id); } };
-  nextBtn.onclick = () => { if (idx < topicOrder.length - 1) { const id = topicOrder[idx + 1]; localStorage.setItem('selectedTopic', id); renderTopic(id); } };
+// Function to enable topics (for easy management)
+function enableTopics(topicIds) {
+  topicIds.forEach(id => {
+    topicAvailability[id] = true;
+  });
+  console.log(`Enabled topics: ${topicIds.join(', ')}`);
+}
+
+// Function to disable topics (for easy management)
+function disableTopics(topicIds) {
+  topicIds.forEach(id => {
+    topicAvailability[id] = false;
+  });
+  console.log(`Disabled topics: ${topicIds.join(', ')}`);
+}
+
+// Function to enable entire unit
+function enableUnit(unitNumber) {
+  const unitTopics = {
+    1: ['intro-programming-languages', 'what-is-python', 'features-advantages', 'history-versions', 'applications', 'first-program', 'comments', 'indentation', 'keywords', 'escape-sequence', 'variables', 'basic-datatypes', 'advanced-datatypes'],
+    2: ['operators-overview', 'input-function', 'type-conversion', 'print-formatting', 'strings-basics', 'string-methods', 'string-indexing-slicing'],
+    3: ['decision-making', 'loops', 'transfer-statements', 'functions-overview', 'function-arguments', 'variable-scope'],
+    4: ['lists-intro', 'lists-accessing', 'lists-methods', 'tuples-intro', 'tuples-accessing', 'tuples-methods'],
+    5: ['sets-intro', 'sets-methods', 'dict-intro', 'dict-methods', 'modules-intro', 'modules-imports', 'module-random', 'module-math']
+  };
+  
+  if (unitTopics[unitNumber]) {
+    enableTopics(unitTopics[unitNumber]);
+    console.log(`Enabled entire Unit ${unitNumber}`);
+  }
+}
+
+// Function to disable entire unit
+function disableUnit(unitNumber) {
+  const unitTopics = {
+    1: ['intro-programming-languages', 'what-is-python', 'features-advantages', 'history-versions', 'applications', 'first-program', 'comments', 'indentation', 'keywords', 'escape-sequence', 'variables', 'basic-datatypes', 'advanced-datatypes'],
+    2: ['operators-overview', 'input-function', 'type-conversion', 'print-formatting', 'strings-basics', 'string-methods', 'string-indexing-slicing'],
+    3: ['decision-making', 'loops', 'transfer-statements', 'functions-overview', 'function-arguments', 'variable-scope'],
+    4: ['lists-intro', 'lists-accessing', 'lists-methods', 'tuples-intro', 'tuples-accessing', 'tuples-methods'],
+    5: ['sets-intro', 'sets-methods', 'dict-intro', 'dict-methods', 'modules-intro', 'modules-imports', 'module-random', 'module-math']
+  };
+  
+  if (unitTopics[unitNumber]) {
+    disableTopics(unitTopics[unitNumber]);
+    console.log(`Disabled entire Unit ${unitNumber}`);
+  }
+}
+
+// Function to get status of all topics
+function getTopicStatus() {
+  console.table(topicAvailability);
+  return topicAvailability;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
