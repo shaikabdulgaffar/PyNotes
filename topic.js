@@ -41,6 +41,7 @@ const unitMapping = {
   'keywords': 'Unit I',
   'escape-sequence': 'Unit I',
   'variables': 'Unit I',
+  'datatypes': 'Unit I',
   'basic-datatypes': 'Unit I',
   'advanced-datatypes': 'Unit I',
   
@@ -646,12 +647,463 @@ for the final semester.
 """</code></pre></div>
     `
   },
-  'indentation': { title: 'Indentation', bullets: ['Indent blocks with spaces (PEP 8: 4 spaces)', 'No braces; indentation defines scope'] },
-  'keywords': { title: 'Keywords', bullets: ['Reserved words (if, else, for, while, def, class, return, True, False, None, etc.)'] },
-  'escape-sequence': { title: 'Escape Sequence', bullets: ['Common: \\n, \\t, \\\\', 'Raw strings: r"text"'] },
-  'variables': { title: 'Variables', bullets: ['Dynamic typing', 'Naming: snake_case', 'Assignment uses ='] },
-  'basic-datatypes': { title: 'Basic Data Types', bullets: ['int, float, str, complex, bool'] },
-  'advanced-datatypes': { title: 'Advanced Data Types', bullets: ['list, tuple, set, dict'] },
+  'indentation': {
+    title: 'Indentation',
+    html: `
+      <h2>What is Indentation?</h2>
+      <p>In real-world writing, we use paragraphs and bullet points to organize our thoughts. In Python, we use <strong>Indentation</strong>.</p>
+      <p><strong>Formal Definition:</strong> Indentation refers to the spaces at the beginning of a code line that define the structure and "blocks" of a program.</p>
+      <p><strong>Simple Definition:</strong> It is the "gap" or spacing you leave before a line of code to show Python which lines belong together as a group.</p>
+      <p><strong>Key Rule:</strong> In Python, indentation is mandatory. Unlike languages like C or Java that use curly brackets <code>{ }</code>, Python uses blank space to understand your code's logic.</p>
+
+      <h2>Why Does Python Use Indentation?</h2>
+      <ul>
+        <li><strong>Readability:</strong> It makes code look clean and organized, almost like reading English.</li>
+        <li><strong>No Messy Brackets:</strong> It removes the need for extra symbols like <code>{ }</code>, making the code less "noisy."</li>
+        <li><strong>Discipline:</strong> It forces every programmer to follow a neat, consistent format.</li>
+      </ul>
+
+      <h2>How to Indent Correctly</h2>
+      <p>When you start a block of code (like an <code>if</code> statement or a loop), the next line must be shifted to the right.</p>
+      <p><strong>Standard Rule:</strong> Use 4 spaces for every level of indentation.</p>
+      <p><strong>The Colon Rule:</strong> Almost every time you see a colon (<code>:</code>), the very next line must be indented.</p>
+
+      <h3>Example: Correct vs Incorrect</h3>
+      <div class="code-example"><pre><code class="language-python"># Correct (Works)
+if marks > 50:
+    print("Pass")
+
+# Incorrect (Error)
+if marks > 50:
+print("Pass")  # Python knows the print belongs to the if. Error: expected an indented block</code></pre></div>
+
+      <h2>Understanding "Code Blocks"</h2>
+      <p>A <strong>Code Block</strong> is a group of statements that run together. Python creates blocks for:</p>
+      <ul>
+        <li>Decisions: <code>if</code>, <code>else</code></li>
+        <li>Loops: <code>for</code>, <code>while</code></li>
+        <li>Functions: <code>def</code></li>
+      </ul>
+      <p><strong>Example of a block:</strong></p>
+      <div class="code-example"><pre><code class="language-python">if sales > 100000:
+    bonus = 5000         # Line 1 of block
+    print("Approved")    # Line 2 of block
+
+# This line is NOT in the block because it's not indented</code></pre></div>
+
+      <h2>Nested Indentation (Level-by-Level)</h2>
+      <p>Sometimes you have a "decision inside a decision." This is called Nested Indentation. Each new level moves further to the right.</p>
+      <div class="code-example"><pre><code class="language-python">if marks >= 50:
+    if marks >= 75:
+        print("Distinction")  # Level 2 indentation
+    else:
+        print("Pass")         # Level 2 indentation</code></pre></div>
+
+      <h2>Common Mistakes to Avoid</h2>
+      <ul>
+        <li><strong>Mixing Tabs and Spaces:</strong> Always stick to one. Prefer spaces (PEP 8: 4 spaces).</li>
+        <li><strong>Wrong Alignment:</strong> If two lines are in the same block, they must start at the exact same column.</li>
+        <li><strong>Missing Indentation:</strong> Forgetting to indent after a <code>if</code> or <code>for</code> will cause an <strong>IndentationError</strong>.</li>
+      </ul>
+    `
+  },
+  'keywords': {
+    title: 'Keywords',
+    html: `
+      <h2>What are Keywords?</h2>
+      <p>Keywords are the "reserved words" of the Python language. They have a permanent, built-in meaning that the Python interpreter already understands.</p>
+      <p><strong>Formal Definition:</strong> Reserved words with a predefined meaning that cannot be used as identifiers (names for variables or functions).</p>
+      <p><strong>Simple Definition:</strong> These are the special "command words" that form the grammar of Python.</p>
+
+      <h2>Why do we need them?</h2>
+      <p>Keywords provide structure: make decisions (<code>if</code>, <code>else</code>), repeat tasks (<code>for</code>, <code>while</code>), combine logic (<code>and</code>, <code>or</code>, <code>not</code>), define functions (<code>def</code>, <code>return</code>), and import libraries (<code>import</code>).</p>
+
+      <h2>Key Categories</h2>
+      <h3>Decision Making (Conditional)</h3>
+      <ul><li><code>if</code>, <code>elif</code>, <code>else</code></li></ul>
+
+      <h3>Loops (Repetition)</h3>
+      <ul><li><code>for</code>, <code>while</code></li></ul>
+
+      <h3>Logical & Boolean</h3>
+      <ul><li><code>and</code>, <code>or</code>, <code>not</code>, <code>True</code>, <code>False</code>, <code>None</code></li></ul>
+
+      <h3>Structure & Functions</h3>
+      <ul><li><code>def</code>, <code>return</code>, <code>import</code></li></ul>
+
+      <h2>Common Mistakes to Avoid</h2>
+      <ul>
+        <li><strong>Case-Sensitivity:</strong> Keywords are lowercase (only <code>True</code>, <code>False</code>, <code>None</code> are capitalized).</li>
+        <li><strong>Variable Name Trap:</strong> Don't use a keyword as a variable name (e.g., <code>pass = "Accepted"</code> causes an error).</li>
+      </ul>
+
+      <h2>How many keywords?</h2>
+      <p>At present there are 35 keywords (this count can change between Python versions).</p>
+
+      <img src="assets/keywords.png" alt="Python Versions Timeline" style="max-width:100%;height:auto;border-radius:8px;margin:12px 0;" />
+
+    `
+  },
+  'escape-sequence': {
+    title: 'Escape Sequences',
+    html: `
+      <h2>What is an Escape Sequence?</h2>
+      <p>An escape sequence is a special combination of characters that tells Python to "escape" from normal text processing and perform a formatting action.</p>
+      <p><strong>Formal Definition:</strong> A combination of characters starting with a backslash (<code>\\</code>) used to represent special characters or formatting inside a string.</p>
+      <p><strong>Simple Definition:</strong> Shortcodes used inside quotes to control how text looks (like adding a new line or a quote mark).</p>
+      <p><strong>The Secret Key:</strong> Every escape sequence starts with a backslash (<code>\\</code>).</p>
+
+      <h2>Why Do We Need Them?</h2>
+      <p>Certain characters confuse Python if used directly inside the same quotes (for example, a double-quote inside a double-quoted string). Escape sequences let you include those characters safely.</p>
+      <div class="code-example"><pre><code class="language-python"># Problem -> Syntax error
+print("He said, "Hello"")
+
+# Solution -> use escape sequence for inner quotes
+print("He said, \"Hello\"")</code></pre></div>
+
+      <h2>Common Escape Sequences ("Big 5")</h2>
+
+      <div class="escape-list" style="gap:12px;display:flex;flex-direction:column;">
+        <div class="escape-item">
+          <strong><code>\\n</code></strong> — New line<br>
+          <em>Example:</em> <code>"Hello\\nWorld"</code>
+        </div>
+
+        <div class="escape-item">
+          <strong><code>\\t</code></strong> — Tab space (useful for columns)<br>
+          <em>Example:</em> <code>"Name\\tAge"</code>
+        </div>
+
+        <div class="escape-item">
+          <strong><code>\\\"</code></strong> — Double quote inside a double-quoted string<br>
+          <em>Example:</em> <code>"She said \\\"Yes\\\""</code>
+        </div>
+
+        <div class="escape-item">
+          <strong><code>\\'</code></strong> — Single quote inside a single-quoted string<br>
+          <em>Example:</em> <code>'It\\'s raining'</code>
+        </div>
+
+        <div class="escape-item">
+          <strong><code>\\\\</code></strong> — Backslash character (useful in file paths)<br>
+          <em>Example:</em> <code>"C:\\\\Users\\\\PC"</code>
+        </div>
+      </div>
+
+      <h3>Advanced: Carriage Return (<code>\\r</code>)</h3>
+      <p><code>\\r</code> moves the cursor to the start of the current line; subsequent text can overwrite the existing text.</p>
+      <div class="code-example"><pre><code class="language-python">print("Hello\\rWorld")  # Output often: World</code></pre></div>
+
+      <h2>Important Rules</h2>
+      <ul>
+        <li><strong>Inside Strings Only:</strong> Escape sequences must be inside quotes (<code>" "</code> or <code>' '</code>).</li>
+        <li><strong>Backslash Direction:</strong> Use backslash (<code>\\</code>), not forward slash (<code>/</code>).</li>
+        <li><strong>Case Sensitive:</strong> <code>\\n</code> is newline; <code>\\N</code> is different or invalid.</li>
+      </ul>
+    `
+  },
+  'variables': {
+    title: 'Variables',
+    html: `
+      <h2>What is a Variable?</h2>
+      <p>A variable is a name given to a memory location where data is stored.</p>
+      <p><strong>Formal Definition:</strong> A named memory location used to store data values that can change during program execution.</p>
+      <p><strong>Simple Definition:</strong> A "labeled jar" or container to hold information (like sales figures or names).</p>
+
+      <h2>How Variables Work</h2>
+      <p>When you write <code>profit = 50000</code>:</p>
+      <ol>
+        <li>Memory is reserved for the value.</li>
+        <li>The value <code>50000</code> is stored there.</li>
+        <li>The name <code>profit</code> points to that memory location.</li>
+      </ol>
+      <p><strong>Dynamic Typing:</strong> Python infers the data type automatically (e.g., <code>100</code> → integer).</p>
+
+      <h2>Rules for Naming Variables</h2>
+      <ul>
+        <li>Must start with a letter (a–z) or underscore (<code>_</code>).</li>
+        <li>Can contain letters, numbers, and underscores.</li>
+        <li>Cannot start with a number (e.g., <code>1total</code> is invalid).</li>
+        <li>No spaces or hyphens (use underscores instead).</li>
+        <li>Cannot use a Python keyword (e.g., <code>if</code>, <code>for</code>).</li>
+        <li>Case-sensitive: <code>Age</code>, <code>age</code>, and <code>AGE</code> are different.</li>
+      </ul>
+
+      <h2>Variable Naming Conventions</h2>
+      <ul>
+        <li><strong>snake_case</strong> (recommended in Python): <code>student_total_marks</code></li>
+        <li><strong>SCREAMING_SNAKE_CASE</strong> (constants): <code>MAX_LOGIN_ATTEMPTS</code></li>
+        <li><strong>camelCase</strong> (common in JS/Java): <code>studentMarks</code></li>
+        <li><strong>PascalCase</strong> (classes): <code>StudentProfile</code></li>
+      </ul>
+
+      <h2>Variable Values Can Change</h2>
+      <div class="code-example"><pre><code class="language-python">count = 10
+count = count + 5  # count is now 15</code></pre></div>
+
+      <h2>Multiple Assignments</h2>
+      <p>Assign different values to multiple variables at once:</p>
+      <div class="code-example"><pre><code class="language-python">a, b, c = 10, 20, 30  # a=10, b=20, c=30</code></pre></div>
+      <p>Assign the same value to multiple variables:</p>
+      <div class="code-example"><pre><code class="language-python">x = y = z = 100  # all three hold 100</code></pre></div>
+
+      <h3>Quick Tips</h3>
+      <ul>
+        <li>Use descriptive names for clarity (e.g., <code>monthly_revenue</code>).</li>
+        <li>Avoid single-letter names except for counters (e.g., <code>i</code> in loops).</li>
+        <li>Follow the team's naming convention consistently.</li>
+      </ul>
+    `
+  },
+
+  'datatypes': {
+    title: 'Data Type in Python',
+    html: `
+      <h2>What is a Data Type?</h2>
+      <p>In programming, just as you wouldn't store water in a sack or rice in a bottle, you must use the correct "container" for different kinds of information. These containers are known as <strong>Data Types</strong>.</p>
+      <p><strong>Formal Definition:</strong> A data type defines the type of value a variable can hold and determines what operations (like addition or subtraction) can be performed on that value.</p>
+      <p><strong>Simple Definition:</strong> It tells Python if a piece of information is a number, a piece of text, a simple Yes/No, or a large collection of items.</p>
+
+      <h2>Why Do We Need Data Types?</h2>
+      <ul>
+        <li><strong>Preventing Mistakes:</strong> You cannot add text and numbers together (e.g., "Rahul" + 5).</li>
+        <li><strong>Guiding Operations:</strong> They tell Python whether to perform math (numbers) or join text (strings).</li>
+        <li><strong>Accuracy:</strong> Ensure business reports and calculations use correct precision.</li>
+      </ul>
+
+      <h2>Python’s Special Feature: Dynamic Typing</h2>
+      <p>In many older languages you must declare types. In Python you simply write <code>x = 10</code> and Python infers the type automatically. This is called <strong>dynamic typing</strong>.</p>
+
+      <h2>Classification of Data Types</h2>
+      <img src="assets/data-types.png" alt="Features & Advantages" style="max-width:100%;height:auto;border-radius:8px;margin:12px 0;" />
+      
+      <h3>A. Numeric Types</h3>
+      <ul>
+        <li><strong>Integer (int):</strong> Whole numbers (e.g., 100, -5).</li>
+        <li><strong>Float:</strong> Numbers with decimals (e.g., 99.99, 3.14).</li>
+        <li><strong>Complex:</strong> Complex numbers for advanced math (e.g., 3 + 5j).</li>
+      </ul>
+
+      <h3>B. Sequence Types</h3>
+      <ul>
+        <li><strong>String (str):</strong> Text in quotes (e.g., "Hello MBA").</li>
+        <li><strong>List:</strong> Mutable ordered collection (e.g., [10, 20, 30]).</li>
+        <li><strong>Tuple:</strong> Immutable ordered collection (e.g., (1, 2, 3)).</li>
+      </ul>
+
+      <h3>C. Other Important Types</h3>
+      <ul>
+        <li><strong>Boolean:</strong> Logical values <code>True</code> or <code>False</code>.</li>
+        <li><strong>Dictionary (dict):</strong> Key → value mapping (like a phonebook).</li>
+        <li><strong>Set:</strong> Unordered collection of unique items (no duplicates).</li>
+      </ul>
+
+      <h3>Quick Examples</h3>
+      <div class="code-example"><pre><code class="language-python"># Numeric
+a = 100        # int
+b = 3.14       # float
+z = 2 + 3j     # complex
+
+# Sequences
+name = "Rahul"         # str
+scores = [85, 78, 90]  # list
+coords = (10, 20)      # tuple
+
+# Others
+flag = True            # bool
+person = {"name":"Rahul","age":20}  # dict
+unique_ids = {1,2,3}                # set</code></pre></div>
+    `
+  },
+  
+  'basic-datatypes': {
+    title: 'Basic Data Types',
+    html: `
+      <h2>Basic Data Types</h2>
+      <img src="assets/datatypes-classification.png" alt="basic-datatypes" style="max-width:100%;height:auto;border-radius:8px;margin:12px 0;" />
+
+      <p>Basic Data Types are the fundamental "containers" that tell Python what kind of information a variable holds and what operations are valid.</p>
+
+      <img src="assets/basic-datatypes.png" alt="basic-datatypes" style="max-width:100%;height:auto;border-radius:8px;margin:12px 0;" />
+
+      <h3>1. Integer (int)</h3>
+      <p>Stores whole numbers (no decimal). Can be positive, negative or zero. No size limit.</p>
+      <div class="code-example"><pre><code class="language-python">age = 22
+employees = 150
+loss = -5000
+balance = 0</code></pre></div>
+      <p>Real-life examples: number of employees, units sold, daily transactions.</p>
+
+      <h3>2. Float (float)</h3>
+      <p>Stores numbers with fractional parts (decimal points).</p>
+      <div class="code-example"><pre><code class="language-python">price = 99.75
+profit_percentage = 12.5
+interest_rate = 8.25</code></pre></div>
+      <p>Note: <code>10</code> is int, <code>10.0</code> is float.</p>
+
+      <h3>3. String (str)</h3>
+      <p>Stores text enclosed in single or double quotes.</p>
+      <div class="code-example"><pre><code class="language-python">name = "Ravi"
+company = 'TCS'
+message = "Welcome to Python"</code></pre></div>
+      <p>Common use: customer names, product names, addresses. Beware: <code>"85"</code> is a string, not a number.</p>
+
+      <h3>4. Complex (complex)</h3>
+      <p>Numbers with real and imaginary parts; format <code>a + bj</code>. Mostly for scientific/engineering use.</p>
+      <div class="code-example"><pre><code class="language-python">z = 3 + 4j
+a = 2.5 + 1.8j</code></pre></div>
+      <p>Rare in business examples but included for completeness.</p>
+
+      <h3>5. Boolean (bool)</h3>
+      <p>Represents truth values: <code>True</code> or <code>False</code>. Used in conditions and logic.</p>
+      <div class="code-example"><pre><code class="language-python">is_pass = True
+is_available = False
+loan_approved = True</code></pre></div>
+      <p>Important: <code>True</code> and <code>False</code> must be capitalized.</p>
+
+      <h3>How to Check a Variable's Type</h3>
+      <div class="code-example"><pre><code class="language-python">x = 10
+print(type(x))      # &lt;class 'int'&gt;
+
+y = 10.5
+print(type(y))      # &lt;class 'float'&gt;
+
+name = "Python"
+print(type(name))   # &lt;class 'str'&gt;
+
+z = 3 + 4j
+print(type(z))      # &lt;class 'complex'&gt;
+
+flag = True
+print(type(flag))   # &lt;class 'bool'&gt;</code></pre></div>
+
+      <h3>In Short</h3>
+      <ul>
+        <li><strong>int</strong> — whole numbers</li>
+        <li><strong>float</strong> — decimal numbers</li>
+        <li><strong>str</strong> — text</li>
+        <li><strong>complex</strong> — real + imaginary numbers</li>
+        <li><strong>bool</strong> — True / False</li>
+      </ul>
+    `
+  },
+
+  'advanced-datatypes': {
+    title: 'Advanced Data Types',
+    html: `
+      <h2>Advanced Data Types in Python</h2>
+
+      <h3>Introduction</h3>
+      <p>Advanced Data Types help us store and organize multiple related values in one variable (e.g., lists of employees, product catalogs, student records).</p>
+
+      <img src="assets/datatypes-classification.png" alt="basic-datatypes" style="max-width:100%;height:auto;border-radius:8px;margin:12px 0;" />
+
+      <h3>Formal Definition</h3>
+      <p>"Advanced data types in Python are used to store collections of data and provide methods to organize, access, and manipulate multiple values efficiently."</p>
+
+      <h3>Simple Definition</h3>
+      <p>They allow us to store and manage more than one value in a single variable.</p>
+
+      <img src="assets/advanced-datatypes.png" alt="basic-datatypes" style="max-width:100%;height:auto;border-radius:8px;margin:12px 0;" />
+
+      <h3>Types</h3>
+      <ul>
+        <li>List</li>
+        <li>Tuple</li>
+        <li>Set</li>
+        <li>Dictionary</li>
+      </ul>
+
+      <h3>1. LIST (list)</h3>
+      <p>Ordered, mutable collection enclosed in square brackets <code>[]</code>. Can store mixed types.</p>
+      <div class="code-example"><pre><code class="language-python">marks = [70, 80, 90]
+employee_names = ["Ravi", "Priya", "Amit"]
+mixed_list = ["Apple", 10, 99.99, True]</code></pre></div>
+      <p>Common operations:</p>
+      <div class="code-example"><pre><code class="language-python">sales = [100, 200, 150, 300]
+print(sales[0])        # 100
+sales[1] = 250
+sales.append(400)
+sales.insert(2, 175)
+sales.remove(150)
+sales.pop(0)</code></pre></div>
+
+      <h3>2. TUPLE (tuple)</h3>
+      <p>Ordered, immutable collection enclosed in parentheses <code>()</code>. Faster and used for fixed data.</p>
+      <div class="code-example"><pre><code class="language-python">days = ("Mon", "Tue", "Wed", "Thu", "Fri")
+company_details = ("TCS", 1968, "IT")</code></pre></div>
+      <p>Tuples cannot be modified; can be concatenated to form a new tuple.</p>
+
+      <h3>3. SET (set)</h3>
+      <p>Unordered collection of unique items enclosed in curly braces <code>{}</code>. No duplicates, fast membership tests.</p>
+      <div class="code-example"><pre><code class="language-python">departments = {"HR", "IT", "Finance", "Marketing"}
+unique_ids = {101, 102, 103, 101}  # duplicates removed</code></pre></div>
+      <div class="code-example"><pre><code class="language-python">skills = {"Python", "Excel", "Statistics"}
+skills.add("Communication")
+skills.remove("Excel")
+
+set1 = {1,2,3}
+set2 = {3,4,5}
+print(set1.union(set2))        # {1,2,3,4,5}
+print(set1.intersection(set2)) # {3}
+print(set1.difference(set2))   # {1,2}</code></pre></div>
+
+      <h3>4. DICTIONARY (dict)</h3>
+      <p>Stores key → value pairs in curly braces <code>{key: value}</code>. Ordered (Python 3.7+), mutable, fast lookups by key.</p>
+      <div class="code-example"><pre><code class="language-python">employee = {
+    "name": "Ravi Sharma",
+    "age": 30,
+    "department": "Marketing",
+    "salary": 75000
+}
+
+print(employee["name"])        # Ravi Sharma
+print(employee.get("salary"))  # 75000
+employee["age"] = 31
+employee["location"] = "Mumbai"
+employee.pop("department")</code></pre></div>
+
+      <h3>Comparison - Advanced Types</h3>
+      <table>
+        <tr><th>Feature</th><th>List</th><th>Tuple</th><th>Set</th><th>Dictionary</th></tr>
+        <tr><td>Syntax</td><td>[ ]</td><td>( )</td><td>{ }</td><td>{key: value}</td></tr>
+        <tr><td>Ordered</td><td>Yes</td><td>Yes</td><td>No</td><td>Yes</td></tr>
+        <tr><td>Mutable</td><td>Yes</td><td>No</td><td>Yes</td><td>Yes</td></tr>
+        <tr><td>Indexing</td><td>Yes</td><td>Yes</td><td>No</td><td>By key</td></tr>
+        <tr><td>Duplicates</td><td>Allowed</td><td>Allowed</td><td>Not allowed</td><td>No duplicate keys</td></tr>
+      </table>
+
+      <h3>When to Use Which?</h3>
+      <ul>
+        <li>Use LIST for ordered collections you will modify (shopping cart, monthly sales).</li>
+        <li>Use TUPLE for fixed data that should not change (coordinates, config values).</li>
+        <li>Use SET when you need unique elements and set operations (unique emails, tags).</li>
+        <li>Use DICTIONARY for labeled data and fast lookups (employee records, product catalog).</li>
+      </ul>
+
+      <h3>Practical Examples</h3>
+      <div class="code-example"><pre><code class="language-python"># LIST - Employees
+employees = ["Ravi", "Priya", "Amit", "Sneha"]
+
+# TUPLE - Company details
+company = ("TCS", 1968, "Mumbai", "IT")
+
+# SET - Unique skills
+skills = {"Python", "SQL", "Excel", "Leadership"}
+
+# DICTIONARY - Employee record
+employee_record = {
+    "id": "E001",
+    "name": "Ravi Sharma",
+    "department": "Marketing",
+    "salary": 75000,
+    "skills": ["Digital Marketing", "Analytics", "Communication"]
+}</code></pre></div>
+
+      <h3>Why Advanced Types Matter</h3>
+      <p>They let you model real-world collections efficiently, perform bulk operations, ensure data integrity (sets/dicts), and structure complex information (dictionaries) used across applications and data analysis.</p>
+    `
+  },
 
   'operators-overview': { title: 'Operators', bullets: ['Arithmetic + - * / // % **', 'Assignment = += -= etc.', 'Comparison == != < <= > >=', 'Logical and or not', 'Bitwise & | ^ ~ << >>', 'Identity is is not', 'Membership in not in'] },
   'input-function': { title: 'input()', bullets: ['Reads string from stdin', 'Prompt via input("Prompt: ")'] },
@@ -1194,7 +1646,7 @@ const topicAvailability = {
   'escape-sequence': true,
   'variables': true,
   'basic-datatypes': true,
-  'advanced-datatypes': false,
+  'advanced-datatypes': true,
   
   // Unit II - disabled (will be enabled as topics are covered in class)
   'operators-overview': false,
