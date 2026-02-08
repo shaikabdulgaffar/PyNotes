@@ -112,7 +112,7 @@ const topics = {
 
 
       <h2>Generations of Programming Languages</h2>
-      <img src="assets/programming-Languages.webp" alt="Features & Advantages" style="max-width:100%;height:auto;border-radius:8px;margin:12px 0;" />
+      <img src="assets/generations.png" alt="Features & Advantages" style="max-width:100%;height:auto;border-radius:8px;margin:12px 0;" />
       <p>Programming languages evolved through generations (1GL → 5GL) to become more human-friendly, efficient, and abstract.</p>
 
       <img src="assets/programming-generations.png" alt="Features & Advantages" style="max-width:100%;height:auto;border-radius:8px;margin:12px 0;" />
