@@ -18,6 +18,7 @@ const topicOrder = [
   'intro-programming-languages',
   'what-is-python','features-advantages','history-versions','applications',
   'first-program','comments','indentation','keywords','escape-sequence','variables',
+  'datatypes',
   'basic-datatypes','advanced-datatypes',
   'operators-overview','input-function','type-conversion','print-formatting','strings-basics','string-methods','string-indexing-slicing',
   'decision-making','loops','transfer-statements','functions-overview','function-arguments','variable-scope',
@@ -35,13 +36,13 @@ const unitMapping = {
   'features-advantages': 'Unit I',
   'history-versions': 'Unit I',
   'applications': 'Unit I',
+  'installation-ide': 'Unit I',
   'first-program': 'Unit I',
   'comments': 'Unit I',
   'indentation': 'Unit I',
   'keywords': 'Unit I',
   'escape-sequence': 'Unit I',
   'variables': 'Unit I',
-  'datatypes': 'Unit I',
   'basic-datatypes': 'Unit I',
   'advanced-datatypes': 'Unit I',
   
@@ -75,6 +76,17 @@ const unitMapping = {
   'modules-imports': 'Unit V',
   'module-random': 'Unit V',
   'module-math': 'Unit V',
+
+  // Practice / Labs / Assignments / Previous Papers
+  'practice-1': 'Practice Sheets',
+  'practice-2': 'Practice Sheets',
+  'practice-3': 'Practice Sheets',
+  'practice-4': 'Practice Sheets',
+  'lab-1': 'Lab Activities',
+  'lab-2': 'Lab Activities',
+  'lab-3': 'Lab Activities',
+  'lab-4': 'Lab Activities',
+  'assignments-overview': 'Assignments',
   'prev-2025': 'Previous Papers'
 };
 
@@ -991,7 +1003,7 @@ print(type(flag))   # &lt;class 'bool'&gt;</code></pre></div>
     html: `
       <h2>Advanced Data Types in Python</h2>
 
-      <h3>Introduction</h3>
+      <h3>Introduction</h2>
       <p>Advanced Data Types help us store and organize multiple related values in one variable (e.g., lists of employees, product catalogs, student records).</p>
 
       <img src="assets/datatypes-classification.png" alt="basic-datatypes" style="max-width:100%;height:auto;border-radius:8px;margin:12px 0;" />
@@ -1626,6 +1638,21 @@ Dictionary (Student Details): {'name': 'Ayaan', 'roll_no': 101, 'course': 'MCA'}
         <img src="assets/prev-2025-page2.png" alt="Previous Paper July 2025 - Page 2" style="max-width:100%;height:auto;border:1px solid var(--border-color);border-radius:8px;" />
       </div>
     `
+  },
+
+  // NEW: Assignments overview stub so topic loads correctly
+  'assignments-overview': {
+    title: 'Assignment for Internal 1',
+    html: `
+      <h2>Assignment for Internal 1</h2>
+      <p>Detailed assignment instructions will be shared in class.</p>
+      <ul>
+        <li>Complete all Unit I practice questions.</li>
+        <li>Write at least 3 small Python programs using variables, data types, and conditions.</li>
+        <li>Submit your solutions as a single .py file or Jupyter notebook.</li>
+      </ul>
+      <p>Please follow your faculty's submission guidelines and deadline.</p>
+    `
   }
 };
 
@@ -1637,6 +1664,7 @@ const topicAvailability = {
   'features-advantages': true,
   'history-versions': true,
   'applications': true,
+  'installation-ide': true,
   'first-program': true,
   'comments': true,
   'indentation': true,
@@ -1645,6 +1673,7 @@ const topicAvailability = {
   'variables': true,
   'basic-datatypes': true,
   'advanced-datatypes': true,
+  'datatypes': true,
   
   // Unit II - disabled (will be enabled as topics are covered in class)
   'operators-overview': false,
@@ -1692,6 +1721,66 @@ const topicAvailability = {
   'lab-4': true,
   'assignments-overview': true,
   'prev-2025': true
+};
+
+// Ordered topic lists per unit (used for Prev/Next navigation)
+const unitTopicsByName = {
+  'Unit I': [
+    'intro-programming-languages',
+    'what-is-python',
+    'features-advantages',
+    'history-versions',
+    'applications',
+    'installation-ide',
+    'first-program',
+    'comments',
+    'indentation',
+    'keywords',
+    'escape-sequence',
+    'variables',
+    'datatypes',
+    'basic-datatypes',
+    'advanced-datatypes'
+  ],
+  'Unit II': [
+    'operators-overview',
+    'input-function',
+    'type-conversion',
+    'print-formatting',
+    'strings-basics',
+    'string-methods',
+    'string-indexing-slicing'
+  ],
+  'Unit III': [
+    'decision-making',
+    'loops',
+    'transfer-statements',
+    'functions-overview',
+    'function-arguments',
+    'variable-scope'
+  ],
+  'Unit IV': [
+    'lists-intro',
+    'lists-accessing',
+    'lists-methods',
+    'tuples-intro',
+    'tuples-accessing',
+    'tuples-methods'
+  ],
+  'Unit V': [
+    'sets-intro',
+    'sets-methods',
+    'dict-intro',
+    'dict-methods',
+    'modules-intro',
+    'modules-imports',
+    'module-random',
+    'module-math'
+  ],
+  'Practice Sheets': ['practice-1', 'practice-2', 'practice-3', 'practice-4'],
+  'Assignments': ['assignments-overview'],
+  'Lab Activities': ['lab-1', 'lab-2', 'lab-3', 'lab-4'],
+  'Previous Papers': ['prev-2025']
 };
 
 // Function to check if topic is available
@@ -1759,6 +1848,37 @@ function renderTopic(id) {
   updateNav(id);
 }
 
+// NEW: Prev/Next navigation updater – keeps navigation within the same unit
+function updateNav(currentId) {
+  const prevBtn = document.getElementById('prevTopic');
+  const nextBtn = document.getElementById('nextTopic');
+  if (!prevBtn || !nextBtn) return;
+
+  const unitName = unitMapping[currentId] || 'Unit I';
+  let list = unitTopicsByName[unitName];
+
+  // Fallback to global order if somehow not found
+  if (!list || !Array.isArray(list)) {
+    list = topicOrder;
+  }
+
+  // Only include topics that are defined and (optionally) available
+  const availableList = list.filter(
+    tid => topics[tid] && isTopicAvailable(tid)
+  );
+
+  const idx = availableList.indexOf(currentId);
+
+  const hasPrev = idx > 0;
+  const hasNext = idx !== -1 && idx < availableList.length - 1;
+
+  prevBtn.disabled = !hasPrev;
+  nextBtn.disabled = !hasNext;
+
+  prevBtn.dataset.targetTopic = hasPrev ? availableList[idx - 1] : '';
+  nextBtn.dataset.targetTopic = hasNext ? availableList[idx + 1] : '';
+}
+
 // Function to enable topics (for easy management)
 function enableTopics(topicIds) {
   topicIds.forEach(id => {
@@ -1778,7 +1898,7 @@ function disableTopics(topicIds) {
 // Function to enable entire unit
 function enableUnit(unitNumber) {
   const unitTopics = {
-    1: ['intro-programming-languages', 'what-is-python', 'features-advantages', 'history-versions', 'applications', 'first-program', 'comments', 'indentation', 'keywords', 'escape-sequence', 'variables', 'basic-datatypes', 'advanced-datatypes'],
+    1: ['intro-programming-languages', 'what-is-python', 'features-advantages', 'history-versions', 'applications', 'installation-ide', 'first-program', 'comments', 'indentation', 'keywords', 'escape-sequence', 'variables', 'basic-datatypes', 'advanced-datatypes', 'datatypes'],
     2: ['operators-overview', 'input-function', 'type-conversion', 'print-formatting', 'strings-basics', 'string-methods', 'string-indexing-slicing'],
     3: ['decision-making', 'loops', 'transfer-statements', 'functions-overview', 'function-arguments', 'variable-scope'],
     4: ['lists-intro', 'lists-accessing', 'lists-methods', 'tuples-intro', 'tuples-accessing', 'tuples-methods'],
@@ -1794,7 +1914,7 @@ function enableUnit(unitNumber) {
 // Function to disable entire unit
 function disableUnit(unitNumber) {
   const unitTopics = {
-    1: ['intro-programming-languages', 'what-is-python', 'features-advantages', 'history-versions', 'applications', 'first-program', 'comments', 'indentation', 'keywords', 'escape-sequence', 'variables', 'basic-datatypes', 'advanced-datatypes'],
+    1: ['intro-programming-languages', 'what-is-python', 'features-advantages', 'history-versions', 'applications', 'installation-ide', 'first-program', 'comments', 'indentation', 'keywords', 'escape-sequence', 'variables', 'basic-datatypes', 'advanced-datatypes', 'datatypes'],
     2: ['operators-overview', 'input-function', 'type-conversion', 'print-formatting', 'strings-basics', 'string-methods', 'string-indexing-slicing'],
     3: ['decision-making', 'loops', 'transfer-statements', 'functions-overview', 'function-arguments', 'variable-scope'],
     4: ['lists-intro', 'lists-accessing', 'lists-methods', 'tuples-intro', 'tuples-accessing', 'tuples-methods'],
@@ -1816,4 +1936,164 @@ function getTopicStatus() {
 document.addEventListener('DOMContentLoaded', () => {
   const selected = localStorage.getItem('selectedTopic') || topicOrder[0];
   renderTopic(selected);
+
+  const prevBtn = document.getElementById('prevTopic');
+  const nextBtn = document.getElementById('nextTopic');
+
+  prevBtn?.addEventListener('click', () => {
+    const target = prevBtn.dataset.targetTopic;
+    if (target) {
+      localStorage.setItem('selectedTopic', target);
+      renderTopic(target);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  });
+
+  nextBtn?.addEventListener('click', () => {
+    const target = nextBtn.dataset.targetTopic;
+    if (target) {
+      localStorage.setItem('selectedTopic', target);
+      renderTopic(target);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  });
+});
+
+// Smart Scroll Button Functionality (same as in script.js)
+document.addEventListener('DOMContentLoaded', function() {
+    const scrollBtn = document.getElementById('smartScrollBtn');
+    if (!scrollBtn) return;
+
+    const icon = scrollBtn.querySelector('i');
+    let isAtTop = true;
+    let isVisible = false;
+    let ticking = false;
+
+    // Throttled scroll handler for better performance
+    function handleScroll() {
+        if (!ticking) {
+            requestAnimationFrame(updateScrollButton);
+            ticking = true;
+        }
+    }
+
+    function updateScrollButton() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const windowHeight = window.innerHeight;
+        const documentHeight = Math.max(
+            document.body.scrollHeight,
+            document.body.offsetHeight,
+            document.documentElement.clientHeight,
+            document.documentElement.scrollHeight,
+            document.documentElement.offsetHeight
+        );
+
+        // Show button if not near the very top (after 200px)
+        const shouldShow = scrollTop > 200;
+        
+        // Determine if user is closer to top or bottom
+        const distanceFromTop = scrollTop;
+        const distanceFromBottom = documentHeight - (scrollTop + windowHeight);
+        const newIsAtTop = distanceFromTop < distanceFromBottom;
+
+        // Update button visibility
+        if (shouldShow !== isVisible) {
+            isVisible = shouldShow;
+            scrollBtn.classList.toggle('visible', shouldShow);
+        }
+
+        // Update button direction and tooltip
+        if (newIsAtTop !== isAtTop) {
+            isAtTop = newIsAtTop;
+            
+            if (isAtTop) {
+                // User is closer to top, show down arrow (scroll to bottom)
+                icon.className = 'fas fa-chevron-down';
+                scrollBtn.setAttribute('aria-label', 'Scroll to bottom');
+                scrollBtn.setAttribute('title', 'Go to bottom');
+                scrollBtn.classList.add('rotate-icon');
+            } else {
+                // User is closer to bottom, show up arrow (scroll to top)
+                icon.className = 'fas fa-chevron-up';
+                scrollBtn.setAttribute('aria-label', 'Scroll to top');
+                scrollBtn.setAttribute('title', 'Go to top');
+                scrollBtn.classList.remove('rotate-icon');
+            }
+        }
+
+        ticking = false;
+    }
+
+    // Smooth scroll function
+    function smoothScrollTo(target) {
+        const start = window.pageYOffset;
+        const distance = target - start;
+        const duration = Math.min(1000, Math.abs(distance) / 2); // Max 1 second
+        let startTime = null;
+
+        function animation(currentTime) {
+            if (startTime === null) startTime = currentTime;
+            const timeElapsed = currentTime - startTime;
+            const progress = Math.min(timeElapsed / duration, 1);
+
+            // Easing function (ease-in-out)
+            const ease = progress < 0.5 
+                ? 2 * progress * progress 
+                : -1 + (4 - 2 * progress) * progress;
+
+            window.scrollTo(0, start + (distance * ease));
+
+            if (timeElapsed < duration) {
+                requestAnimationFrame(animation);
+            }
+        }
+
+        requestAnimationFrame(animation);
+    }
+
+    // Click handler
+    scrollBtn.addEventListener('click', function() {
+        const documentHeight = Math.max(
+            document.body.scrollHeight,
+            document.body.offsetHeight,
+            document.documentElement.clientHeight,
+            document.documentElement.scrollHeight,
+            document.documentElement.offsetHeight
+        );
+
+        if (isAtTop) {
+            // Scroll to bottom
+            smoothScrollTo(documentHeight - window.innerHeight);
+        } else {
+            // Scroll to top
+            smoothScrollTo(0);
+        }
+
+        // Add click feedback
+        scrollBtn.style.transform = 'scale(0.9)';
+        setTimeout(() => {
+            scrollBtn.style.transform = '';
+        }, 150);
+    });
+
+    // Keyboard accessibility
+    scrollBtn.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            scrollBtn.click();
+        }
+    });
+
+    // Initialize scroll listener
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    // Initial check
+    updateScrollButton();
+
+    // Handle window resize (may affect document height)
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(updateScrollButton, 150);
+    });
 });

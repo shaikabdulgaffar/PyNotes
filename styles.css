@@ -1625,3 +1625,85 @@ img {
     height: auto;
     float: none !important;
 }
+
+/* Smart Scroll Button */
+.scroll-button {
+    position: fixed;
+    right: clamp(1rem, 3vw, 2rem);
+    bottom: clamp(1rem, 3vw, 2rem);
+    width: clamp(48px, 12vw, 56px);
+    height: clamp(48px, 12vw, 56px);
+    background: var(--accent-gradient);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: clamp(1.1rem, 3vw, 1.3rem);
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 12px var(--shadow-medium);
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.8);
+}
+
+.scroll-button.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+.scroll-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.scroll-button:active {
+    transform: scale(0.95);
+}
+
+.scroll-button i {
+    transition: transform 0.3s ease;
+}
+
+.scroll-button.rotate-icon i {
+    transform: rotate(180deg);
+}
+
+/* Dark theme scroll button visibility improvement */
+body.dark-theme .scroll-button {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-theme .scroll-button:hover {
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .scroll-button {
+        right: 1rem;
+        bottom: 5rem; /* Above footer on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .scroll-button {
+        width: 44px;
+        height: 44px;
+        font-size: 1rem;
+        bottom: 4.5rem;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .scroll-button,
+    .scroll-button i {
+        transition: opacity 0.3s ease !important;
+    }
+    
+    .scroll-button:hover {
+        transform: scale(1) !important;
+    }
+}
