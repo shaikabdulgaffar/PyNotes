@@ -457,7 +457,6 @@ const topics = {
 
       <img src="assets/applications of python.png" alt="Python Applications" style="max-width:100%;height:auto;border-radius:8px;margin:12px 0;" />
 
-      <div class="content-card">
         <section>
           <h3>1. Education & Teaching</h3>
           <p><strong>Uses:</strong> Teaching programming, simple programs & assignments, quizzes, online learning platforms.</p>
@@ -517,7 +516,6 @@ const topics = {
           <p><strong>Uses:</strong> Scientific experiments, data visualization, mathematical modeling, simulations.</p>
           <p><strong>Why:</strong> Extensive research libraries, easy prototyping, academic acceptance.</p>
         </section>
-      </div>
     `
   },
 
