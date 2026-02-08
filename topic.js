@@ -26,7 +26,11 @@ const topicOrder = [
   'tuples-intro','tuples-accessing','tuples-methods',
   'sets-intro','sets-methods','dict-intro','dict-methods',
   'modules-intro','modules-imports','module-random','module-math',
-  'prev-2025' // added Previous Paper July 2025
+  'practice-1','practice-2','practice-3','practice-4',
+  'lab-1','lab-2','lab-3','lab-4',
+  'assignments-overview',
+  'assignments-internal-1',
+  'prev-2025'
 ];
 
 // Unit mapping for breadcrumb navigation
@@ -87,6 +91,7 @@ const unitMapping = {
   'lab-3': 'Lab Activities',
   'lab-4': 'Lab Activities',
   'assignments-overview': 'Assignments',
+  'assignments-internal-1': 'Assignments',
   'prev-2025': 'Previous Papers'
 };
 
@@ -1635,14 +1640,30 @@ Dictionary (Student Details): {'name': 'Ayaan', 'roll_no': 101, 'course': 'MCA'}
   'assignments-overview': {
     title: 'Assignment for Internal 1',
     html: `
-      <h2>Assignment for Internal 1</h2>
-      <p>Detailed assignment instructions will be shared in class.</p>
-      <ul>
-        <li>Complete all Unit I practice questions.</li>
-        <li>Write at least 3 small Python programs using variables, data types, and conditions.</li>
-        <li>Submit your solutions as a single .py file or Jupyter notebook.</li>
-      </ul>
-      <p>Please follow your faculty's submission guidelines and deadline.</p>
+        <h2>Unit I</h2>
+        <ol>
+          <li>What is Python? Explain its features and advantages in detail.</li>
+          <li>Explain the history of Python and describe its applications in various fields.</li>
+          <li>Explain Comments, Indentation and Escape Sequences with examples.</li>
+          <li>Discuss Keywords and Variables in Python.</li>
+          <li>Explain the Basic and Advanced Data Types in Python.</li>
+        </ol>
+    `
+  },
+  'assignments-internal-1': {
+    title: 'Assignment: Internal 1 — Unit I',
+    html: `
+      <div class="content-card">
+        <h2>Assignment — Internal 1 (Unit I)</h2>
+        <ol>
+          <li><strong>What is Python?</strong> Explain its features and advantages in detail.</li>
+          <li><strong>Explain the history of Python</strong> and describe its applications in various fields.</li>
+          <li><strong>Explain Comments, Indentation and Escape Sequences</strong> with examples.</li>
+          <li><strong>Discuss Keywords and Variables in Python.</strong></li>
+          <li><strong>Explain the Basic and Advanced Data Types in Python.</strong></li>
+        </ol>
+        <p class="note">Submit your answers in a single document; include code examples where applicable.</p>
+      </div>
     `
   }
 };
@@ -1711,6 +1732,7 @@ const topicAvailability = {
   'lab-3': true,
   'lab-4': true,
   'assignments-overview': true,
+  'assignments-internal-1': true,
   'prev-2025': true
 };
 
