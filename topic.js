@@ -1535,12 +1535,6 @@ Python
 ABC College</code></pre></div>
     `
   },
-
-  // OPTIONAL: simple placeholders so other practice/lab links don't break
-  'practice-2': { title: 'Practice 2: Operators & I/O', html: `<h2>Practice 2</h2><p>Coming soon.</p>` },
-  'practice-3': { title: 'Practice 3: Control Flow', html: `<h2>Practice 3</h2><p>Coming soon.</p>` },
-  'practice-4': { title: 'Practice 4: Data Structures', html: `<h2>Practice 4</h2><p>Coming soon.</p>` },
-
   'lab-1': { 
     title: 'Lab 1: Key Syntax and Concepts',
     html: `
@@ -1626,9 +1620,6 @@ Set (Unique Numbers): {1, 2, 3}
 Dictionary (Student Details): {'name': 'Ayaan', 'roll_no': 101, 'course': 'MCA'}</code></pre></div>
     `
   },
-  'lab-3': { title: 'Lab 3: Modules & Packages', html: `<h2>Lab 3</h2><p>Coming soon.</p>` },
-  'lab-4': { title: 'Lab 4: Mini Project', html: `<h2>Lab 4</h2><p>Coming soon.</p>` },
-
   'prev-2025': {
     title: 'Previous Paper - July 2025',
     html: `
