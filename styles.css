@@ -1714,3 +1714,35 @@ html, body {
     touch-action: pan-x pan-y; /* disables pinch-zoom while allowing panning */
     /* keep pointer events normal; do not block scroll */
 }
+
+/* Hide native scrollbars across browsers while keeping scrolling functional */
+html, body, .main-content, .container, .topic-content-area, .unit-content, .topics-grid, .content-card {
+    /* Firefox */
+    scrollbar-width: none;
+    /* IE 10+ */
+    -ms-overflow-style: none;
+}
+
+/* WebKit (Chrome, Edge, Safari) */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+.main-content::-webkit-scrollbar,
+.container::-webkit-scrollbar,
+.topic-content-area::-webkit-scrollbar,
+.unit-content::-webkit-scrollbar,
+.topics-grid::-webkit-scrollbar,
+.content-card::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+/* Safety: apply to any scrollable element */
+* {
+    scrollbar-width: none;
+}
+*::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+}

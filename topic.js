@@ -1544,15 +1544,31 @@ ABC College</code></pre></div>
     title: 'Lab 1: Key Syntax and Concepts',
     html: `
       <h2>Lab 1: Key Syntax and Concepts</h2>
+
       <h3>Aim</h2>
       <p>To write a Python program that demonstrates basic syntax, comments, indentation, variables, escape sequences and basic data types (int, float, str, complex, bool).</p>
-
-      <h3>Program</h3>
+      <h3>Description<h3>
+      <div class="lab-description">
+        <p>
+          This program explains the fundamental structure of Python programming. It demonstrates:
+        </p>
+        <ul>
+          <li>Use of comments (<code>#</code>)</li>
+          <li>Variable declaration</li>
+          <li>Basic data types (<code>int</code>, <code>float</code>, <code>str</code>, <code>complex</code>, <code>bool</code>)</li>
+          <li>Escape sequences (<code>\\n</code>, <code>\\t</code>)</li>
+          <li>Importance of indentation in decision-making statements</li>
+        </ul>
+        <p>
+          The program stores student details in different data types and displays them using formatted output.
+        </p>
+      </div>
+      <h3>Source Code</h3>
       <div class="code-example"><pre><code># Lab Activity 1
 # This program demonstrates basic Python syntax and data types
 
 # Variable declaration
-student_name = "Ayaan"
+student_name = "Abdul"
 roll_no = 101
 percentage = 85.75
 complex_number = 3 + 4j
@@ -1572,10 +1588,10 @@ if is_pass:
 else:
     print("\\nResult: Student has FAILED")</code></pre></div>
 
-      <h3>Expected Output (Execute and check)</h3>
+      <h3>Output</h3>
       <div class="code-example"><pre><code>Student Details:
 
-Name:	 Ayaan
+Name:	 Abdul
 Roll No:	 101
 Percentage:	 85.75
 Complex Number:	 (3+4j)
@@ -1590,8 +1606,21 @@ Result: Student has PASSED</code></pre></div>
       <h2>Lab 2: Demonstration of Advanced Data Types</h2>
       <h3>Aim</h3>
       <p>To write a Python program that demonstrates advanced data types: List, Tuple, Set and Dictionary.</p>
+      <h3>Description<h3>
+      <div class="lab-description">
+        <p>
+          This program demonstrates Python’s advanced data structures:
+        </p>
+        <ul>
+          <li>List – Mutable and ordered collection</li>
+          <li>Tuple – Immutable and ordered collection</li>
+          <li>Set – Unordered collection without duplicate values</li>
+          <li>Dictionary – Key-value pair collection</li>
+        </ul>
+        <p>The program creates examples of each data type and displays them.</p>
+      </div>
 
-      <h3>Program</h3>
+      <h3>Source Code</h3>
       <div class="code-example"><pre><code># Lab Activity 2
 # Program to demonstrate advanced data types
 
@@ -1607,7 +1636,7 @@ unique_numbers = {1, 2, 3, 2, 1}
 
 # Dictionary (Key-Value pairs)
 student = {
-    "name": "Ayaan",
+    "name": "Abdul",
     "roll_no": 101,
     "course": "MCA"
 }
@@ -1618,11 +1647,11 @@ print("Tuple (Marks):", marks)
 print("Set (Unique Numbers):", unique_numbers)
 print("Dictionary (Student Details):", student)</code></pre></div>
 
-      <h3>Expected Output (Execute and check)</h3>
+      <h3>Output</h3>
       <div class="code-example"><pre><code>List (Subjects): ['Python', 'DBMS', 'Data Visualization', 'AI']
 Tuple (Marks): (85, 78, 90)
 Set (Unique Numbers): {1, 2, 3}
-Dictionary (Student Details): {'name': 'Ayaan', 'roll_no': 101, 'course': 'MCA'}</code></pre></div>
+Dictionary (Student Details): {'name': 'Abdul', 'roll_no': 101, 'course': 'MCA'}</code></pre></div>
     `
   },
   'prev-2025': {
