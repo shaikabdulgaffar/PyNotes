@@ -1654,6 +1654,156 @@ Set (Unique Numbers): {1, 2, 3}
 Dictionary (Student Details): {'name': 'Abdul', 'roll_no': 101, 'course': 'MCA'}</code></pre></div>
     `
   },
+  'lab-3': {
+    title: 'Lab 3: Demonstration of Operators & I/O',
+    html: `
+      <h2>Lab 3: Demonstration of Operators & I/O</h2>
+
+      <h3>Aim</h3>
+      <p>To write a Python program demonstrating various operators and input/output statements.</p>
+
+      <h3>Description</h3>
+      <p>This program demonstrates arithmetic, comparison, logical, bitwise, identity and membership operators along with input(), type conversion and formatted output.</p>
+
+      <h3>Source Code</h3>
+      <div class="code-example"><pre><code># Lab Activity 3
+# Demonstration of Operators and Input/Output
+
+# Taking input from user
+num1 = int(input("Enter first number: "))
+num2 = int(input("Enter second number: "))
+
+# Arithmetic Operators
+print("\\nArithmetic Operators:")
+print("Addition:", num1 + num2)
+print("Subtraction:", num1 - num2)
+print("Multiplication:", num1 * num2)
+print("Division:", num1 / num2)
+print("Modulus:", num1 % num2)
+
+# Comparison Operators
+print("\\nComparison Operators:")
+print("Equal:", num1 == num2)
+print("Not Equal:", num1 != num2)
+print("Greater than:", num1 > num2)
+
+# Logical Operators
+print("\\nLogical Operators:")
+print("Logical AND:", num1 > 0 and num2 > 0)
+print("Logical OR:", num1 > 0 or num2 > 0)
+
+# Bitwise Operators
+print("\\nBitwise Operators:")
+print("Bitwise AND:", num1 & num2)
+print("Bitwise OR:", num1 | num2)
+
+# Identity Operators
+a = num1
+b = num1
+print("\\nIdentity Operators:")
+print("a is b:", a is b)
+
+# Membership Operators
+numbers = [1, 2, 3, 4, 5]
+print("\\nMembership Operators:")
+print("Is num1 in list?", num1 in numbers)</code></pre></div>
+
+      <h3>Sample Output</h3>
+      <div class="code-example"><pre><code>Enter first number: 10
+Enter second number: 5
+
+Arithmetic Operators:
+Addition: 15
+Subtraction: 5
+Multiplication: 50
+Division: 2.0
+Modulus: 0
+
+Comparison Operators:
+Equal: False
+Not Equal: True
+Greater than: True
+
+Logical Operators:
+Logical AND: True
+Logical OR: True
+
+Bitwise Operators:
+Bitwise AND: 0
+Bitwise OR: 15
+
+Identity Operators:
+a is b: True
+
+Membership Operators:
+Is num1 in list? False</code></pre></div>
+    `
+  },
+  'lab-4': {
+    title: 'Lab 4: String Operations, Indexing, Slicing & Methods',
+    html: `
+      <h2>Lab 4: String Operations, Indexing, Slicing & Methods</h2>
+
+      <h3>Aim</h3>
+      <p>To write a Python program demonstrating string creation, indexing, slicing, built-in string methods, and formatted output.</p>
+
+      <h3>Description</h3>
+      <p>This program demonstrates:</p>
+      <ul>
+        <li>Creating strings</li>
+        <li>Taking string input</li>
+        <li>String indexing</li>
+        <li>String slicing</li>
+        <li>Built-in string methods</li>
+        <li>Output formatting</li>
+      </ul>
+
+      <h3>Source Code</h3>
+      <div class="code-example"><pre><code># Lab Activity 4
+# Demonstration of Strings in Python
+
+# Taking string input
+name = input("Enter a name: ")
+age = int(input("Enter your age: "))
+
+print("\\nOriginal String:", name)
+
+# String Indexing
+print("First Character:", name[0])
+print("Last Character:", name[-1])
+
+# String Slicing
+print("First 3 Characters:", name[0:3])
+print("Last 3 Characters:", name[-3:])
+
+# Built-in String Methods
+print("Uppercase:", name.upper())
+print("Lowercase:", name.lower())
+print("Length of String:", len(name))
+print("Is Alphanumeric:", name.isalnum())
+
+# Formatted Output
+print("\\nFormatted Output:")
+print("My name is {} and I am {} years old.".format(name, age))</code></pre></div>
+
+      <h3>Sample Output</h3>
+      <div class="code-example"><pre><code>Enter a name: Shaik Abdul Gaffar
+Enter your age: 23
+
+Original String: Shaik Abdul Gaffar
+First Character: S
+Last Character: r
+First 3 Characters: Sha
+Last 3 Characters: far
+Uppercase: SHAIK ABDUL GAFFAR
+Lowercase: shaik abdul gaffar
+Length of String: 18
+Is Alphanumeric: False
+
+Formatted Output:
+My name is Shaik Abdul Gaffar and I am 23 years old.</code></pre></div>
+    `
+  },
   'prev-2025': {
     title: 'Previous Paper - July 2025',
     html: `
