@@ -1827,6 +1827,15 @@ My name is Shaik Abdul Gaffar and I am 23 years old.</code></pre></div>
           <li>Discuss Keywords and Variables in Python.</li>
           <li>Explain the Basic and Advanced Data Types in Python.</li>
         </ol>
+
+        <h2>Unit II</h2>
+        <ol>
+          <li>Explain different types of operators in Python with suitable examples.</li>
+          <li>What is type conversion in Python? Explain Implicit & Explicit type conversion with examples.</li>
+          <li>Explain input() and print() function in python in detail.</li>
+          <li>Explain how strings are created in Python. Explain any 10 string Built-in methods.</li>
+          <li>What is a string indexing and slicing. Explain with examples.</li>
+        </ol>
     `
   },
   'assignments-internal-1': {
