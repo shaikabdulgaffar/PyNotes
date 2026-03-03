@@ -20,7 +20,7 @@ const topicOrder = [
   'first-program','comments','indentation','keywords','escape-sequence','variables',
   'datatypes',
   'basic-datatypes','advanced-datatypes',
-  'operators-overview','input-function','type-conversion','print-formatting','strings-basics','string-methods','string-indexing-slicing',
+  'operators-overview','identity-overview','input-function','type-conversion','print-formatting','output-formatting','strings-basics','string-methods','string-indexing-slicing',
   'decision-making','loops','transfer-statements','functions-overview','function-arguments','variable-scope',
   'lists-intro','lists-accessing','lists-methods',
   'tuples-intro','tuples-accessing','tuples-methods',
@@ -51,9 +51,11 @@ const unitMapping = {
   'advanced-datatypes': 'Unit I',
   
   'operators-overview': 'Unit II',
+  'identity-overview': 'Unit II',
   'input-function': 'Unit II',
   'type-conversion': 'Unit II',
   'print-formatting': 'Unit II',
+  'output-formatting': 'Unit II', 
   'strings-basics': 'Unit II',
   'string-methods': 'Unit II',
   'string-indexing-slicing': 'Unit II',
@@ -1097,7 +1099,7 @@ employee.pop("department")</code></pre></div>
       </ul>
 
       <h3>Practical Examples</h3>
-      <div class="code-example"><pre><code class="language-python"># LIST - Employees
+      <div class="code-example"><pre><code># LIST - Employees
 employees = ["Ravi", "Priya", "Amit", "Sneha"]
 
 # TUPLE - Company details
@@ -1120,10 +1122,350 @@ employee_record = {
     `
   },
 
-  'operators-overview': { title: 'Operators', bullets: ['Arithmetic + - * / // % **', 'Assignment = += -= etc.', 'Comparison == != < <= > >=', 'Logical and or not', 'Bitwise & | ^ ~ << >>', 'Identity is is not', 'Membership in not in'] },
-  'input-function': { title: 'input()', bullets: ['Reads string from stdin', 'Prompt via input("Prompt: ")'] },
-  'type-conversion': { title: 'Type Conversion', bullets: ['int(), float(), str(), bool()', 'list(), tuple(), set(), dict()'] },
-  'print-formatting': { title: 'print() & Formatting', bullets: ['print(*args, sep, end)', 'f-strings: f"{x=}"', 'format(): "{:.2f}".format(x)'] },
+  'operators-overview': { 
+    title: 'Operators',
+    html: `
+      <h2>Operators in Python</h2>
+      <p>In Python programming, operators are special symbols or keywords that are used to perform operations on values and variables.</p>
+
+      <h3>What is an Operator?</h3>
+      <p>An operator is a special symbol such as: <code>+  -  *  /  //  %  **  ==  !=  &gt;  &lt;  &gt;=  &lt;=  and  or  not  is  in  &amp;  |  ^  ~  &lt;&lt;  &gt;&gt;</code>.</p>
+      <p>These symbols tell Python to perform a specific operation.</p>
+
+      <h3>What is an Operand?</h3>
+      <p>An operand is the value or variable on which the operator acts.</p>
+
+      <h3>Example</h3>
+      <div class="code-example"><pre><code>5 + 3
+# + is the operator
+# 5 and 3 are operands
+</code></pre></div>
+
+      <p>So, operators perform operations on operands.</p>
+
+      <h3>Types of Operators in Python</h3>
+      <img src="assets/types-of-operators.png" alt="Types of operators" style="max-width:100%;height:auto;border-radius:8px;margin:12px 0;" />
+
+      <p>Python operators are categorized into several groups based on the type of operation they perform.</p>
+
+      <ol>
+        <li>
+          <strong>Arithmetic Operators</strong><br>
+          Used to perform mathematical calculations.<br>
+          <em>Examples:</em> <code>+ (Addition), - (Subtraction), * (Multiplication), / (Division), // (Floor Division), % (Modulus), ** (Exponentiation)</code>
+        </li>
+
+        <li>
+          <strong>Assignment Operators</strong><br>
+          Used to assign values to variables.<br>
+          <em>Examples:</em> <code>= (Simple assignment), +=, -=, *=, /= (Compound assignment), := (Walrus operator)</code>
+        </li>
+
+        <li>
+          <strong>Comparison Operators</strong><br>
+          Used to compare two values and determine relationships between them.<br>
+          <em>Examples:</em> <code>== (Equal to), != (Not equal to), &gt; (&gt;), &lt; (&lt;), &gt;=, &lt;=</code>
+        </li>
+
+        <li>
+          <strong>Logical Operators</strong><br>
+          Used to combine conditional expressions.<br>
+          <em>Examples:</em> <code>and, or, not</code>
+        </li>
+
+        <li>
+          <strong>Identity Operators</strong><br>
+          Used to check whether two variables refer to the same object.<br>
+          <em>Examples:</em> <code>is, is not</code>
+        </li>
+
+        <li>
+          <strong>Membership Operators</strong><br>
+          Used to check whether a value exists within a sequence.<br>
+          <em>Examples:</em> <code>in, not in</code>
+        </li>
+
+        <li>
+          <strong>Bitwise Operators</strong><br>
+          Used to perform operations at the binary (bit) level.<br>
+          <em>Examples:</em> <code>&, |, ^, ~, &lt;&lt;, &gt;&gt;</code>
+        </li>
+      </ol>
+    `
+  },
+  'input-function': {
+    title: 'input()',
+    html: `
+      <h2>input() Function in Python</h2>
+      <p>The <code>input()</code> function is used to accept user input from the keyboard. When called, the program pauses until the user types a response and presses <strong>Enter</strong>. The returned value is always a <code>str</code>.</p>
+
+      <h3>Purpose & Behaviour</h3>
+      <ul>
+        <li>Pauses program execution and waits for keyboard input.</li>
+        <li>If a prompt string is provided it is displayed before waiting for input.</li>
+        <li>Always returns the entered value as a string.</li>
+      </ul>
+
+      <h3>Syntax</h3>
+      <div class="code-example"><pre><code>variable = input(prompt)</code></pre></div>
+      <p><strong>Parameter:</strong> <code>prompt</code> (optional) — a string shown to the user.</p>
+
+      <h3>Important — input() Always Returns a String</h3>
+      <p>No matter what the user types (numbers, floats, text), <code>input()</code> returns a <code>str</code>. For example, if the user types <code>25</code>, the value received is <code>'25'</code>, not the integer <code>25</code>.</p>
+
+      <h3>Examples</h3>
+      <h4>Getting a name</h4>
+      <div class="code-example"><pre><code>name = input('What is your name? ')
+# User types: Emily
+# name -> 'Emily' (str)</code></pre></div>
+
+      <h4>Getting an age (note the type)</h4>
+      <div class="code-example"><pre><code>age = input('Enter your age: ')
+print(type(age))  # &lt;class 'str'&gt;</code></pre></div>
+
+      <h3>Type Conversion (When You Need Numbers)</h3>
+      <p>To use numeric input in arithmetic, convert the string returned by <code>input()</code> to the desired type.</p>
+      <div class="code-example"><pre><code>age = int(input('Enter your age: '))     # convert to int
+price = float(input('Enter the price: '))  # convert to float</code></pre></div>
+
+      <h4>Common conversion functions</h4>
+      <ul>
+        <li><code>int()</code> — integer</li>
+        <li><code>float()</code> — floating-point number</li>
+        <li><code>str()</code> — string</li>
+        <li><code>bool()</code> — boolean</li>
+      </ul>
+
+      <h3>Why input() Returns a String?</h3>
+      <ul>
+        <li>Safety — avoids automatic errors from invalid conversions.</li>
+        <li>Flexibility — the programmer decides how to interpret the input.</li>
+        <li>Consistency — predictable return type (<code>str</code>).</li>
+      </ul>
+
+      <h3>Golden Rule</h3>
+      <p><strong>input() → Always returns → String</strong><br>Wrap <code>input()</code> in conversion functions like <code>int()</code> or <code>float()</code> when numeric types are required.</p>
+    `
+  },
+  'type-conversion': {
+    title: 'Type Conversion',
+    html: `
+      <h2>Type Conversion in Python</h2>
+      <p><strong>Type conversion</strong> (type casting) is the process of changing a value from one data type to another. It ensures correct operations and calculations.</p>
+
+      <h3>Why Type Conversion Matters</h3>
+      <ul>
+        <li>Ensures correct operations and calculations</li>
+        <li>Prevents type-related runtime errors</li>
+        <li>Two kinds: <strong>Implicit</strong> and <strong>Explicit</strong></li>
+      </ul>
+      <img src="assets/type-conversion.png" alt="Type Conversion" style="max-width:100%;height:auto;border-radius:8px;margin:12px 0;" />
+
+      <h3>1. Implicit Conversion (Automatic)</h3>
+      <p>Python automatically converts a smaller data type to a larger one when needed to prevent data loss (e.g., int → float).</p>
+      <div class="code-example"><pre><code>// Example (conceptual)
+x = 10    # int
+y = 10.6  # float
+z = x + y  # x implicitly converted to 10.0, result 20.6 (float)
+</code></pre></div>
+
+      <h4>Important Points</h4>
+      <ul>
+        <li>Performed automatically by Python at runtime</li>
+        <li>Conversion direction: smaller type → larger type</li>
+        <li>Common: int → float (also int/float → complex)</li>
+      </ul>
+
+      <h3>2. Explicit Conversion (Type Casting)</h3>
+      <p>Programmer manually converts types using built-in functions like <code>int()</code>, <code>float()</code>, <code>str()</code>, <code>bool()</code>, etc.</p>
+
+      <h4>Common Functions</h4>
+      <ul>
+        <li><code>int(x)</code> — to integer</li>
+        <li><code>float(x)</code> — to floating point</li>
+        <li><code>str(x)</code> — to string</li>
+        <li><code>bool(x)</code> — to boolean</li>
+        <li><code>list(x), tuple(x), set(x), dict(x)</code> — to collections</li>
+        <li><code>complex(x[, y])</code> — to complex number</li>
+        <li><code>int(s, base)</code> — parse string in given base (e.g. base=2 for binary)</li>
+      </ul>
+
+      <h4>Examples</h4>
+      <div class="code-example"><pre><code># int() - truncates decimal part
+x = 5.8
+print(int(x))   # 5
+
+# int() with base (binary string)
+s = "10010"
+print(int(s, 2))  # 18
+
+# float()
+print(float(10))    # 10.0
+print(float("3.14"))# 3.14
+
+# str()
+print(str(100))     # "100"
+
+# bool()
+print(bool(0))      # False
+print(bool("hi"))   # True
+
+# complex()
+print(complex(1,2)) # (1+2j)
+</code></pre></div>
+
+      <h3>Converting Between Collections and Strings</h3>
+      <ul>
+        <li><code>tuple('geeks')</code> → ('g','e','e','k','s')</li>
+        <li><code>list('geeks')</code> → ['g','e','e','k','s']</li>
+        <li><code>set('geeks')</code> → unique chars, order not guaranteed</li>
+        <li><code>dict((('a',1),('b',2)))</code> → {'a':1,'b':2}</li>
+      </ul>
+
+      <h3>Invalid Conversions</h3>
+      <p>Some conversions raise <code>ValueError</code> (e.g., converting non-numeric string to int/float).</p>
+      <div class="code-example"><pre><code>int("hello")    # ValueError: invalid literal for int() with base 10: 'hello'
+int("3.14")      # ValueError (use float() first)
+</code></pre></div>
+
+      <h3>Quick Rules</h3>
+      <ul>
+        <li>Use explicit casting when Python does not convert automatically</li>
+        <li>Remember <code>int()</code> truncates, not rounds</li>
+        <li>When parsing strings with different bases use the <code>base</code> argument in <code>int()</code></li>
+        <li>Validate input before converting to avoid exceptions</li>
+      </ul>
+    `
+  },
+  'print-formatting': {
+    title: 'print() Function',
+    html: `
+      <h2>print() Function in Python</h2>
+      <p>The <code>print()</code> function displays output to the console, converts objects to strings, and supports formatting via parameters.</p>
+      <img src="assets/print-function.png" alt="Print Function" style="max-width:100%;height:auto;border-radius:8px;margin:12px 0;" />
+
+      <h3>Purpose and Basic Behavior</h3>
+      <ul>
+        <li>Displays output to console/terminal</li>
+        <li>Converts objects to strings automatically</li>
+        <li>Prints single or multiple values</li>
+        <li>Supports formatting through optional parameters</li>
+      </ul>
+
+      <h3>Syntax</h3>
+      <p><code>print(*objects, sep=' ', end='\\n', file=sys.stdout, flush=False)</code></p>
+
+      <h3>Parameters</h3>
+      <ul>
+        <li><strong>*objects</strong> — Values to print (required)</li>
+        <li><strong>sep</strong> — Separator between values (default: space)</li>
+        <li><strong>end</strong> — String appended after last value (default: newline)</li>
+        <li><strong>file</strong> — File-like object to write to (default: sys.stdout)</li>
+        <li><strong>flush</strong> — Whether to forcibly flush the stream (default: False)</li>
+      </ul>
+
+      <h3>Basic Printing</h3>
+      <div class="code-example"><pre><code># Printing a string
+print("Hello World")
+
+# Printing multiple values (automatic space separator)
+print("Hello", "Gaffar")
+</code></pre></div>
+
+      <h3>Printing Different Data Types</h3>
+      <div class="code-example"><pre><code>print(10)          # int
+print(5.5)         # float
+print(True)        # boolean
+print([1, 2, 3])   # list
+print(("A","B"))   # tuple
+</code></pre></div>
+
+      <h3>The <code>sep</code> Parameter</h3>
+      <p>Controls what appears between multiple values. Default is a single space.</p>
+      <div class="code-example"><pre><code>print("2026", "02", "12", sep="-")    # 2026-02-12
+print("A", "B", "C", sep=" | ")         # A | B | C
+</code></pre></div>
+
+      <h3>The <code>end</code> Parameter</h3>
+      <p>Controls what is printed at the end of the output (default is newline).</p>
+      <div class="code-example"><pre><code>print("Hello")
+print("World")                 # prints on two lines
+
+print("Hello", end=" ")
+print("World")                 # prints on same line: Hello World
+
+print("Python", end=" ---> END")  # Python ---> END
+</code></pre></div>
+
+      <h3>Combining <code>sep</code> and <code>end</code></h3>
+      <div class="code-example"><pre><code>print("Item1", "Item2", "Item3", sep=" | ", end=" <END>\\n")
+# Output: Item1 | Item2 | Item3 <END>
+</code></pre></div>
+
+      <h3>Key Points</h3>
+      <ul>
+        <li><code>print()</code> auto-converts objects to strings for display</li>
+        <li>Use <code>sep</code> to control value separators and <code>end</code> to control line endings</li>
+        <li>Use <code>file</code> to redirect output and <code>flush=True</code> to force immediate write</li>
+      </ul>
+    `
+  },
+  'output-formatting': {
+    title: 'Output Formatting',
+    html: `
+      <h2>Output Formatting in Python</h2>
+      <p>Displaying data in a clean, readable way. Common uses: reports, aligning numbers, decimal precision, combining text with variables.</p>
+
+      <h3>Methods</h3>
+      <ol>
+        <li>String Modulo Operator (%) — old method (not recommended)</li>
+        <li><code>.format()</code> method — flexible</li>
+        <li>f-Strings — modern recommended method (Python 3.6+)</li>
+      </ol>
+
+      <h3>1. Modulo Operator (%)</h3>
+      <p>Older, C-style formatting. Avoid for new code.</p>
+      <div class="code-example"><pre><code>print("Hello %s" % "Gaffar")        # Hello Gaffar
+print("Age: %d" % 23)                # Age: 23
+print("Val: %f" % 3.14)              # Val: 3.140000
+print("Price: %.2f" % 99.4567)       # Price: 99.46
+</code></pre></div>
+
+      <h3>2. <code>.format()</code> Method</h3>
+      <p>More readable and flexible than % operator.</p>
+      <div class="code-example"><pre><code>print("My name is {} and I am {} years old.".format("Gaffar", 23))
+print("My name is {0} and I am {1} years old.".format("Gaffar", 23))
+print("My name is {n} and I am {a} years old.".format(n="Gaffar", a=23))
+
+pi = 3.14159
+print("Value of pi is {:.2f}".format(pi))   # Value of pi is 3.14
+</code></pre></div>
+
+      <h3>3. f-Strings (Formatted String Literals)</h3>
+      <p>Recommended: concise, readable, supports expressions.</p>
+      <div class="code-example"><pre><code>name = "Gaffar"
+print(f"My name is {name}")                 # My name is Gaffar
+
+age = 23
+print(f"I am {age} years old.")             # I am 23 years old.
+
+pi = 3.14159
+print(f"Value of pi: {pi:.2f}")             # Value of pi: 3.14
+
+a, b = 10, 20
+print(f"Sum is {a + b}")                    # Sum is 30
+
+name = "gaffar"
+print(f"{name.upper()}")                    # GAFFAR
+</code></pre></div>
+
+      <ul>
+        <li>Prefer f-Strings for new code (readable and fast)</li>
+        <li>Use <code>.format()</code> when needing advanced formatting separation</li>
+        <li>Avoid % formatting for modern codebases</li>
+      </ul>
+    `
+  },
   'strings-basics': { title: 'Strings Basics', bullets: ['Immutable sequences of Unicode', 'Create via quotes'] },
   'string-methods': { title: 'String Methods', bullets: ['lower(), upper(), strip(), split(), join()', 'find(), replace(), startswith(), endswith()'] },
   'string-indexing-slicing': { title: 'Indexing & Slicing', bullets: ['s[i], s[a:b], s[a:b:c]', 'Negative indices supported'] },
@@ -1739,6 +2081,76 @@ Membership Operators:
 Is num1 in list? False</code></pre></div>
     `
   },
+
+  'identity-overview': {
+    title: 'Identity Operators',
+    html: `
+      <h2>Identity Operators in Python</h2>
+
+      <h3>What are identity operators?</h3>
+      <p>Identity operators check whether two variables refer to the <strong>same object in memory</strong>, not just whether their values are equal.</p>
+      <p>They compare <strong>object identity</strong> (memory address), not data content.</p>
+
+      <h3>Available identity operators</h3>
+      <ul>
+        <li><code>is</code> &rarr; <code>True</code> if both variables refer to the same object in memory.</li>
+        <li><code>is not</code> &rarr; <code>True</code> if both variables refer to different objects in memory.</li>
+      </ul>
+      <p>These are used when you care about whether two references point to exactly the same underlying object (for example with <code>None</code>, singletons, or cached objects).</p>
+
+      <h3>Difference between <code>==</code> and <code>is</code></h3>
+      <ul>
+        <li><code>==</code> &rarr; checks <strong>equality of values</strong> (same content?).</li>
+        <li><code>is</code> &rarr; checks <strong>identity</strong> (same object in memory?).</li>
+      </ul>
+      <p>Remember:</p>
+      <ul>
+        <li><code>==</code> &rarr; “Are the <strong>values</strong> equal?”</li>
+        <li><code>is</code> &rarr; “Is this the <strong>same object</strong>?”</li>
+      </ul>
+      <p>Two different objects can be <code>==</code> (same value) but <code>is</code> will be <code>False</code> because their memory locations differ.</p>
+
+      <h3>Example 1 – <code>is</code> returning True</h3>
+      <div class="code-example"><pre><code class="language-python">a = [1, 2, 3]
+b = a
+
+print(a is b)   # True
+print(a == b)   # True</code></pre></div>
+      <ul>
+        <li><code>b = a</code> does <strong>not</strong> create a new list; both refer to the same list object.</li>
+        <li>So <code>a is b</code> is <code>True</code>.</li>
+        <li>Any change via <code>a</code> is visible via <code>b</code>, because there is only one list object.</li>
+      </ul>
+
+      <h3>Example 2 – <code>is</code> vs <code>==</code> with different objects</h3>
+      <div class="code-example"><pre><code class="language-python">x = [10, 20]
+y = [10, 20]
+
+print(x is y)   # False
+print(x == y)   # True</code></pre></div>
+      <ul>
+        <li><code>x</code> and <code>y</code> are two <strong>separate</strong> list objects with the same contents.</li>
+        <li><code>x is y</code> &rarr; <code>False</code> (different objects in memory).</li>
+        <li><code>x == y</code> &rarr; <code>True</code> (values are equal).</li>
+      </ul>
+
+      <h3>Typical use cases</h3>
+      <ul>
+        <li>Checking against <code>None</code> (recommended style):
+          <div class="code-example"><pre><code class="language-python">value = None
+
+if value is None:
+    print("No value set yet")
+
+if value is not None:
+    print("Got a value")</code></pre></div>
+        </li>
+        <li>Checking singletons or unique objects where only one instance should exist.</li>
+      </ul>
+    `
+  },
+
+
   'lab-4': {
     title: 'Lab 4: String Operations, Indexing, Slicing & Methods',
     html: `
@@ -1876,13 +2288,15 @@ const topicAvailability = {
   'datatypes': true,
   
   // Unit II - disabled (will be enabled as topics are covered in class)
-  'operators-overview': false,
-  'input-function': false,
-  'type-conversion': false,
-  'print-formatting': false,
-  'strings-basics': false,
-  'string-methods': false,
-  'string-indexing-slicing': false,
+  'operators-overview': true,
+  'identity-overview': true,
+  'input-function': true,
+  'type-conversion': true,
+  'print-formatting': true,
+  'output-formatting': true, // <-- ADDED
+  'strings-basics': true,
+  'string-methods': true,
+  'string-indexing-slicing': true,
   
   // Unit III - disabled
   'decision-making': false,
@@ -1945,9 +2359,11 @@ const unitTopicsByName = {
   ],
   'Unit II': [
     'operators-overview',
+    'identity-overview',
     'input-function',
     'type-conversion',
     'print-formatting',
+    'output-formatting', // <-- ADDED
     'strings-basics',
     'string-methods',
     'string-indexing-slicing'
@@ -2100,7 +2516,7 @@ function disableTopics(topicIds) {
 function enableUnit(unitNumber) {
   const unitTopics = {
     1: ['intro-programming-languages', 'what-is-python', 'features-advantages', 'history-versions', 'applications', 'installation-ide', 'first-program', 'comments', 'indentation', 'keywords', 'escape-sequence', 'variables', 'basic-datatypes', 'advanced-datatypes', 'datatypes'],
-    2: ['operators-overview', 'input-function', 'type-conversion', 'print-formatting', 'strings-basics', 'string-methods', 'string-indexing-slicing'],
+    2: ['operators-overview', 'identity-overview', 'input-function', 'type-conversion', 'print-formatting', 'output-formatting', 'strings-basics', 'string-methods', 'string-indexing-slicing'],
     3: ['decision-making', 'loops', 'transfer-statements', 'functions-overview', 'function-arguments', 'variable-scope'],
     4: ['lists-intro', 'lists-accessing', 'lists-methods', 'tuples-intro', 'tuples-accessing', 'tuples-methods'],
     5: ['sets-intro', 'sets-methods', 'dict-intro', 'dict-methods', 'modules-intro', 'modules-imports', 'module-random', 'module-math']
@@ -2116,7 +2532,7 @@ function enableUnit(unitNumber) {
 function disableUnit(unitNumber) {
   const unitTopics = {
     1: ['intro-programming-languages', 'what-is-python', 'features-advantages', 'history-versions', 'applications', 'installation-ide', 'first-program', 'comments', 'indentation', 'keywords', 'escape-sequence', 'variables', 'basic-datatypes', 'advanced-datatypes', 'datatypes'],
-    2: ['operators-overview', 'input-function', 'type-conversion', 'print-formatting', 'strings-basics', 'string-methods', 'string-indexing-slicing'],
+    2: ['operators-overview', 'identity-overview', 'input-function', 'type-conversion', 'print-formatting', 'output-formatting', 'strings-basics', 'string-methods', 'string-indexing-slicing'],
     3: ['decision-making', 'loops', 'transfer-statements', 'functions-overview', 'function-arguments', 'variable-scope'],
     4: ['lists-intro', 'lists-accessing', 'lists-methods', 'tuples-intro', 'tuples-accessing', 'tuples-methods'],
     5: ['sets-intro', 'sets-methods', 'dict-intro', 'dict-methods', 'modules-intro', 'modules-imports', 'module-random', 'module-math']
