@@ -136,17 +136,44 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Topic Navigation (click topic -> topic.html)
+// Topic Navigation (click topic -> topic.html, except direct PDF topics)
 document.addEventListener('DOMContentLoaded', function() {
     const topicCards = document.querySelectorAll('.topic-card');
+
+    // Direct-open topics (new tab)
+    const directPdfTopics = {
+        'class-ppt-unit-1': 'assets/unit-1-ppt.pdf',
+        'class-ppt-unit-2': 'assets/unit-2-ppt.pdf'
+    };
 
     topicCards.forEach(card => {
         card.addEventListener('click', () => {
             const id = card.getAttribute('data-topic');
-            if (id) {
-                localStorage.setItem('selectedTopic', id);
-                window.location.href = 'topic.html';
+            if (!id) return;
+
+            // Open specific Class PPT topics directly as PDF in new tab
+            if (directPdfTopics[id]) {
+                const pdfPath = directPdfTopics[id];
+
+                // Optional: pre-check file exists to avoid blank tab/404
+                fetch(pdfPath, { method: 'HEAD' })
+                    .then(res => {
+                        if (res.ok) {
+                            window.open(pdfPath, '_blank', 'noopener,noreferrer');
+                        } else {
+                            alert('PDF not added yet for this unit.');
+                        }
+                    })
+                    .catch(() => {
+                        alert('PDF not added yet for this unit.');
+                    });
+
+                return;
             }
+
+            // Default flow for all other topics
+            localStorage.setItem('selectedTopic', id);
+            window.location.href = 'topic.html';
         });
 
         card.addEventListener('keypress', (e) => {

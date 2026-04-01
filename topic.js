@@ -43,7 +43,7 @@ const topicOrder = [
   'tuples-intro','tuples-accessing','tuples-methods',
   'sets-intro','sets-methods','dict-intro','dict-methods',
   'modules-intro','modules-imports','module-random','module-math',
-  'practice-1',
+  'class-ppt-unit-1','class-ppt-unit-2',
   'lab-1','lab-2','lab-3','lab-4',
   'assignments-overview',
   'prev-2025'
@@ -106,8 +106,9 @@ const unitMapping = {
   'module-random': 'Unit V',
   'module-math': 'Unit V',
 
-  // Practice / Labs / Assignments / Previous Papers
-  'practice-1': 'Practice Sheets',
+  // Class PPT / Labs / Assignments / Previous Papers
+  'class-ppt-unit-1': 'Class PPT',
+  'class-ppt-unit-2': 'Class PPT',
   'lab-1': 'Lab Activities',
   'lab-2': 'Lab Activities',
   'lab-3': 'Lab Activities',
@@ -2814,6 +2815,43 @@ print(s[-4:-1])  # Output: THO
   'modules-imports': { title: 'Import Patterns', bullets: ['import pkg', 'from pkg import name', 'import pkg as alias'] },
   'module-random': { title: 'Random Module', bullets: ['random(), randint(), choice(), shuffle(), sample()'] },
   'module-math': { title: 'Math Module', bullets: ['sqrt(), floor(), ceil(), pow(), pi, e'] },
+  'class-ppt-unit-1': {
+    title: 'Class PPT - Unit 1',
+    html: `
+      <h2>Class PPT - Unit 1</h2>
+      <p>This section displays the Unit 1 classroom PPT from your <code>assets</code> folder.</p>
+      <p>Keep your PDF at <code>assets/unit-1-ppt.pdf</code> and it will be shown below inside the app.</p>
+
+      <div class="pdf-actions">
+        <a class="pdf-link-btn" href="assets/unit-1-ppt.pdf" target="_blank" rel="noopener noreferrer">
+          <i class="fa-solid fa-up-right-from-square"></i>
+          Open PDF in New Tab
+        </a>
+      </div>
+
+      <div class="pdf-viewer-card">
+        <iframe
+          class="pdf-viewer-frame"
+          src="assets/unit-1-ppt.pdf#toolbar=1&navpanes=0&scrollbar=1"
+          title="Unit 1 PPT PDF Viewer"
+          loading="lazy">
+        </iframe>
+      </div>
+    `
+  },
+  'class-ppt-unit-2': {
+    title: 'Class PPT - Unit 2',
+    html: `
+      <h2>Class PPT - Unit 2</h2>
+      <p>Unit 2 PPT card has been added.</p>
+      <p>When you are ready, place the PDF in <code>assets/unit-2-ppt.pdf</code> and we can show it here the same way as Unit 1.</p>
+
+      <div class="pdf-placeholder">
+        <i class="fa-solid fa-file-powerpoint"></i>
+        <p>Unit 2 PDF not added yet.</p>
+      </div>
+    `
+  },
 
   // NEW: Practice Sheets – Practice 1 (Basics)
   'practice-1': {
@@ -3566,6 +3604,8 @@ const topicAvailability = {
   'module-math': false,
 
   // Special sections - always enabled
+  'class-ppt-unit-1': true,
+  'class-ppt-unit-2': true,
   'practice-1': true,
   'lab-1': true,
   'lab-2': true,
@@ -3637,6 +3677,7 @@ const unitTopicsByName = {
     'module-random',
     'module-math'
   ],
+  'Class PPT': ['class-ppt-unit-1', 'class-ppt-unit-2'],
   'Practice Sheets': ['practice-1'],
   'Assignments': ['assignments-overview'],
   'Lab Activities': ['lab-1', 'lab-2', 'lab-3', 'lab-4'],
