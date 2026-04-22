@@ -143,7 +143,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Direct-open topics (new tab)
     const directPdfTopics = {
         'class-ppt-unit-1': 'assets/unit-1-ppt.pdf',
-        'class-ppt-unit-2': 'assets/unit-2-ppt.pdf'
+        'class-ppt-unit-2': 'assets/unit-2-ppt.pdf',
+        'class-ppt-unit-3': 'assets/unit-3-ppt.pdf'
     };
 
     topicCards.forEach(card => {
