@@ -44,7 +44,7 @@ const topicOrder = [
   'sets-intro','sets-methods','dict-intro','dict-methods',
   'modules-intro','modules-imports','module-random','module-math',
   'class-ppt-unit-1','class-ppt-unit-2',
-  'lab-1','lab-2','lab-3','lab-4',
+  'lab-1','lab-2','lab-3','lab-4','lab-5','lab-6',
   'assignments-overview',
   'prev-2025'
 ];
@@ -113,6 +113,8 @@ const unitMapping = {
   'lab-2': 'Lab Activities',
   'lab-3': 'Lab Activities',
   'lab-4': 'Lab Activities',
+  'lab-5': 'Lab Activities',
+  'lab-6': 'Lab Activities',
   'assignments-overview': 'Assignments',
   'prev-2025': 'Previous Papers'
 };
@@ -3441,7 +3443,7 @@ Is num1 in list? False</code></pre></div>
   },
 
   'lab-4': {
-    title: 'Lab 4: String Operations, Indexing, Slicing & Methods',
+    title: 'Lab 4: String Operations, Indexing & Slicing',
     html: `
       <h2>Lab 4: String Operations, Indexing, Slicing & Methods</h2>
 
@@ -3503,6 +3505,178 @@ Is Alphanumeric: False
 
 Formatted Output:
 My name is Shaik Abdul Gaffar and I am 23 years old.</code></pre></div>
+    `
+  },
+  'lab-5': {
+    title: 'Lab 5: Decision-Making Statements in Python',
+    html: `
+      <h2>Lab 5: Decision-Making Statements in Python</h2>
+
+      <h3>Aim</h3>
+      <p>To understand and implement decision-making statements in Python using:</p>
+      <ul>
+        <li><code>if</code></li>
+        <li><code>if-else</code></li>
+        <li><code>if-elif-else</code></li>
+        <li>Nested if statements</li>
+      </ul>
+
+      <h3>Description</h3>
+      <p>Decision-making statements allow a program to make choices based on conditions. These conditions evaluate to either True or False, and based on that, different blocks of code are executed.</p>
+      <p>In this lab, students will:</p>
+      <ul>
+        <li>Learn how conditions work</li>
+        <li>Write programs using different types of decision statements</li>
+        <li>Understand real-time scenarios using logic</li>
+      </ul>
+
+      <h3>1. Program using if statement</h3>
+      <p><strong>Problem:</strong> Check whether a number is positive.</p>
+      <h4>Source Code:</h4>
+      <div class="code-example"><pre><code>num = int(input("Enter a number: "))
+
+if num > 0:
+    print("The number is positive")</code></pre></div>
+      <h4>Output:</h4>
+      <div class="code-example"><pre><code>Enter a number: 5
+The number is positive</code></pre></div>
+
+      <h3>2. Program using if-else statement</h3>
+      <p><strong>Problem:</strong> Check whether a number is even or odd.</p>
+      <h4>Source Code:</h4>
+      <div class="code-example"><pre><code>num = int(input("Enter a number: "))
+
+if num % 2 == 0:
+    print("Even number")
+else:
+    print("Odd number")</code></pre></div>
+      <h4>Output:</h4>
+      <div class="code-example"><pre><code>Enter a number: 7
+Odd number</code></pre></div>
+
+      <h3>3. Program using if-elif-else statement</h3>
+      <p><strong>Problem:</strong> Find the grade of a student based on marks.</p>
+      <h4>Source Code:</h4>
+      <div class="code-example"><pre><code>marks = int(input("Enter your marks: "))
+
+if marks >= 90:
+    print("Grade A")
+elif marks >= 75:
+    print("Grade B")
+elif marks >= 50:
+    print("Grade C")
+else:
+    print("Fail")</code></pre></div>
+      <h4>Output:</h4>
+      <div class="code-example"><pre><code>Enter your marks: 82
+Grade B</code></pre></div>
+
+      <h3>4. Program using Nested if statement</h3>
+      <p><strong>Problem:</strong> Check whether a number is positive and even.</p>
+      <h4>Source Code:</h4>
+      <div class="code-example"><pre><code>num = int(input("Enter a number: "))
+
+if num > 0:
+    if num % 2 == 0:
+        print("Positive Even number")
+    else:
+        print("Positive Odd number")
+else:
+    print("Number is not positive")</code></pre></div>
+      <h4>Output:</h4>
+      <div class="code-example"><pre><code>Enter a number: 6
+Positive Even number</code></pre></div>
+    `
+  },
+  'lab-6': {
+    title: 'Lab 6: Looping & Transfer Statements in Python',
+    html: `
+      <h2>Lab 6: Looping & Transfer Statements in Python</h2>
+
+      <h3>Aim</h3>
+      <p>To understand and implement:</p>
+      <ul>
+        <li>Looping statements: <code>for</code>, <code>while</code></li>
+        <li>Transfer statements: <code>break</code>, <code>continue</code>, <code>pass</code></li>
+      </ul>
+
+      <h3>Description</h3>
+      <p>Loops are used to execute a block of code repeatedly based on a condition. Python provides two main looping constructs:</p>
+      <ul>
+        <li><code>for</code> loop → used when the number of iterations is known</li>
+        <li><code>while</code> loop → used when the condition decides repetition</li>
+      </ul>
+      <p>Transfer statements control the flow of loops:</p>
+      <ul>
+        <li><code>break</code> → exits the loop immediately</li>
+        <li><code>continue</code> → skips the current iteration</li>
+        <li><code>pass</code> → does nothing (placeholder)</li>
+      </ul>
+
+      <h3>1. Program using for loop</h3>
+      <p><strong>Problem:</strong> Print numbers from 1 to 5.</p>
+      <h4>Source Code:</h4>
+      <div class="code-example"><pre><code>for i in range(1, 6):
+    print(i)</code></pre></div>
+      <h4>Output:</h4>
+      <div class="code-example"><pre><code>1
+2
+3
+4
+5</code></pre></div>
+
+      <h3>2. Program using while loop</h3>
+      <p><strong>Problem:</strong> Print numbers from 1 to 5 using while loop.</p>
+      <h4>Source Code:</h4>
+      <div class="code-example"><pre><code>i = 1
+
+while i <= 5:
+    print(i)
+    i += 1</code></pre></div>
+      <h4>Output:</h4>
+      <div class="code-example"><pre><code>1
+2
+3
+4
+5</code></pre></div>
+
+      <h3>3. Program using break statement</h3>
+      <p><strong>Problem:</strong> Stop printing numbers when the number becomes 3.</p>
+      <h4>Source Code:</h4>
+      <div class="code-example"><pre><code>for i in range(1, 6):
+    if i == 3:
+        break
+    print(i)</code></pre></div>
+      <h4>Output:</h4>
+      <div class="code-example"><pre><code>1
+2</code></pre></div>
+
+      <h3>4. Program using continue statement</h3>
+      <p><strong>Problem:</strong> Skip printing number 3.</p>
+      <h4>Source Code:</h4>
+      <div class="code-example"><pre><code>for i in range(1, 6):
+    if i == 3:
+        continue
+    print(i)</code></pre></div>
+      <h4>Output:</h4>
+      <div class="code-example"><pre><code>1
+2
+4
+5</code></pre></div>
+
+      <h3>5. Program using pass statement</h3>
+      <p><strong>Problem:</strong> Demonstrate use of pass inside a loop.</p>
+      <h4>Source Code:</h4>
+      <div class="code-example"><pre><code>for i in range(1, 6):
+    if i == 3:
+        pass
+    print(i)</code></pre></div>
+      <h4>Output:</h4>
+      <div class="code-example"><pre><code>1
+2
+3
+4
+5</code></pre></div>
     `
   },
   'prev-2025': {
@@ -3611,6 +3785,8 @@ const topicAvailability = {
   'lab-2': true,
   'lab-3': true,
   'lab-4': true,
+  'lab-5': true,
+  'lab-6': true,
   'assignments-overview': true,
   'prev-2025': true
 };
@@ -3680,7 +3856,7 @@ const unitTopicsByName = {
   'Class PPT': ['class-ppt-unit-1', 'class-ppt-unit-2'],
   'Practice Sheets': ['practice-1'],
   'Assignments': ['assignments-overview'],
-  'Lab Activities': ['lab-1', 'lab-2', 'lab-3', 'lab-4'],
+  'Lab Activities': ['lab-1', 'lab-2', 'lab-3', 'lab-4', 'lab-5', 'lab-6'],
   'Previous Papers': ['prev-2025']
 };
 
