@@ -44,7 +44,7 @@ const topicOrder = [
   'sets-intro','sets-methods','dict-intro','dict-methods',
   'modules-intro','modules-imports','module-random','module-math',
   'class-ppt-unit-1','class-ppt-unit-2',
-  'lab-1','lab-2','lab-3','lab-4','lab-5','lab-6',
+  'lab-1','lab-2','lab-3','lab-4','lab-5','lab-6','lab-7',
   'assignments-overview',
   'prev-2025'
 ];
@@ -115,6 +115,7 @@ const unitMapping = {
   'lab-4': 'Lab Activities',
   'lab-5': 'Lab Activities',
   'lab-6': 'Lab Activities',
+  'lab-7': 'Lab Activities',
   'assignments-overview': 'Assignments',
   'prev-2025': 'Previous Papers'
 };
@@ -3679,6 +3680,107 @@ while i <= 5:
 5</code></pre></div>
     `
   },
+  'lab-7': {
+    title: 'Lab 7: Functions in Python',
+    html: `
+      <h2>Lab 7: Functions in Python</h2>
+
+      <h3>Aim</h3>
+      <p>To understand and implement:</p>
+      <ul>
+        <li>Defining and calling functions</li>
+        <li>Types of arguments:
+          <ul>
+            <li>Positional Arguments</li>
+            <li>Keyword Arguments</li>
+            <li>Default Arguments</li>
+            <li>Variable Length Arguments</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>Description</h3>
+      <p>A function is a reusable block of code that performs a specific task. Functions help in:</p>
+      <ul>
+        <li>Reducing code repetition</li>
+        <li>Improving readability</li>
+        <li>Making programs modular</li>
+      </ul>
+      <p>In Python, functions are defined using the <code>def</code> keyword and can accept different types of arguments for flexibility.</p>
+
+      <h3>1. Defining and Calling a Function</h3>
+      <p><strong>Problem:</strong> Create a function to display a welcome message.</p>
+      <h4>Source Code:</h4>
+      <div class="code-example"><pre><code>def welcome():
+    print("Welcome to Python Lab!")
+
+welcome()</code></pre></div>
+      <h4>Output:</h4>
+      <div class="code-example"><pre><code>Welcome to Python Lab!</code></pre></div>
+
+      <h3>2. Function with Positional Arguments</h3>
+      <p><strong>Problem:</strong> Add two numbers using positional arguments.</p>
+      <h4>Source Code:</h4>
+      <div class="code-example"><pre><code>def add(a, b):
+    print("Sum:", a + b)
+
+add(5, 3)</code></pre></div>
+      <h4>Output:</h4>
+      <div class="code-example"><pre><code>Sum: 8</code></pre></div>
+
+      <h3>3. Function with Keyword Arguments</h3>
+      <p><strong>Problem:</strong> Display student details using keyword arguments.</p>
+      <h4>Source Code:</h4>
+      <div class="code-example"><pre><code>def student(name, age):
+    print("Name:", name)
+    print("Age:", age)
+
+student(age=20, name="Rahul")</code></pre></div>
+      <h4>Output:</h4>
+      <div class="code-example"><pre><code>Name: Rahul
+Age: 20</code></pre></div>
+
+      <h3>4. Function with Default Arguments</h3>
+      <p><strong>Problem:</strong> Create a function with a default country name.</p>
+      <h4>Source Code:</h4>
+      <div class="code-example"><pre><code>def greet(name, country="India"):
+    print("Hello", name, "from", country)
+
+greet("Aman")
+greet("John", "USA")</code></pre></div>
+      <h4>Output:</h4>
+      <div class="code-example"><pre><code>Hello Aman from India
+Hello John from USA</code></pre></div>
+
+      <h3>5. Function with Variable Length Arguments (*args)</h3>
+      <p><strong>Problem:</strong> Find the sum of multiple numbers.</p>
+      <h4>Source Code:</h4>
+      <div class="code-example"><pre><code>def total_sum(*numbers):
+    total = 0
+    for num in numbers:
+        total += num
+    print("Total:", total)
+
+total_sum(1, 2, 3)
+total_sum(5, 10, 15, 20)</code></pre></div>
+      <h4>Output:</h4>
+      <div class="code-example"><pre><code>Total: 6
+Total: 50</code></pre></div>
+
+      <h3>6. Function with Variable Length Keyword Arguments (**kwargs)</h3>
+      <p><strong>Problem:</strong> Display multiple details using keyword arguments.</p>
+      <h4>Source Code:</h4>
+      <div class="code-example"><pre><code>def details(**info):
+    for key, value in info.items():
+        print(key, ":", value)
+
+details(name="Abhi", age=22, course="MCA")</code></pre></div>
+      <h4>Output:</h4>
+      <div class="code-example"><pre><code>name : Abhi
+age : 22
+course : MCA</code></pre></div>
+    `
+  },
   'prev-2025': {
     title: 'Previous Paper - July 2025',
     html: `
@@ -3787,6 +3889,7 @@ const topicAvailability = {
   'lab-4': true,
   'lab-5': true,
   'lab-6': true,
+  'lab-7': true,
   'assignments-overview': true,
   'prev-2025': true
 };
@@ -3856,7 +3959,7 @@ const unitTopicsByName = {
   'Class PPT': ['class-ppt-unit-1', 'class-ppt-unit-2'],
   'Practice Sheets': ['practice-1'],
   'Assignments': ['assignments-overview'],
-  'Lab Activities': ['lab-1', 'lab-2', 'lab-3', 'lab-4', 'lab-5', 'lab-6'],
+  'Lab Activities': ['lab-1', 'lab-2', 'lab-3', 'lab-4', 'lab-5', 'lab-6', 'lab-7'],
   'Previous Papers': ['prev-2025']
 };
 
