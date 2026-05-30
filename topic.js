@@ -44,8 +44,9 @@ const topicOrder = [
   'sets-intro','sets-methods','dict-intro','dict-methods',
   'modules-intro','modules-imports','module-random','module-math',
   'class-ppt-unit-1','class-ppt-unit-2',
-  'lab-1','lab-2','lab-3','lab-4','lab-5','lab-6','lab-7',
+  'lab-1','lab-2','lab-3','lab-4','lab-5','lab-6','lab-7','lab-8','lab-9',
   'assignments-overview',
+  'assignments-internal-2',
   'prev-2025'
 ];
 
@@ -116,7 +117,10 @@ const unitMapping = {
   'lab-5': 'Lab Activities',
   'lab-6': 'Lab Activities',
   'lab-7': 'Lab Activities',
+  'lab-8': 'Lab Activities',
+  'lab-9': 'Lab Activities',
   'assignments-overview': 'Assignments',
+  'assignments-internal-2': 'Assignments',
   'prev-2025': 'Previous Papers'
 };
 
@@ -3781,6 +3785,148 @@ age : 22
 course : MCA</code></pre></div>
     `
   },
+      'lab-8': {
+        title: 'Lab 8: Lists in Python',
+        html: `
+      <h2>Lab Activity: Lists in Python</h2>
+
+      <h3>Aim</h3>
+      <p>To understand the creation and manipulation of lists in Python using various built-in functions and methods.</p>
+
+      <h3>Description</h3>
+      <p>A list is an ordered, mutable collection of items. Lists can store multiple values and support operations such as adding, removing, sorting, and counting elements.</p>
+
+      <h3>1. Create a List of Five Subjects and Display All Elements</h3>
+      <h4>Source Code</h4>
+      <div class="code-example"><pre><code>subjects = ["English", "Mathematics", "Physics", "Chemistry", "Computer Science"]
+
+    print("Subjects:", subjects)</code></pre></div>
+      <h4>Output</h4>
+      <div class="code-example"><pre><code>Subjects: ['English', 'Mathematics', 'Physics', 'Chemistry', 'Computer Science']</code></pre></div>
+
+      <h3>2. Find the Largest and Smallest Number in a List</h3>
+      <h4>Source Code</h4>
+      <div class="code-example"><pre><code>numbers = [45, 12, 89, 23, 67]
+
+    print("Largest Number:", max(numbers))
+    print("Smallest Number:", min(numbers))</code></pre></div>
+      <h4>Output</h4>
+      <div class="code-example"><pre><code>Largest Number: 89
+    Smallest Number: 12</code></pre></div>
+
+      <h3>3. Add a New Item to a List Using append()</h3>
+      <h4>Source Code</h4>
+      <div class="code-example"><pre><code>fruits = ["Apple", "Banana", "Mango"]
+
+    fruits.append("Orange")
+
+    print(fruits)</code></pre></div>
+      <h4>Output</h4>
+      <div class="code-example"><pre><code>['Apple', 'Banana', 'Mango', 'Orange']</code></pre></div>
+
+      <h3>4. Remove an Element from a List Using remove()</h3>
+      <h4>Source Code</h4>
+      <div class="code-example"><pre><code>colors = ["Red", "Blue", "Green"]
+
+    colors.remove("Blue")
+
+    print(colors)</code></pre></div>
+      <h4>Output</h4>
+      <div class="code-example"><pre><code>['Red', 'Green']</code></pre></div>
+
+      <h3>5. Sort a List of Numbers in Ascending Order</h3>
+      <h4>Source Code</h4>
+      <div class="code-example"><pre><code>numbers = [50, 10, 40, 20, 30]
+
+    numbers.sort()
+
+    print(numbers)</code></pre></div>
+      <h4>Output</h4>
+      <div class="code-example"><pre><code>[10, 20, 30, 40, 50]</code></pre></div>
+
+      <h3>6. Count the Number of Occurrences of an Item in a List</h3>
+      <h4>Source Code</h4>
+      <div class="code-example"><pre><code>items = [1, 2, 3, 2, 4, 2, 5]
+
+    count = items.count(2)
+
+    print("Occurrences of 2:", count)</code></pre></div>
+      <h4>Output</h4>
+      <div class="code-example"><pre><code>Occurrences of 2: 3</code></pre></div>
+        `
+      },
+      'lab-9': {
+        title: 'Lab 9: Tuples in Python',
+        html: `
+      <h2>Lab Activity: Tuples in Python</h2>
+
+      <h3>Aim</h3>
+      <p>To understand the creation and manipulation of tuples in Python using built-in functions and methods.</p>
+
+      <h3>Description</h3>
+      <p>A tuple is an ordered and immutable collection of items. Tuples can store multiple values and support operations such as accessing elements, finding length, counting occurrences, and locating items.</p>
+
+      <h3>1. Create a Tuple and Display All Elements</h3>
+      <h4>Source Code</h4>
+      <div class="code-example"><pre><code>subjects = ("English", "Mathematics", "Physics", "Chemistry", "Computer Science")
+
+    print("Subjects:", subjects)</code></pre></div>
+      <h4>Output</h4>
+      <div class="code-example"><pre><code>Subjects: ('English', 'Mathematics', 'Physics', 'Chemistry', 'Computer Science')</code></pre></div>
+
+      <h3>2. Demonstrate Tuple Characteristics</h3>
+      <h4>Source Code</h4>
+      <div class="code-example"><pre><code>data = (10, "Python", 3.14, True, 10)
+
+    print(data)</code></pre></div>
+      <h4>Output</h4>
+      <div class="code-example"><pre><code>(10, 'Python', 3.14, True, 10)</code></pre></div>
+
+      <h3>3. Access Tuple Items</h3>
+      <h4>Source Code</h4>
+      <div class="code-example"><pre><code>fruits = ("Apple", "Banana", "Mango", "Orange")
+
+    print("First Fruit:", fruits[0])
+    print("Last Fruit:", fruits[-1])</code></pre></div>
+      <h4>Output</h4>
+      <div class="code-example"><pre><code>First Fruit: Apple
+    Last Fruit: Orange</code></pre></div>
+
+      <h3>4. Find the Length of a Tuple</h3>
+      <h4>Source Code</h4>
+      <div class="code-example"><pre><code>numbers = (10, 20, 30, 40, 50)
+
+    print("Length:", len(numbers))</code></pre></div>
+      <h4>Output</h4>
+      <div class="code-example"><pre><code>Length: 5</code></pre></div>
+
+      <h3>5. Count the Number of Occurrences of an Item</h3>
+      <h4>Source Code</h4>
+      <div class="code-example"><pre><code>items = (1, 2, 3, 2, 4, 2, 5)
+
+    print("Occurrences of 2:", items.count(2))</code></pre></div>
+      <h4>Output</h4>
+      <div class="code-example"><pre><code>Occurrences of 2: 3</code></pre></div>
+
+      <h3>6. Find the Index of an Item</h3>
+      <h4>Source Code</h4>
+      <div class="code-example"><pre><code>colors = ("Red", "Blue", "Green", "Yellow")
+
+    print("Index of Green:", colors.index("Green"))</code></pre></div>
+      <h4>Output</h4>
+      <div class="code-example"><pre><code>Index of Green: 2</code></pre></div>
+
+      <h3>7. Find the Largest and Smallest Number in a Tuple</h3>
+      <h4>Source Code</h4>
+      <div class="code-example"><pre><code>numbers = (45, 12, 89, 23, 67)
+
+    print("Largest Number:", max(numbers))
+    print("Smallest Number:", min(numbers))</code></pre></div>
+      <h4>Output</h4>
+      <div class="code-example"><pre><code>Largest Number: 89
+    Smallest Number: 12</code></pre></div>
+        `
+      },
   'prev-2025': {
     title: 'Previous Paper - July 2025',
     html: `
@@ -3812,6 +3958,32 @@ course : MCA</code></pre></div>
           <li>Explain input() and print() function in python in detail.</li>
           <li>Explain how strings are created in Python. Explain any 10 string Built-in methods.</li>
           <li>What is a string indexing and slicing. Explain with examples.</li>
+        </ol>
+    `
+  },
+  'assignments-internal-2': {
+    title: 'Assignment for Internal 2',
+    html: `
+        <h2>Unit III</h2>
+        <ol>
+          <li>Explain Control Flow in Python in detail.</li>
+          <li>Discuss about Looping (for, while) and Loop Control (break, continue, pass) Statements in Python.</li>
+          <li>What is function()? Explain function arguments with example.</li>
+        </ol>
+
+        <h2>Unit IV</h2>
+        <ol>
+          <li>Differentiate between list[] and tuple().</li>
+          <li>Explain list[] built-in functions and methods with simple example.</li>
+          <li>How tuple() is accessed. Explain tuple() built-in functions and methods.</li>
+        </ol>
+
+        <h2>Unit V</h2>
+        <ol>
+          <li>Compare set{} vs dict{}.</li>
+          <li>Explain set{} built-in functions and methods with simple example.</li>
+          <li>How dict{} is accessed. Explain its built-in functions and methods.</li>
+          <li>What is module in Python? Explain various modules in Python.</li>
         </ol>
     `
   }
@@ -3890,7 +4062,10 @@ const topicAvailability = {
   'lab-5': true,
   'lab-6': true,
   'lab-7': true,
+  'lab-8': true,
+  'lab-9': true,
   'assignments-overview': true,
+  'assignments-internal-2': true,
   'prev-2025': true
 };
 
@@ -3958,8 +4133,8 @@ const unitTopicsByName = {
   ],
   'Class PPT': ['class-ppt-unit-1', 'class-ppt-unit-2'],
   'Practice Sheets': ['practice-1'],
-  'Assignments': ['assignments-overview'],
-  'Lab Activities': ['lab-1', 'lab-2', 'lab-3', 'lab-4', 'lab-5', 'lab-6', 'lab-7'],
+  'Assignments': ['assignments-overview', 'assignments-internal-2'],
+  'Lab Activities': ['lab-1', 'lab-2', 'lab-3', 'lab-4', 'lab-5', 'lab-6', 'lab-7', 'lab-8', 'lab-9'],
   'Previous Papers': ['prev-2025']
 };
 
