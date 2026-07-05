@@ -689,7 +689,7 @@ function addTopicAvailabilityIndicators() {
     topicCards.forEach(card => {
         const topicId = card.getAttribute('data-topic');
         
-        // Check if this topic is defined in topicAvailability (from topic.js)
+        // Check if this topic is defined in topicAvailability (from topic-core.js)
         if (typeof topicAvailability !== 'undefined' && topicAvailability[topicId] === false) {
             // Add disabled styling
             card.style.opacity = '0.6';

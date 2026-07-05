@@ -60,6 +60,20 @@
         <p>&copy; <a class="sag-link" href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"></i>Shaik Abdul Gaffar</a>. Made for Students</p>
     </footer>
 
-    <script src="topic.js"></script>
+    <!-- topic.js is now split into a core file + one file per unit, so each unit's -->
+    <!-- content/controls live in their own file and are easy to edit independently. -->
+    <!-- Load order matters: topic-core.js declares the empty 'topics' object first, -->
+    <!-- then each unit file merges its own content into it via Object.assign. -->
+    <script src="topic-core.js"></script>
+    <script src="unit1.js"></script>
+    <script src="unit2.js"></script>
+    <script src="unit3.js"></script>
+    <script src="unit4.js"></script>
+    <script src="unit5.js"></script>
+    <script src="class-ppt.js"></script>
+    <script src="practice-sheets.js"></script>
+    <script src="lab-activities.js"></script>
+    <script src="assignments.js"></script>
+    <script src="previous-papers.js"></script>
 </body>
 </html>
