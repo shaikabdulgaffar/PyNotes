@@ -29,12 +29,12 @@ Object.assign(unitMapping, {
 });
 
 Object.assign(topicAvailability, {
-  'decision-making': true,
-  'loops': true,
-  'transfer-statements': true,
-  'functions-overview': true,
-  'function-arguments': true,
-  'variable-scope': true
+  'decision-making': false,
+  'loops': false,
+  'transfer-statements': false,
+  'functions-overview': false,
+  'function-arguments': false,
+  'variable-scope': false
 });
 
 Object.assign(unitTopicsByName, {

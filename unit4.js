@@ -121,12 +121,12 @@ Object.assign(unitMapping, {
 });
 
 Object.assign(topicAvailability, {
-  'lists-intro': true,
-  'lists-accessing': true,
-  'lists-methods': true,
-  'tuples-intro': true,
-  'tuples-accessing': true,
-  'tuples-methods': true
+  'lists-intro': false,
+  'lists-accessing': false,
+  'lists-methods': false,
+  'tuples-intro': false,
+  'tuples-accessing': false,
+  'tuples-methods': false
 });
 
 Object.assign(unitTopicsByName, {
