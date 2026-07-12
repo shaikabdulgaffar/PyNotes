@@ -689,11 +689,111 @@ course : MCA</code></pre></div>
       <div class="code-example"><pre><code>Largest Number: 89
     Smallest Number: 12</code></pre></div>
         `
-      }
+      },
+
+    'lab-10': {
+
+    title: 'Lab 10: Random and Math Module',
+    html: `
+      <h2>Lab 10: Random and Math Module</h2>
+
+      <h3>Aim</h3>
+      <p>To understand and implement functions from the <code>random</code> and <code>math</code> modules in Python.</p>
+
+      <h3>Description</h3>
+      <p>Python provides powerful built-in modules for mathematical and random operations. This lab explores:</p>
+      <ul>
+        <li><strong>Math Module:</strong> Provides mathematical functions like <code>ceil()</code>, <code>floor()</code>, <code>pow()</code>, <code>log()</code>, <code>factorial()</code>, and constants like <code>pi</code>, <code>e</code>, <code>inf</code>, and <code>nan</code>.</li>
+        <li><strong>Random Module:</strong> Used to generate pseudo-random numbers and perform random operations like <code>random()</code>, <code>randint()</code>, <code>randrange()</code>, <code>shuffle()</code>, and <code>choice()</code>.</li>
+      </ul>
+
+      <h3>1. Using the math Module</h3>
+      <p><strong>Problem:</strong> Demonstrate various mathematical functions and constants.</p>
+      <h4>Source Code:</h4>
+      <div class="code-example"><pre><code>import math
+
+# Constants
+print("Math Constants:")
+print("Value of Pi:", math.pi)
+print("Value of e:", math.e)
+print("Infinity:", math.inf)
+print("Not a Number (NaN):", math.nan)
+
+# Mathematical Functions
+print("\\nMathematical Functions:")
+num = -5.8
+print("Original Number:", num)
+print("Ceiling:", math.ceil(num))   # Rounds up to nearest integer
+print("Floor:", math.floor(num))    # Rounds down to nearest integer
+
+base = 2
+exponent = 3
+print("\\nPower and Logarithmic Functions:")
+print("Power (2^3):", math.pow(base, exponent))
+print("Square Root of 16:", math.sqrt(16))
+print("Natural Log of e:", math.log(math.e))
+print("Log base 10 of 100:", math.log10(100))
+
+# Factorial
+print("\\nFactorial:")
+print("Factorial of 5:", math.factorial(5))</code></pre></div>
+      <h4>Output:</h4>
+      <div class="code-example"><pre><code>Math Constants:
+Value of Pi: 3.141592653589793
+Value of e: 2.718281828459045
+Infinity: inf
+Not a Number (NaN): nan
+
+Mathematical Functions:
+Original Number: -5.8
+Ceiling: -5
+Floor: -6
+
+Power and Logarithmic Functions:
+Power (2^3): 8.0
+Square Root of 16: 4.0
+Natural Log of e: 1.0
+Log base 10 of 100: 2.0
+
+Factorial:
+Factorial of 5: 120</code></pre></div>
+
+      <h3>2. Using the random Module</h3>
+      <p><strong>Problem:</strong> Demonstrate random number generation and operations.</p>
+      <h4>Source Code:</h4>
+      <div class="code-example"><pre><code>import random
+
+# Random Number Generation
+print("Random Number Generation:")
+print("Random float (0 to 1):", random.random())
+print("Random integer (1 to 10):", random.randint(1, 10))
+print("Random range (0 to 50, step 5):", random.randrange(0, 50, 5))
+
+# Random Operations on Sequences
+fruits = ["Apple", "Banana", "Mango", "Orange", "Grapes"]
+print("\\nRandom Operations on List:")
+print("Original List:", fruits)
+print("Random Choice:", random.choice(fruits))
+
+# Shuffle the list
+random.shuffle(fruits)
+print("Shuffled List:", fruits)</code></pre></div>
+      <h4>Output:</h4>
+      <div class="code-example"><pre><code>Random Number Generation:
+Random float (0 to 1): 0.7854217923098564
+Random integer (1 to 10): 7
+Random range (0 to 50, step 5): 35
+
+Random Operations on List:
+Original List: ['Apple', 'Banana', 'Mango', 'Orange', 'Grapes']
+Random Choice: Mango
+Shuffled List: ['Grapes', 'Apple', 'Orange', 'Banana', 'Mango']</code></pre></div></code></pre></div>
+    `
+  },
 });
 
 // ---- Navigation & availability control for this section ----
-topicOrder.push('lab-1', 'lab-2', 'lab-3', 'lab-4', 'lab-5', 'lab-6', 'lab-7', 'lab-8', 'lab-9');
+topicOrder.push('lab-1', 'lab-2', 'lab-3', 'lab-4', 'lab-5', 'lab-6', 'lab-7', 'lab-8', 'lab-9', 'lab-10');
 
 Object.assign(unitMapping, {
   'lab-1': 'Lab Activities',
@@ -704,7 +804,8 @@ Object.assign(unitMapping, {
   'lab-6': 'Lab Activities',
   'lab-7': 'Lab Activities',
   'lab-8': 'Lab Activities',
-  'lab-9': 'Lab Activities'
+  'lab-9': 'Lab Activities',
+  'lab-10': 'Lab Activities'
 });
 
 Object.assign(topicAvailability, {
@@ -716,19 +817,20 @@ Object.assign(topicAvailability, {
   'lab-6': true,
   'lab-7': true,
   'lab-8': true,
-  'lab-9': true
+  'lab-9': true,
+  'lab-10': true
 });
 
 Object.assign(unitTopicsByName, {
-  'Lab Activities': ['lab-1', 'lab-2', 'lab-3', 'lab-4', 'lab-5', 'lab-6', 'lab-7', 'lab-8', 'lab-9']
+  'Lab Activities': ['lab-1', 'lab-2', 'lab-3', 'lab-4', 'lab-5', 'lab-6', 'lab-7', 'lab-8', 'lab-9', 'lab-10']
 });
 
 // Enable/disable this entire section (Lab Activities)
 function enableLabActivities() {
-  ['lab-1', 'lab-2', 'lab-3', 'lab-4', 'lab-5', 'lab-6', 'lab-7', 'lab-8', 'lab-9'].forEach(id => { topicAvailability[id] = true; });
+  ['lab-1', 'lab-2', 'lab-3', 'lab-4', 'lab-5', 'lab-6', 'lab-7', 'lab-8', 'lab-9', 'lab-10'].forEach(id => { topicAvailability[id] = true; });
   console.log('Enabled entire section: Lab Activities');
 }
 function disableLabActivities() {
-  ['lab-1', 'lab-2', 'lab-3', 'lab-4', 'lab-5', 'lab-6', 'lab-7', 'lab-8', 'lab-9'].forEach(id => { topicAvailability[id] = false; });
+  ['lab-1', 'lab-2', 'lab-3', 'lab-4', 'lab-5', 'lab-6', 'lab-7', 'lab-8', 'lab-9', 'lab-10'].forEach(id => { topicAvailability[id] = false; });
   console.log('Disabled entire section: Lab Activities');
 }
