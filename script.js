@@ -144,7 +144,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const directPdfTopics = {
         'class-ppt-unit-1': 'assets/unit-1-ppt.pdf',
         'class-ppt-unit-2': 'assets/unit-2-ppt.pdf',
-        'class-ppt-unit-3': 'assets/unit-3-ppt.pdf'
+        'class-ppt-unit-3': 'assets/unit-3-ppt.pdf',
+        'reference-book-1': 'assets/reference-book-1.pdf',
+        'reference-book-2': 'assets/reference-book-2.pdf'
     };
 
     topicCards.forEach(card => {
